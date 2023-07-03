@@ -38,6 +38,4 @@ lerna-debug.log*
 postgres_data
 
 # envs
-.env
-.env-dev
 .vercel

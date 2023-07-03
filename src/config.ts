@@ -1,7 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import * as dotenv from 'dotenv';
-import path from 'path';
-dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
+dotenv.config();
 
 export default registerAs('config', () => {
   console.log(process.env.POSTGRES_DATABASE);
