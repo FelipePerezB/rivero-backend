@@ -26,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
       plugins: [ApolloServerPluginLandingPageLocalDefault],
     }),
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: '.env.local',
       isGlobal: true,
       load: [config],
     }),
