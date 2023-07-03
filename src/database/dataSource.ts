@@ -17,8 +17,5 @@ const connectionSource = new DataSource({
   synchronize: false,
   entities: ['src/**/*.entity.ts'],
   migrations: ['src/dattabase/migrations/*.ts'],
-  ssl: {
-    rejectUnauthorized: false,
-  },
 });
 export default connectionSource;

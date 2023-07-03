@@ -19,6 +19,9 @@ import config from '../config';
           port,
           synchronize: false,
           autoLoadEntities: true,
+          extra: {
+            ssl: true,
+          },
         };
       },
       inject: [config.KEY],
