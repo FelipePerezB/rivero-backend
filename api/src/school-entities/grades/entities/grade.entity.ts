@@ -1,30 +1,24 @@
 import { ObjectType, Field, Int, GraphQLISODateTime } from '@nestjs/graphql';
-import { Doc } from 'src/docs/docs.entity';
-import { User } from 'src/user-entities/users/user.entity';
+import { User } from 'api/src/user-entities/users/user.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
 @ObjectType()
-export class Answer {
+export class Grade {
   @PrimaryGeneratedColumn()
   @Field(() => Int)
   id: number;
 
+  @Column()
   @Field()
-  @Column()
-  answers: string;
-
-  @Field(() => Int, { nullable: true })
-  @Column()
-  score: number;
+  grade: string;
 
   @CreateDateColumn({
     type: 'timestamptz',
@@ -42,11 +36,6 @@ export class Answer {
   @Field(() => GraphQLISODateTime, { nullable: true })
   updatedAt: string;
 
-  @ManyToOne(() => Doc, (doc) => doc.id, { nullable: true })
-  @JoinColumn({ name: 'doc_id' })
-  docId: Doc;
-
-  @ManyToOne(() => User, (user) => user.id, { nullable: true })
-  @JoinColumn({ name: 'user_id' })
-  userId: User;
+  @OneToMany(() => User, (user) => user.gardeId, { nullable: true })
+  users: User[];
 }

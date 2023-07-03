@@ -15,7 +15,7 @@ const connectionSource = new DataSource({
   port: parseInt(process.env.POSTGRES_PORT),
   logging: true,
   synchronize: false,
-  entities: ['src/**/*.entity.ts'],
+  entities: ['api/src/**/*.entity.ts'],
   migrations: ['src/dattabase/migrations/*.ts'],
 });
 export default connectionSource;

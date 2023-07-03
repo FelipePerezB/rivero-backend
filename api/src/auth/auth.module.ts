@@ -6,7 +6,7 @@ import config from '../config';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import LocalStrategy from './strategies/local.strategy';
-import { UsersModule } from 'src/user-entities/users/users.module';
+import { UsersModule } from 'api/src/user-entities/users/users.module';
 import { AuthResolver } from './auth.resolver';
 
 @Module({

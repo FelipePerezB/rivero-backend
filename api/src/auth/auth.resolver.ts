@@ -2,7 +2,7 @@ import { Resolver, Args, Query, Context } from '@nestjs/graphql';
 import { BadRequestException, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginResult, LoginUserInput } from './auth.dto';
-import { User } from 'src/user-entities/users/user.entity';
+import { User } from 'api/src/user-entities/users/user.entity';
 
 // type Login = {
 //   user: User;

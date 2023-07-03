@@ -1,6 +1,6 @@
 import { ObjectType, Field, Int, GraphQLISODateTime } from '@nestjs/graphql';
-import { Subject } from 'src/school-entities/subjects/entities/subjects.entity';
-import { Answer } from 'src/user-entities/answers/entities/answer.entity';
+import { Subject } from 'api/src/school-entities/subjects/entities/subjects.entity';
+import { Answer } from 'api/src/user-entities/answers/entities/answer.entity';
 import {
   Column,
   CreateDateColumn,

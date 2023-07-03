@@ -3,7 +3,7 @@ import { GradesService } from './grades.service';
 import { GradesResolver } from './grades.resolver';
 import { Grade } from './entities/grade.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from 'src/user-entities/users/users.module';
+import { UsersModule } from 'api/src/user-entities/users/users.module';
 
 @Module({
   providers: [GradesResolver, GradesService],

@@ -1,7 +1,7 @@
 import { Field, GraphQLISODateTime, Int, ObjectType } from '@nestjs/graphql';
 import { Exclude } from 'class-transformer';
-import { Grade } from 'src/school-entities/grades/entities/grade.entity';
-import { Institute } from 'src/school-entities/institutes/entities/institute.entity';
+import { Grade } from 'api/src/school-entities/grades/entities/grade.entity';
+import { Institute } from 'api/src/school-entities/institutes/entities/institute.entity';
 import {
   Column,
   CreateDateColumn,
