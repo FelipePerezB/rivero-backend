@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 import { User } from './user.entity';
 import { CreateUserInput, UpdateUserInput } from './user.input';
 import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+// import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Resolver(() => User)
 export class UsersResolver {
@@ -19,7 +19,7 @@ export class UsersResolver {
     return this.usersService.scores();
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Query(() => [User], { name: 'users' })
   findAll() {
     return this.usersService.findAll();
