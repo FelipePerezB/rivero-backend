@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=riveroDB
+      - POSTGRES_USER=felipe
+      - POSTGRES_PASSWORD=mb3hJTK8C44Nq4I7DSp9XPadhKFqZq47MGOY8QN5HahlZS5EiPVXt6i2i9xNy
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=felipeeperez3@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=fapbc333
+    ports:
+      - 5050:80
