@@ -13,5 +13,5 @@
       "methods": ["GET", "POST", "PUT", "DELETE"]
     }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/src" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/src/schema.gql" }]
 }
