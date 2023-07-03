@@ -2,7 +2,7 @@ import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
 import { CreateUserInput, UpdateUserInput } from './user.input';
-import { UseGuards } from '@nestjs/common';
+// import { UseGuards } from '@nestjs/common';
 // import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Resolver(() => User)
