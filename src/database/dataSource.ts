@@ -2,7 +2,8 @@
 // import config from 'src/config';
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
-dotenv.config();
+import path from 'path';
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 // const configService = new ConfigService();
 
