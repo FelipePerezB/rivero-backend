@@ -1,23 +1,64 @@
-/*
-  Warnings:
+-- CreateTable
+CREATE TABLE "User" (
+    "id" SERIAL NOT NULL,
+    "email" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "lastname" TEXT NOT NULL,
+    "stars" INTEGER NOT NULL,
+    "password" TEXT NOT NULL,
+    "role" TEXT NOT NULL,
+    "nickname" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3),
+    "gradeId" INTEGER NOT NULL,
+    "schoolId" INTEGER NOT NULL,
 
-  - You are about to drop the column `subjectId` on the `School` table. All the data in the column will be lost.
-  - You are about to drop the column `instituteId` on the `User` table. All the data in the column will be lost.
-  - Made the column `schoolId` on table `User` required. This step will fail if there are existing NULL values in that column.
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
 
-*/
--- DropForeignKey
-ALTER TABLE "School" DROP CONSTRAINT "School_subjectId_fkey";
+-- CreateTable
+CREATE TABLE "Doc" (
+    "id" SERIAL NOT NULL,
+    "title" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "content" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3),
+    "subjectId" INTEGER NOT NULL,
 
--- DropForeignKey
-ALTER TABLE "User" DROP CONSTRAINT "User_schoolId_fkey";
+    CONSTRAINT "Doc_pkey" PRIMARY KEY ("id")
+);
 
--- AlterTable
-ALTER TABLE "School" DROP COLUMN "subjectId";
+-- CreateTable
+CREATE TABLE "Grade" (
+    "id" SERIAL NOT NULL,
+    "grade" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3),
 
--- AlterTable
-ALTER TABLE "User" DROP COLUMN "instituteId",
-ALTER COLUMN "schoolId" SET NOT NULL;
+    CONSTRAINT "Grade_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Subject" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "color" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3),
+
+    CONSTRAINT "Subject_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "School" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3),
+
+    CONSTRAINT "School_pkey" PRIMARY KEY ("id")
+);
 
 -- CreateTable
 CREATE TABLE "GradesOnSchools" (
@@ -49,8 +90,17 @@ CREATE TABLE "GradesOnDocs" (
     CONSTRAINT "GradesOnDocs_pkey" PRIMARY KEY ("gradeId","docId")
 );
 
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- AddForeignKey
+ALTER TABLE "User" ADD CONSTRAINT "User_gradeId_fkey" FOREIGN KEY ("gradeId") REFERENCES "Grade"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
 -- AddForeignKey
 ALTER TABLE "User" ADD CONSTRAINT "User_schoolId_fkey" FOREIGN KEY ("schoolId") REFERENCES "School"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Doc" ADD CONSTRAINT "Doc_subjectId_fkey" FOREIGN KEY ("subjectId") REFERENCES "Subject"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "GradesOnSchools" ADD CONSTRAINT "GradesOnSchools_gradeId_fkey" FOREIGN KEY ("gradeId") REFERENCES "Grade"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
