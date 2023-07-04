@@ -21,7 +21,6 @@ import { AuthModule } from './auth/auth.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: '/tmp/schema.gql',
-      // autoSchemaFile:  true,
       playground: false,
       introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault],
