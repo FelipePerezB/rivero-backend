@@ -2,7 +2,7 @@ import { Resolver, Args, Query, Context } from '@nestjs/graphql';
 import { BadRequestException, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginResult, LoginUserInput } from './auth.dto';
-import { User } from 'src/user-entities/users/user.entity';
+// import { User } from 'src/user-entities/users/user.entity';
 
 // type Login = {
 //   user: User;
@@ -24,17 +24,17 @@ export class AuthResolver {
   }
 
   // There is no username guard here because if the person has the token, they can be any user
-  @Query(() => String)
-  async refreshToken(@Context('req') request: any): Promise<string> {
-    const user: User = request.user;
-    if (!user)
-      throw new UnauthorizedException(
-        'Could not log-in with the provided credentials',
-      );
-    const result = await this.authService.genereateJWT(user);
-    if (result) return result.token;
-    throw new UnauthorizedException(
-      'Could not log-in with the provided credentials',
-    );
-  }
+  // @Query(() => String)
+  // async refreshToken(@Context('req') request: any): Promise<string> {
+  //   const user: User = request.user;
+  //   if (!user)
+  //     throw new UnauthorizedException(
+  //       'Could not log-in with the provided credentials',
+  //     );
+  //   const result = await this.authService.genereateJWT(user);
+  //   if (result) return result.token;
+  //   throw new UnauthorizedException(
+  //     'Could not log-in with the provided credentials',
+  //   );
+  // }
 }

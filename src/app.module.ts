@@ -2,18 +2,16 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
+import config from './config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './user-entities/users/users.module';
+import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
-import { DatabaseModule } from './database/database.module';
-import config from './config';
-import { SubjectsModule } from './school-entities/subjects/subjects.module';
-import { DocsModule } from './docs/docs.module';
-import { GradesModule } from './school-entities/grades/grades.module';
-import { InstitutesModule } from './school-entities/institutes/institutes.module';
-import { AnswersModule } from './user-entities/answers/answers.module';
 import { AuthModule } from './auth/auth.module';
+import { SchoolsModule } from './schools/schools.module';
+import { SubjectsModule } from './subjects/subjects.module';
+import { DocsModule } from './docs/docs.module';
+import { GradesModule } from './grades/grades.module';
 
 @Module({
   imports: [
@@ -29,14 +27,12 @@ import { AuthModule } from './auth/auth.module';
       isGlobal: true,
       load: [config],
     }),
-    AnswersModule,
     UsersModule,
-    DatabaseModule,
+    AuthModule,
+    SchoolsModule,
     SubjectsModule,
     DocsModule,
     GradesModule,
-    InstitutesModule,
-    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

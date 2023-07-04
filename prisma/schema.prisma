@@ -11,16 +11,93 @@ datasource db {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  email       String   @unique
-  name        String
-  lastname    String
-  stars      Int
-  password    String
-  role        String
-  nickname    String
-  createdAt   DateTime? @default(now()) 
-  updateAt    DateTime? @updatedAt
-  gradeId     Int
-  instituteId Int
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String
+  lastname  String
+  stars     Int
+  password  String
+  role      String
+  nickname  String
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
+  grade     Grade     @relation(fields: [gradeId], references: [id])
+  gradeId   Int
+  school    School    @relation(fields: [schoolId], references: [id])
+  schoolId  Int
+}
+
+model Doc {
+  id        Int            @id @default(autoincrement())
+  title     String
+  type      String
+  content   String
+  createdAt DateTime?      @default(now())
+  updateAt  DateTime?      @updatedAt
+  subjectId Int
+  subject   Subject        @relation(fields: [subjectId], references: [id])
+  grades    GradesOnDocs[]
+}
+
+model Grade {
+  id        Int               @id @default(autoincrement())
+  grade     String
+  createdAt DateTime?         @default(now())
+  updateAt  DateTime?         @updatedAt
+  users     User[]
+  docs      GradesOnDocs[]
+  schools   GradesOnSchools[]
+}
+
+model Subject {
+  id        Int                 @id @default(autoincrement())
+  name      String
+  color     String
+  createdAt DateTime?           @default(now())
+  updateAt  DateTime?           @updatedAt
+  docs      Doc[]
+  schools   SubjectsOnSchools[]
+}
+
+model School {
+  id        Int                 @id @default(autoincrement())
+  name      String
+  users     User[]
+  createdAt DateTime?           @default(now())
+  updateAt  DateTime?           @updatedAt
+  subjects  SubjectsOnSchools[]
+  grades    GradesOnSchools[]
+}
+
+model GradesOnSchools {
+  Grade     Grade     @relation(fields: [gradeId], references: [id])
+  gradeId   Int
+  School    School    @relation(fields: [schoolId], references: [id])
+  schoolId  Int
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
+
+  @@id([gradeId, schoolId])
+}
+
+model SubjectsOnSchools {
+  Subject   Subject?  @relation(fields: [subjectId], references: [id])
+  subjectId Int
+  School    School?   @relation(fields: [schoolId], references: [id])
+  schoolId  Int
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
+
+  @@id([subjectId, schoolId])
+}
+
+model GradesOnDocs {
+  doc       Doc       @relation(fields: [docId], references: [id])
+  docId     Int
+  grade     Grade     @relation(fields: [gradeId], references: [id])
+  gradeId   Int
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
+
+  @@id([gradeId, docId])
 }

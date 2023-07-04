@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 import { DocsService } from './docs.service';
-import { DocsResolver } from './docs.resolver';
-import { Doc } from './docs.entity';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { DocsController } from './docs.controller';
+import { PrismaService } from 'src/prisma.service';
 
 @Module({
-  providers: [DocsResolver, DocsService],
-  imports: [TypeOrmModule.forFeature([Doc])],
+  controllers: [DocsController],
+  providers: [DocsService, PrismaService],
 })
 export class DocsModule {}

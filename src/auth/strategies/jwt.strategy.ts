@@ -1,4 +1,4 @@
-import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, ExtractJwt } from 'passport-jwt';
@@ -20,12 +20,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload) {
-    const user = await this._authService.validateJwtPayload(payload);
-    if (!user)
-      throw new UnauthorizedException(
-        'Could not log-in with the provided credentials',
-      );
-    return user;
-  }
+  // async validate(payload) {
+  //   const user = await this._authService.validateJwtPayload(payload);
+  //   if (!user)
+  //     throw new UnauthorizedException(
+  //       'Could not log-in with the provided credentials',
+  //     );
+  //   return user;
+  // }
 }
