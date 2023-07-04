@@ -18,7 +18,7 @@ export class AuthService {
     if (!user) throw new UnauthorizedException('Not allow');
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return null;
-    return this.genereateJWT(user);
+    // return this.genereateJWT(user);
   }
 
   genereateJWT(user: User) {

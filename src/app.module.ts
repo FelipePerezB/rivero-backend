@@ -5,7 +5,6 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './user-entities/users/users.module';
-import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import config from './config';
