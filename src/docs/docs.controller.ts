@@ -25,8 +25,8 @@ export class DocsController {
 
   @HttpCode(HttpStatus.CREATED)
   @Post()
-  async signupUser(@Body() subjectData: Prisma.DocCreateInput): Promise<Doc> {
-    return this.docsService.create(subjectData);
+  async createDoc(@Body() docData: Prisma.DocCreateInput): Promise<Doc> {
+    return this.docsService.create(docData);
   }
 
   @HttpCode(HttpStatus.OK)

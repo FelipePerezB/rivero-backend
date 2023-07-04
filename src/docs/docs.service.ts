@@ -1,13 +1,33 @@
 import { Injectable } from '@nestjs/common';
-import { Doc, Prisma } from '@prisma/client';
+import { Doc, Grade, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class DocsService {
   constructor(private prisma: PrismaService) {}
   create(data: Prisma.DocCreateInput): Promise<Doc> {
+    const grades = data.grades as Grade[];
     return this.prisma.doc.create({
-      data,
+      data: {
+        ...data,
+        grades: {
+          create: grades.map(({ grade, id }) => ({
+            updateAt: new Date(),
+            createdAt: new Date(),
+            grade: {
+              connectOrCreate: {
+                where: {
+                  id,
+                },
+                create: {
+                  grade,
+                  id,
+                },
+              },
+            },
+          })),
+        },
+      },
     });
   }
 
