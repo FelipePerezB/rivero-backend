@@ -19,6 +19,7 @@ import { TopicsModule } from './topics/topics.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: '/tmp/schema.gql',
+      cache: "bounded",
       playground: false,
       introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault],
