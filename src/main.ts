@@ -12,6 +12,13 @@ export async function bootstrap() {
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
+  app.enableCors({
+    origin: '*',
+    credentials: true,
+    methods: 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+    allowedHeaders:
+      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+  });
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
