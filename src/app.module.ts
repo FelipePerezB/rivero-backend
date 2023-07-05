@@ -16,14 +16,14 @@ import { TopicsModule } from './topics/topics.module';
 
 @Module({
   imports: [
-    GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver,
-      autoSchemaFile: '/tmp/schema.gql',
-      cache: "bounded",
-      playground: false,
-      introspection: true,
-      plugins: [ApolloServerPluginLandingPageLocalDefault],
-    }),
+    // GraphQLModule.forRoot<ApolloDriverConfig>({
+    //   driver: ApolloDriver,
+    //   autoSchemaFile: '/tmp/schema.gql',
+    //   cache: "bounded",
+    //   playground: false,
+    //   introspection: true,
+    //   plugins: [ApolloServerPluginLandingPageLocalDefault],
+    // }),
     ConfigModule.forRoot({
       envFilePath: '.env',
       isGlobal: true,
