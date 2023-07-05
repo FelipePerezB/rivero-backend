@@ -28,6 +28,11 @@ export class DocsService {
           })),
         },
       },
+      include: {
+        grades: true,
+        subject: true,
+        topic: true,
+      },
     });
   }
 
@@ -53,6 +58,11 @@ export class DocsService {
   ): Promise<Doc | null> {
     return this.prisma.doc.findUnique({
       where: docWhereUniqueInput,
+      include: {
+        grades: true,
+        subject: true,
+        topic: true,
+      },
     });
   }
 

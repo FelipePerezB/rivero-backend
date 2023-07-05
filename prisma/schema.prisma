@@ -7,10 +7,11 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  // directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
+
 // datasource db {
 //   provider = "postgresql"
 //   url      = env("DATABASE_URL")
@@ -31,18 +32,42 @@ model User {
   gradeId   Int
   school    School    @relation(fields: [schoolId], references: [id])
   schoolId  Int
+  Score     Score[]
 }
 
 model Doc {
   id        Int            @id @default(autoincrement())
   title     String
   type      String
-  content   String
+  content   Json
   createdAt DateTime?      @default(now())
   updateAt  DateTime?      @updatedAt
   subjectId Int
   subject   Subject        @relation(fields: [subjectId], references: [id])
+  topicId   Int
+  topic     Topic          @relation(fields: [topicId], references: [id])
   grades    GradesOnDocs[]
+  Score     Score[]
+}
+
+model Score {
+  id           Int       @id @default(autoincrement())
+  score        Int
+  subject      Subject   @relation(fields: [subjectId], references: [id])
+  subjectId    Int
+  topic        Topic     @relation(fields: [topicId], references: [id])
+  topicId      Int
+  user         User      @relation(fields: [userId], references: [id])
+  userId       Int
+  correct      Int
+  total        Int
+  wrong        Int
+  null         Int
+  document     Doc       @relation(fields: [docId], references: [id])
+  docId        Int
+  alternatives Json
+  createdAt    DateTime? @default(now())
+  updateAt     DateTime? @updatedAt
 }
 
 model Grade {
@@ -63,6 +88,19 @@ model Subject {
   updateAt  DateTime?           @updatedAt
   docs      Doc[]
   schools   SubjectsOnSchools[]
+  topics    Topic[]
+  Score     Score[]
+}
+
+model Topic {
+  id        Int       @id @default(autoincrement())
+  name      String
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
+  subject   Subject?  @relation(fields: [subjectId], references: [id])
+  subjectId Int?
+  Doc       Doc[]
+  Score     Score[]
 }
 
 model School {
