@@ -13,8 +13,8 @@ export async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
   app.enableCors({
-    origin: '*',
-    credentials: false,
+    origin: ['http://localhost:3000', "https://rivero.vercel.app/"],
+    credentials: true,
     methods: 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
     allowedHeaders:
       'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
