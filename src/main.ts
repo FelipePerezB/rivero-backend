@@ -6,13 +6,13 @@ import { PrismaService } from './prisma.service';
 
 export async function bootstrap() {
   dotenv.config();
-  const app = await NestFactory.create(AppModule, { cors: false });
+  const app = await NestFactory.create(AppModule);
   const prismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
-  app.enableCors()
+  app.enableCors();
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
