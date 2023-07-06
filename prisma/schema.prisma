@@ -8,8 +8,8 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+  // directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 // datasource db {
@@ -76,7 +76,7 @@ model Grade {
   createdAt DateTime?         @default(now())
   updateAt  DateTime?         @updatedAt
   users     User[]
-  docs      GradesOnDocs[]
+  docs      GradesOnDocs[] 
   schools   GradesOnSchools[]
 }
 
@@ -136,9 +136,9 @@ model SubjectsOnSchools {
 }
 
 model GradesOnDocs {
-  doc       Doc       @relation(fields: [docId], references: [id])
+  doc       Doc       @relation(fields: [docId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   docId     Int
-  grade     Grade     @relation(fields: [gradeId], references: [id])
+  grade     Grade     @relation(fields: [gradeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   gradeId   Int
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
