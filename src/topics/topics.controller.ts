@@ -17,25 +17,20 @@ import { Prisma, Topic } from '@prisma/client';
 @Controller('topics')
 export class TopicsController {
   constructor(private readonly topicsService: TopicsService) {}
-
   @HttpCode(HttpStatus.OK)
   @Get()
-  findAll(): Promise<Topic[]> {
-    return this.topicsService.findAll({});
-  }
-
-  @HttpCode(HttpStatus.OK)
-  @Get()
-  findByGradeAndSubject(
-    @Query('grade') grade: string[1],
-    @Query('subject') subject: string[],
-  ): Promise<{ name: string; Doc: { id: number; title: string }[] }[]> {
-    const gradeId = Number(grade[0]);
-    const subjectId = Number(subject[0]);
-    return this.topicsService.findByGradeAndSubject({
-      gradeId,
-      subjectId,
-    });
+  findAlAl(
+    @Query('grade') gradeId: string | undefined,
+    @Query('subject') subjectId: string | undefined,
+  ): Promise<any[]> {
+    if (gradeId && subjectId) {
+      return this.topicsService.findByGradeAndSubject({
+        gradeId: Number(gradeId),
+        subjectId: Number(subjectId),
+      });
+    } else {
+      return this.topicsService.findAll({});
+    }
   }
 
   @HttpCode(HttpStatus.CREATED)
