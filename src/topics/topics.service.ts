@@ -28,6 +28,41 @@ export class TopicsService {
     });
   }
 
+  findByGradeAndSubject({
+    subjectId,
+    gradeId,
+  }: {
+    subjectId: number;
+    gradeId: number;
+  }): Promise<any[]> {
+    return this.prisma.topic.findMany({
+      where: {
+        Doc: {
+          some: {
+            subjectId,
+          },
+        },
+      },
+      select: {
+        name: true,
+        Doc: {
+          select: {
+            title: true,
+            id: true,
+          },
+          where: {
+            subjectId,
+            grades: {
+              some: {
+                gradeId,
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
   findOne(
     topicWhereUniqueInput: Prisma.TopicWhereUniqueInput,
   ): Promise<Topic | null> {

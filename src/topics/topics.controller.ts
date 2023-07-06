@@ -9,6 +9,7 @@ import {
   HttpStatus,
   ParseIntPipe,
   Put,
+  Query,
 } from '@nestjs/common';
 import { TopicsService } from './topics.service';
 import { Prisma, Topic } from '@prisma/client';
@@ -17,10 +18,24 @@ import { Prisma, Topic } from '@prisma/client';
 export class TopicsController {
   constructor(private readonly topicsService: TopicsService) {}
 
+  // @HttpCode(HttpStatus.OK)
+  // @Get()
+  // findAll(): Promise<Topic[]> {
+  //   return this.topicsService.findAll({});
+  // }
+
   @HttpCode(HttpStatus.OK)
   @Get()
-  findAll(): Promise<Topic[]> {
-    return this.topicsService.findAll({});
+  findByGradeAndSubject(
+    @Query('grade') grade: string[1],
+    @Query('subject') subject: string[],
+  ): Promise<{ name: string; Doc: { id: number; title: string }[] }[]> {
+    const gradeId = Number(grade[0]);
+    const subjectId = Number(subject[0]);
+    return this.topicsService.findByGradeAndSubject({
+      gradeId,
+      subjectId,
+    });
   }
 
   @HttpCode(HttpStatus.CREATED)
