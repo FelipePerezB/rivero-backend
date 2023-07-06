@@ -44,6 +44,7 @@ export class TopicsService {
         },
       },
       select: {
+        id: true,
         name: true,
         Doc: {
           select: {
