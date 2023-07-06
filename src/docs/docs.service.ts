@@ -77,25 +77,9 @@ export class DocsService {
     });
   }
 
-  async remove(where: Prisma.DocWhereUniqueInput): Promise<Doc> {
-    const existingGradesOnDocs = await this.prisma.gradesOnDocs.findMany({
-      where: {
-        docId: where.id,
-      },
-    });
-
-    if (existingGradesOnDocs.length > 0) {
-      await this.prisma.gradesOnDocs.deleteMany({
-        where: {
-          docId: where.id,
-        },
-      });
-    }
-
-    const deletedDoc = await this.prisma.doc.delete({
+  remove(where: Prisma.DocWhereUniqueInput): Promise<Doc> {
+    return this.prisma.doc.delete({
       where,
     });
-
-    return deletedDoc;
   }
 }
