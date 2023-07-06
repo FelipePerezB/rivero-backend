@@ -18,11 +18,11 @@ import { Prisma, Topic } from '@prisma/client';
 export class TopicsController {
   constructor(private readonly topicsService: TopicsService) {}
 
-  // @HttpCode(HttpStatus.OK)
-  // @Get()
-  // findAll(): Promise<Topic[]> {
-  //   return this.topicsService.findAll({});
-  // }
+  @HttpCode(HttpStatus.OK)
+  @Get()
+  findAll(): Promise<Topic[]> {
+    return this.topicsService.findAll({});
+  }
 
   @HttpCode(HttpStatus.OK)
   @Get()
