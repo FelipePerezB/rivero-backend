@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
+// import { GraphQLModule } from '@nestjs/graphql';
+// import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+// import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import config from './config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -13,6 +13,7 @@ import { SubjectsModule } from './subjects/subjects.module';
 import { DocsModule } from './docs/docs.module';
 import { GradesModule } from './grades/grades.module';
 import { TopicsModule } from './topics/topics.module';
+import { ScoresModule } from './scores/scores.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { TopicsModule } from './topics/topics.module';
     DocsModule,
     GradesModule,
     TopicsModule,
+    ScoresModule,
   ],
   controllers: [AppController],
   providers: [AppService],
