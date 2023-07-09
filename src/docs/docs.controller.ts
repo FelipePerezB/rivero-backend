@@ -11,7 +11,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { DocsService } from './docs.service';
-import { Prisma, Doc } from '@prisma/client';
+import { Doc, Prisma } from '@prisma/client';
+import { DocCreateInput } from 'src/@generated/doc/doc-create.input';
+import { DocUpdateInput } from 'src/@generated/doc/doc-update.input';
 
 @Controller('docs')
 export class DocsController {

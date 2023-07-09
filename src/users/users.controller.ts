@@ -11,7 +11,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { Prisma, User } from '@prisma/client';
+import { User, Prisma } from '@prisma/client';
+import { UserUpdateInput } from 'src/@generated/user/user-update.input';
+import { UserCreateInput } from 'src/@generated/user/user-create.input';
 
 @Controller('users')
 export class UsersController {
@@ -38,7 +40,7 @@ export class UsersController {
   @HttpCode(HttpStatus.OK)
   @Put(':id')
   update(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('where', ParseIntPipe) id: number,
     @Body() data: Prisma.UserUpdateInput,
   ): Promise<User> {
     return this.usersService.update({ where: { id }, data });

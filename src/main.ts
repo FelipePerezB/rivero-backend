@@ -15,9 +15,10 @@ export async function bootstrap() {
   app.enableCors({
     origin: '*',
     credentials: true,
-    methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-    allowedHeaders:"X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
-  })
+    methods: 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+    allowedHeaders:
+      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+  });
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

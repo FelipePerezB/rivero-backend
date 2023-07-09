@@ -1,0 +1,17 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { GradesOnDocsWhereUniqueInput } from './grades-on-docs-where-unique.input';
+import { Type } from 'class-transformer';
+import { GradesOnDocsCreateWithoutGradeInput } from './grades-on-docs-create-without-grade.input';
+
+@InputType()
+export class GradesOnDocsCreateOrConnectWithoutGradeInput {
+
+    @Field(() => GradesOnDocsWhereUniqueInput, {nullable:false})
+    @Type(() => GradesOnDocsWhereUniqueInput)
+    where!: GradesOnDocsWhereUniqueInput;
+
+    @Field(() => GradesOnDocsCreateWithoutGradeInput, {nullable:false})
+    @Type(() => GradesOnDocsCreateWithoutGradeInput)
+    create!: GradesOnDocsCreateWithoutGradeInput;
+}

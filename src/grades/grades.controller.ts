@@ -11,7 +11,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { GradesService } from './grades.service';
-import { Prisma, Grade } from '@prisma/client';
+import { Grade, Prisma } from '@prisma/client';
+import { GradeCreateInput } from 'src/@generated/grade/grade-create.input';
+import { GradeUpdateInput } from 'src/@generated/grade/grade-update.input';
 
 @Controller('grades')
 export class GradesController {
@@ -25,10 +27,8 @@ export class GradesController {
 
   @HttpCode(HttpStatus.CREATED)
   @Post()
-  async signupUser(
-    @Body() subjectData: Prisma.GradeCreateInput,
-  ): Promise<Grade> {
-    return this.gradesService.create(subjectData);
+  async signupUser(@Body() gradeData: Prisma.GradeCreateInput): Promise<Grade> {
+    return this.gradesService.create(gradeData);
   }
 
   @HttpCode(HttpStatus.OK)

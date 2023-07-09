@@ -12,6 +12,8 @@ import {
 } from '@nestjs/common';
 import { SchoolsService } from './schools.service';
 import { Prisma, School } from '@prisma/client';
+import { SchoolUpdateInput } from 'src/@generated/school/school-update.input';
+import { SchoolCreateInput } from 'src/@generated/school/school-create.input';
 
 @Controller('schools')
 export class SchoolsController {

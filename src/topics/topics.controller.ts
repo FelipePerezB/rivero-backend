@@ -13,6 +13,8 @@ import {
 } from '@nestjs/common';
 import { TopicsService } from './topics.service';
 import { Prisma, Topic } from '@prisma/client';
+import { TopicCreateInput } from 'src/@generated/topic/topic-create.input';
+import { TopicUpdateInput } from 'src/@generated/topic/topic-update.input';
 
 @Controller('topics')
 export class TopicsController {

@@ -1,42 +1,49 @@
-// import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-// import { UsersService } from './users.service';
+import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { UsersService } from './users.service';
 // import { User } from './user.entity';
 // import { CreateUserInput, UpdateUserInput } from './user.input';
-// // import { UseGuards } from '@nestjs/common';
-// // import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { User } from 'src/@generated/user/user.model';
+import { UserCreateInput } from 'src/@generated/user/user-create.input';
+import { UserUpdateInput } from 'src/@generated/user/user-update.input';
+import { Prisma } from '@prisma/client';
+// import { UseGuards } from '@nestjs/common';
+// import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
-// @Resolver(() => User)
-// export class UsersResolver {
-//   constructor(private readonly usersService: UsersService) {}
+@Resolver(() => User)
+export class UsersResolver {
+  constructor(private readonly usersService: UsersService) {}
 
-//   @Mutation(() => User)
-//   createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
-//     return this.usersService.create(createUserInput);
-//   }
+  @Mutation(() => User)
+  createUser(@Args('createUserInput') createUserInput: UserCreateInput) {
+    return this.usersService.create(createUserInput as Prisma.UserCreateInput);
+  }
 
-//   @Query(() => [User])
-//   stars() {
-//     return this.usersService.scores();
-//   }
+  @Query(() => [User])
+  stars() {
+    return this.usersService.scores();
+  }
 
-//   // @UseGuards(JwtAuthGuard)
-//   @Query(() => [User], { name: 'users' })
-//   findAll() {
-//     return this.usersService.findAll();
-//   }
+  // @UseGuards(JwtAuthGuard)
+  @Query(() => [User], { name: 'users' })
+  findAll() {
+    return this.usersService.findAll({});
+  }
 
-//   @Query(() => User, { name: 'user' })
-//   findOne(@Args('id', { type: () => Int }) id: number) {
-//     return this.usersService.findOne(id);
-//   }
+  @Query(() => User, { name: 'user' })
+  findOne(@Args('id', { type: () => Int }) id: number) {
+    return this.usersService.findOne({ id });
+  }
 
-//   @Mutation(() => User)
-//   updateUser(@Args('updateUserInput') updateUserInput: UpdateUserInput) {
-//     return this.usersService.update(updateUserInput.id, updateUserInput);
-//   }
+  @Mutation(() => User)
+  updateUser(
+    @Args('id') id: number,
+    @Args('updateUserInput') updateUserInput: UserUpdateInput,
+  ) {
+    return this.usersService.update({ where: { id }, data: updateUserInput as Prisma.UserUpdateInput });
+  }
 
-//   @Mutation(() => User)
-//   removeUser(@Args('id', { type: () => Int }) id: number) {
-//     return this.usersService.remove(id);
-//   }
-// }
+  @Mutation(() => User)
+  removeUser(@Args('id', { type: () => Int }) id: number) {
+    return this.usersService.remove({ id });
+  }
+}
