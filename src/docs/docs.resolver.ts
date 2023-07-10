@@ -4,7 +4,7 @@ import { Doc } from '../@generated/doc/doc.model';
 import { DocCreateInput } from '../@generated/doc/doc-create.input';
 import { DocUpdateInput } from '../@generated/doc/doc-update.input';
 import { Prisma } from '@prisma/client';
-import { DocWhereInput } from 'src/@generated/doc/doc-where.input';
+import { DocWhereInput } from '../@generated/doc/doc-where.input';
 
 @Resolver(() => Doc)
 export class DocsResolver {
