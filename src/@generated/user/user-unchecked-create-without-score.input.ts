@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { DocUncheckedCreateNestedManyWithoutAuthorInput } from '../doc/doc-unchecked-create-nested-many-without-author.input';
 
 @InputType()
 export class UserUncheckedCreateWithoutScoreInput {
@@ -40,4 +41,7 @@ export class UserUncheckedCreateWithoutScoreInput {
 
     @Field(() => Int, {nullable:false})
     schoolId!: number;
+
+    @Field(() => DocUncheckedCreateNestedManyWithoutAuthorInput, {nullable:true})
+    Doc?: DocUncheckedCreateNestedManyWithoutAuthorInput;
 }

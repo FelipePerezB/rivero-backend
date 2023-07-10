@@ -25,11 +25,11 @@ export class DocsController {
     return this.docsService.findAll({});
   }
 
-  @HttpCode(HttpStatus.CREATED)
-  @Post()
-  async createDoc(@Body() docData: Prisma.DocCreateInput): Promise<Doc> {
-    return this.docsService.create(docData);
-  }
+  // @HttpCode(HttpStatus.CREATED)
+  // @Post()
+  // async createDoc(@Body() docData: Prisma.DocCreateInput): Promise<Doc> {
+  //   return this.docsService.create(docData);
+  // }
 
   @HttpCode(HttpStatus.OK)
   @Get(':id')

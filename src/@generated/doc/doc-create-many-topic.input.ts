@@ -26,4 +26,7 @@ export class DocCreateManyTopicInput {
 
     @Field(() => Int, {nullable:false})
     subjectId!: number;
+
+    @Field(() => Int, {nullable:false})
+    userId!: number;
 }

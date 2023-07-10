@@ -24,4 +24,7 @@ export class DocMinAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     topicId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    userId?: true;
 }

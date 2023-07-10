@@ -13,4 +13,7 @@ export class DocAvgOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
     topicId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    userId?: keyof typeof SortOrder;
 }

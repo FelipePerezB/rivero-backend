@@ -27,6 +27,9 @@ export class TopicsService {
       cursor,
       where,
       orderBy,
+      include: {
+        Doc: true,
+      },
     });
   }
 

@@ -8,7 +8,8 @@ export enum DocScalarFieldEnum {
     createdAt = "createdAt",
     updateAt = "updateAt",
     subjectId = "subjectId",
-    topicId = "topicId"
+    topicId = "topicId",
+    userId = "userId"
 }
 
 

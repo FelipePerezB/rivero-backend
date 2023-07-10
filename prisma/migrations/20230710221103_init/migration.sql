@@ -26,6 +26,7 @@ CREATE TABLE "Doc" (
     "updateAt" TIMESTAMP(3),
     "subjectId" INTEGER NOT NULL,
     "topicId" INTEGER NOT NULL,
+    "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Doc_pkey" PRIMARY KEY ("id")
 );
@@ -131,6 +132,9 @@ ALTER TABLE "User" ADD CONSTRAINT "User_gradeId_fkey" FOREIGN KEY ("gradeId") RE
 ALTER TABLE "User" ADD CONSTRAINT "User_schoolId_fkey" FOREIGN KEY ("schoolId") REFERENCES "School"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE "Doc" ADD CONSTRAINT "Doc_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE "Doc" ADD CONSTRAINT "Doc_subjectId_fkey" FOREIGN KEY ("subjectId") REFERENCES "Subject"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
@@ -164,7 +168,7 @@ ALTER TABLE "SubjectsOnSchools" ADD CONSTRAINT "SubjectsOnSchools_subjectId_fkey
 ALTER TABLE "SubjectsOnSchools" ADD CONSTRAINT "SubjectsOnSchools_schoolId_fkey" FOREIGN KEY ("schoolId") REFERENCES "School"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "GradesOnDocs" ADD CONSTRAINT "GradesOnDocs_docId_fkey" FOREIGN KEY ("docId") REFERENCES "Doc"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "GradesOnDocs" ADD CONSTRAINT "GradesOnDocs_docId_fkey" FOREIGN KEY ("docId") REFERENCES "Doc"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "GradesOnDocs" ADD CONSTRAINT "GradesOnDocs_gradeId_fkey" FOREIGN KEY ("gradeId") REFERENCES "Grade"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "GradesOnDocs" ADD CONSTRAINT "GradesOnDocs_gradeId_fkey" FOREIGN KEY ("gradeId") REFERENCES "Grade"("id") ON DELETE CASCADE ON UPDATE CASCADE;

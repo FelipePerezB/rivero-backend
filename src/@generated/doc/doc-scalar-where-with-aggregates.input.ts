@@ -40,4 +40,7 @@ export class DocScalarWhereWithAggregatesInput {
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     topicId?: IntWithAggregatesFilter;
+
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    userId?: IntWithAggregatesFilter;
 }

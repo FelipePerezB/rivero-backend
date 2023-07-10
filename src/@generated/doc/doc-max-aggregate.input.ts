@@ -24,4 +24,7 @@ export class DocMaxAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     topicId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    userId?: true;
 }

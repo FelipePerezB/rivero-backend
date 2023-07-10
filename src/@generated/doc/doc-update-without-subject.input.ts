@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { GraphQLJSON } from 'graphql-type-json';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
+import { UserUpdateOneRequiredWithoutDocNestedInput } from '../user/user-update-one-required-without-doc-nested.input';
 import { TopicUpdateOneRequiredWithoutDocNestedInput } from '../topic/topic-update-one-required-without-doc-nested.input';
 import { GradesOnDocsUpdateManyWithoutDocNestedInput } from '../grades-on-docs/grades-on-docs-update-many-without-doc-nested.input';
 import { ScoreUpdateManyWithoutDocumentNestedInput } from '../score/score-update-many-without-document-nested.input';
@@ -24,6 +25,9 @@ export class DocUpdateWithoutSubjectInput {
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
+
+    @Field(() => UserUpdateOneRequiredWithoutDocNestedInput, {nullable:true})
+    author?: UserUpdateOneRequiredWithoutDocNestedInput;
 
     @Field(() => TopicUpdateOneRequiredWithoutDocNestedInput, {nullable:true})
     topic?: TopicUpdateOneRequiredWithoutDocNestedInput;

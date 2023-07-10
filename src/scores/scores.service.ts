@@ -11,6 +11,23 @@ export class ScoresService {
     });
   }
 
+  async groupBySubject(gradeId: number, schoolId: number) {
+    return this.prisma.score.findMany({
+      where: {
+        user: {
+          schoolId: schoolId,
+          gradeId: gradeId,
+        },
+        document: {
+          type: 'PAES'
+        }
+      },
+      include: {
+        document: true
+      }
+    });
+  }
+
   findAll(params: {
     skip?: number;
     take?: number;
@@ -23,8 +40,34 @@ export class ScoresService {
       skip,
       take,
       cursor,
-      where,
+      where: {
+        user: {
+          schoolId: 1,
+          gradeId: 1,
+        },
+      },
       orderBy,
+      include: {
+        document: {
+          select: {
+            id: true,
+          },
+        },
+        subject: {
+          select: {
+            id: true,
+          },
+        },
+        user: {
+          include: {
+            grade: {
+              select: {
+                id: true,
+              },
+            },
+          },
+        },
+      },
     });
   }
 

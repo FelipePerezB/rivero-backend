@@ -40,4 +40,7 @@ export class DocScalarWhereInput {
 
     @Field(() => IntFilter, {nullable:true})
     topicId?: IntFilter;
+
+    @Field(() => IntFilter, {nullable:true})
+    userId?: IntFilter;
 }

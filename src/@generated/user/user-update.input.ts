@@ -6,6 +6,7 @@ import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-d
 import { GradeUpdateOneRequiredWithoutUsersNestedInput } from '../grade/grade-update-one-required-without-users-nested.input';
 import { SchoolUpdateOneRequiredWithoutUsersNestedInput } from '../school/school-update-one-required-without-users-nested.input';
 import { ScoreUpdateManyWithoutUserNestedInput } from '../score/score-update-many-without-user-nested.input';
+import { DocUpdateManyWithoutAuthorNestedInput } from '../doc/doc-update-many-without-author-nested.input';
 
 @InputType()
 export class UserUpdateInput {
@@ -45,4 +46,7 @@ export class UserUpdateInput {
 
     @Field(() => ScoreUpdateManyWithoutUserNestedInput, {nullable:true})
     Score?: ScoreUpdateManyWithoutUserNestedInput;
+
+    @Field(() => DocUpdateManyWithoutAuthorNestedInput, {nullable:true})
+    Doc?: DocUpdateManyWithoutAuthorNestedInput;
 }

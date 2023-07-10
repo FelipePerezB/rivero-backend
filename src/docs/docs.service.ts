@@ -7,29 +7,48 @@ export class DocsService {
   constructor(private prisma: PrismaService) {}
   create(data: Prisma.DocCreateInput): Promise<Doc> {
     const grades = data.grades as Grade[];
+    const gradesId = data.grades.createMany.data as any;
     return this.prisma.doc.create({
       data: {
         ...data,
-        grades: {
-          create: grades.map(({ grade, id }) => ({
-            updateAt: new Date(),
-            createdAt: new Date(),
-            grade: {
-              connectOrCreate: {
-                where: {
-                  id,
-                },
-                create: {
-                  grade,
-                  id,
-                },
-              },
-            },
-          })),
-        },
+        // grades: {
+        // createMany: {
+        //   data: [
+        //     {
+        //       gradeId: 1,
+        //     },
+        //   ],
+        // },
+        //   data: grades.map((grade) => ({
+        //     gradeId: grade.id,
+        //   })),
+        // },
+        // create: gradesId?.map(({ gradeId }) => ({
+        //   updateAt: new Date(),
+        //   createdAt: new Date(),
+        //   grade: {
+        //     connect: {
+        //       id: gradeId,
+        //     },
+        // connectOrCreate: {
+        //   where: {
+        //     id,
+        //   },
+        //   create: {
+        //     grade,
+        //     id,
+        //   },
+        // },
+        // },
+        // })),
+        // },
       },
       include: {
-        grades: true,
+        grades: {
+          include: {
+            grade: true,
+          },
+        },
         subject: true,
         topic: true,
       },
@@ -50,6 +69,13 @@ export class DocsService {
       cursor,
       where,
       orderBy,
+      include: {
+        grades: {
+          include: {
+            grade: true
+          }
+        },
+      },
     });
   }
 

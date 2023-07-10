@@ -4,6 +4,7 @@ import { Doc } from '../@generated/doc/doc.model';
 import { DocCreateInput } from '../@generated/doc/doc-create.input';
 import { DocUpdateInput } from '../@generated/doc/doc-update.input';
 import { Prisma } from '@prisma/client';
+import { DocWhereInput } from 'src/@generated/doc/doc-where.input';
 
 @Resolver(() => Doc)
 export class DocsResolver {
@@ -15,8 +16,8 @@ export class DocsResolver {
   }
 
   @Query(() => [Doc], { name: 'docs' })
-  findAll() {
-    return this.docsService.findAll({});
+  findAll(@Args('where') where?: DocWhereInput) {
+    return this.docsService.findAll({ where });
   }
 
   @Query(() => Doc, { name: 'doc' })

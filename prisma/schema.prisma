@@ -12,12 +12,12 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
-// generator nestgraphql {
-//   provider = "node node_modules/prisma-nestjs-graphql"
-//   // for yarn monorepos
-//   // provider = "prisma-nestjs-graphql"
-//   output   = "../src/@generated"
-// }
+generator nestgraphql {
+  provider = "node node_modules/prisma-nestjs-graphql"
+  // for yarn monorepos
+  // provider = "prisma-nestjs-graphql"
+  output   = "../src/@generated"
+}
 
 // datasource db {
 //   provider = "postgresql"
@@ -40,10 +40,12 @@ model User {
   school    School    @relation(fields: [schoolId], references: [id])
   schoolId  Int
   Score     Score[]
+  Doc       Doc[]
 }
 
 model Doc {
   id        Int            @id @default(autoincrement())
+  author    User           @relation(fields: [userId], references: [id])
   title     String
   type      String
   content   Json
@@ -55,6 +57,7 @@ model Doc {
   topic     Topic          @relation(fields: [topicId], references: [id])
   grades    GradesOnDocs[]
   Score     Score[]
+  userId    Int
 }
 
 model Score {

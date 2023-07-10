@@ -5,6 +5,7 @@ import { SortOrderInput } from '../prisma/sort-order.input';
 import { GradeOrderByWithRelationInput } from '../grade/grade-order-by-with-relation.input';
 import { SchoolOrderByWithRelationInput } from '../school/school-order-by-with-relation.input';
 import { ScoreOrderByRelationAggregateInput } from '../score/score-order-by-relation-aggregate.input';
+import { DocOrderByRelationAggregateInput } from '../doc/doc-order-by-relation-aggregate.input';
 
 @InputType()
 export class UserOrderByWithRelationInput {
@@ -53,4 +54,7 @@ export class UserOrderByWithRelationInput {
 
     @Field(() => ScoreOrderByRelationAggregateInput, {nullable:true})
     Score?: ScoreOrderByRelationAggregateInput;
+
+    @Field(() => DocOrderByRelationAggregateInput, {nullable:true})
+    Doc?: DocOrderByRelationAggregateInput;
 }

@@ -25,4 +25,7 @@ export class DocMinAggregate {
 
     @Field(() => Int, {nullable:true})
     topicId?: number;
+
+    @Field(() => Int, {nullable:true})
+    userId?: number;
 }

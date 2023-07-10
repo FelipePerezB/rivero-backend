@@ -35,6 +35,9 @@ export class DocOrderByWithAggregationInput {
     @Field(() => SortOrder, {nullable:true})
     topicId?: keyof typeof SortOrder;
 
+    @Field(() => SortOrder, {nullable:true})
+    userId?: keyof typeof SortOrder;
+
     @Field(() => DocCountOrderByAggregateInput, {nullable:true})
     _count?: DocCountOrderByAggregateInput;
 

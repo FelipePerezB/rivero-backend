@@ -33,6 +33,9 @@ export class DocUncheckedUpdateWithoutScoreInput {
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
     topicId?: IntFieldUpdateOperationsInput;
 
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    userId?: IntFieldUpdateOperationsInput;
+
     @Field(() => GradesOnDocsUncheckedUpdateManyWithoutDocNestedInput, {nullable:true})
     grades?: GradesOnDocsUncheckedUpdateManyWithoutDocNestedInput;
 }

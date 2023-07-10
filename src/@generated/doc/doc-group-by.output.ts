@@ -35,6 +35,9 @@ export class DocGroupBy {
     @Field(() => Int, {nullable:false})
     topicId!: number;
 
+    @Field(() => Int, {nullable:false})
+    userId!: number;
+
     @Field(() => DocCountAggregate, {nullable:true})
     _count?: DocCountAggregate;
 

@@ -17,8 +17,11 @@ export class ScoresResolver {
   }
 
   @Query(() => [Score], { name: 'scores' })
-  findAll() {
-    return this.scoreService.findAll({});
+  findAll(
+    @Args('gradeId') gradeId: number,
+    @Args('schoolId') schoolId: number,
+  ) {
+    return this.scoreService.groupBySubject(gradeId, schoolId);
   }
 
   @Query(() => Score, { name: 'score' })

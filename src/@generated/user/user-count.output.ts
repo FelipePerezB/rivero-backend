@@ -7,4 +7,7 @@ export class UserCount {
 
     @Field(() => Int, {nullable:false})
     Score?: number;
+
+    @Field(() => Int, {nullable:false})
+    Doc?: number;
 }

@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { SchoolCreateNestedOneWithoutUsersInput } from '../school/school-create-nested-one-without-users.input';
 import { ScoreCreateNestedManyWithoutUserInput } from '../score/score-create-nested-many-without-user.input';
+import { DocCreateNestedManyWithoutAuthorInput } from '../doc/doc-create-nested-many-without-author.input';
 
 @InputType()
 export class UserCreateWithoutGradeInput {
@@ -39,4 +40,7 @@ export class UserCreateWithoutGradeInput {
 
     @Field(() => ScoreCreateNestedManyWithoutUserInput, {nullable:true})
     Score?: ScoreCreateNestedManyWithoutUserInput;
+
+    @Field(() => DocCreateNestedManyWithoutAuthorInput, {nullable:true})
+    Doc?: DocCreateNestedManyWithoutAuthorInput;
 }

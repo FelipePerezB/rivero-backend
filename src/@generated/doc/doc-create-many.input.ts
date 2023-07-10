@@ -29,4 +29,7 @@ export class DocCreateManyInput {
 
     @Field(() => Int, {nullable:false})
     topicId!: number;
+
+    @Field(() => Int, {nullable:false})
+    userId!: number;
 }

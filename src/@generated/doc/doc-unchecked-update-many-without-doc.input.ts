@@ -28,4 +28,7 @@ export class DocUncheckedUpdateManyWithoutDocInput {
 
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
     subjectId?: IntFieldUpdateOperationsInput;
+
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    topicId?: IntFieldUpdateOperationsInput;
 }

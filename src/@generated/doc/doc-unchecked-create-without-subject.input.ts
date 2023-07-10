@@ -29,6 +29,9 @@ export class DocUncheckedCreateWithoutSubjectInput {
     @Field(() => Int, {nullable:false})
     topicId!: number;
 
+    @Field(() => Int, {nullable:false})
+    userId!: number;
+
     @Field(() => GradesOnDocsUncheckedCreateNestedManyWithoutDocInput, {nullable:true})
     grades?: GradesOnDocsUncheckedCreateNestedManyWithoutDocInput;
 

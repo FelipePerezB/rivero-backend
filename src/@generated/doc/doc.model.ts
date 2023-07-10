@@ -3,6 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { GraphQLJSON } from 'graphql-type-json';
 import { Int } from '@nestjs/graphql';
+import { User } from '../user/user.model';
 import { Subject } from '../subject/subject.model';
 import { Topic } from '../topic/topic.model';
 import { GradesOnDocs } from '../grades-on-docs/grades-on-docs.model';
@@ -35,6 +36,12 @@ export class Doc {
 
     @Field(() => Int, {nullable:false})
     topicId!: number;
+
+    @Field(() => Int, {nullable:false})
+    userId!: number;
+
+    @Field(() => User, {nullable:false})
+    author?: User;
 
     @Field(() => Subject, {nullable:false})
     subject?: Subject;

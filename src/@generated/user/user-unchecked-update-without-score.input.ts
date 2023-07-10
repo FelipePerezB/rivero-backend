@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
+import { DocUncheckedUpdateManyWithoutAuthorNestedInput } from '../doc/doc-unchecked-update-many-without-author-nested.input';
 
 @InputType()
 export class UserUncheckedUpdateWithoutScoreInput {
@@ -42,4 +43,7 @@ export class UserUncheckedUpdateWithoutScoreInput {
 
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
     schoolId?: IntFieldUpdateOperationsInput;
+
+    @Field(() => DocUncheckedUpdateManyWithoutAuthorNestedInput, {nullable:true})
+    Doc?: DocUncheckedUpdateManyWithoutAuthorNestedInput;
 }
