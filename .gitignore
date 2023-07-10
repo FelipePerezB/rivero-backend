@@ -39,5 +39,3 @@ postgres_data
 
 # envs
 .vercel
-
-src/@generated/

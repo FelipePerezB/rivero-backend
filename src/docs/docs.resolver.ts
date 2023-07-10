@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { DocsService } from './docs.service';
-import { Doc } from 'src/@generated/doc/doc.model';
-import { DocCreateInput } from 'src/@generated/doc/doc-create.input';
-import { DocUpdateInput } from 'src/@generated/doc/doc-update.input';
+import { Doc } from '../@generated/doc/doc.model';
+import { DocCreateInput } from '../@generated/doc/doc-create.input';
+import { DocUpdateInput } from '../@generated/doc/doc-update.input';
 import { Prisma } from '@prisma/client';
 
 @Resolver(() => Doc)
@@ -27,7 +27,7 @@ export class DocsResolver {
   @Mutation(() => Doc)
   updateDoc(
     @Args('id') id: number,
-    @Args('updateDocInput') updateDocInput: DocCreateInput,
+    @Args('updateDocInput') updateDocInput: DocUpdateInput,
   ) {
     return this.docsService.update({
       where: { id },

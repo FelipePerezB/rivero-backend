@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GradesService } from './grades.service';
-import { Grade } from 'src/@generated/grade/grade.model';
-import { GradeCreateInput } from 'src/@generated/grade/grade-create.input';
-import { GradeUpdateInput } from 'src/@generated/grade/grade-update.input';
+import { Grade } from '../@generated/grade/grade.model';
+import { GradeCreateInput } from '../@generated/grade/grade-create.input';
+import { GradeUpdateInput } from '../@generated/grade/grade-update.input';
 import { Prisma } from '@prisma/client';
 
 @Resolver(() => Grade)

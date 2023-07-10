@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { SchoolsService } from './schools.service';
-import { School } from 'src/@generated/school/school.model';
-import { SchoolCreateInput } from 'src/@generated/school/school-create.input';
-import { SchoolUpdateInput } from 'src/@generated/school/school-update.input';
+import { School } from '../@generated/school/school.model';
+import { SchoolCreateInput } from '../@generated/school/school-create.input';
+import { SchoolUpdateInput } from '../@generated/school/school-update.input';
 import { Prisma } from '@prisma/client';
 // import { Prisma } from '@prisma/client';
 

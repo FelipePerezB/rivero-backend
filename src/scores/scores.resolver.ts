@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { ScoresService } from './scores.service';
-import { Score } from 'src/@generated/score/score.model';
-import { ScoreCreateInput } from 'src/@generated/score/score-create.input';
-import { ScoreUpdateInput } from 'src/@generated/score/score-update.input';
+import { Score } from '../@generated/score/score.model';
+import { ScoreCreateInput } from '../@generated/score/score-create.input';
+import { ScoreUpdateInput } from '../@generated/score/score-update.input';
 import { Prisma } from '@prisma/client';
 
 @Resolver(() => Score)

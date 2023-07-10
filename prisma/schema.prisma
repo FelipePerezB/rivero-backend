@@ -12,12 +12,12 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
-generator nestgraphql {
-  provider = "node node_modules/prisma-nestjs-graphql"
-  // for yarn monorepos
-  // provider = "prisma-nestjs-graphql"
-  output   = "../src/@generated"
-}
+// generator nestgraphql {
+//   provider = "node node_modules/prisma-nestjs-graphql"
+//   // for yarn monorepos
+//   // provider = "prisma-nestjs-graphql"
+//   output   = "../src/@generated"
+// }
 
 // datasource db {
 //   provider = "postgresql"
