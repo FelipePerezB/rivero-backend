@@ -16,7 +16,7 @@ export class ScoresResolver {
     );
   }
 
-  @Query(() => [Score], { name: 'score' })
+  @Query(() => [Score], { name: 'scores' })
   findAll() {
     return this.scoreService.findAll({});
   }

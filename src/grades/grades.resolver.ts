@@ -16,7 +16,7 @@ export class GradesResolver {
     );
   }
 
-  @Query(() => [Grade], { name: 'grade' })
+  @Query(() => [Grade], { name: 'grades' })
   findAll() {
     return this.gradeService.findAll({});
   }

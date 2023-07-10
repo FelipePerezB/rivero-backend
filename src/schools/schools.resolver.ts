@@ -19,7 +19,7 @@ export class SchoolsResolver {
     );
   }
 
-  @Query(() => [School], { name: 'school' })
+  @Query(() => [School], { name: 'schools' })
   findAll() {
     return this.schoolService.findAll({});
   }

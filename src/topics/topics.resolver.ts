@@ -16,7 +16,7 @@ export class TopicsResolver {
     );
   }
 
-  @Query(() => [Topic], { name: 'topic' })
+  @Query(() => [Topic], { name: 'topics' })
   findAll() {
     return this.topicService.findAll({});
   }
