@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { Subject, Prisma } from '@prisma/client';
-import { SubjectCreateInput } from 'src/@generated/subject/subject-create.input';
-import { SubjectUpdateInput } from 'src/@generated/subject/subject-update.input';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
@@ -27,6 +25,9 @@ export class SubjectsService {
       cursor,
       where,
       orderBy,
+      include: {
+        topics: true,
+      },
     });
   }
 

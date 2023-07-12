@@ -34,7 +34,6 @@ export class ScoresService {
         score: true,
       },
     });
-    const res = data.map((score) => ({}));
     return data;
   }
 
@@ -82,17 +81,9 @@ export class ScoresService {
     return res;
   }
 
-  findAll(params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.ScoreWhereUniqueInput;
-    where?: Prisma.ScoreWhereInput;
-    orderBy?: Prisma.ScoreOrderByWithRelationInput;
-  }): Promise<Score[]> {
-    const { skip, take, cursor, where, orderBy } = params;
+  findAll(params: { where?: Prisma.ScoreWhereInput }): Promise<Score[]> {
+    const { where } = params;
     return this.prisma.score.findMany({
-      skip,
-      take,
       where,
     });
   }
