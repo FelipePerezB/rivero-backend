@@ -22,7 +22,8 @@
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migration:generate": "pnpm run typeorm migration:generate -d src/database/dataSource.ts",
     "migration:run": "pnpm run typeorm migration:run -d src/database/dataSource.ts",
-    "migration:revert": "pnpm run typeorm migration:revert -d src/database/dataSource.ts"
+    "migration:revert": "pnpm run typeorm migration:revert -d src/database/dataSource.ts",
+    "seed": "ts-node --transpile-only prisma/seed.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.3.2",
@@ -85,9 +86,6 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "4.1.1",
     "typescript": "^4.9.5"
-  },
-  "prisma": {
-    "seed": "ts-node --transpile-only prisma/seed.ts"
   },
   "jest": {
     "moduleFileExtensions": [
