@@ -12,31 +12,13 @@ export class ScoreCountAggregate {
     score!: number;
 
     @Field(() => Int, {nullable:false})
-    subjectId!: number;
-
-    @Field(() => Int, {nullable:false})
-    topicId!: number;
-
-    @Field(() => Int, {nullable:false})
     userId!: number;
 
     @Field(() => Int, {nullable:false})
-    correct!: number;
-
-    @Field(() => Int, {nullable:false})
-    total!: number;
-
-    @Field(() => Int, {nullable:false})
-    wrong!: number;
-
-    @Field(() => Int, {nullable:false})
-    null!: number;
+    alternatives!: number;
 
     @Field(() => Int, {nullable:false})
     docId!: number;
-
-    @Field(() => Int, {nullable:false})
-    alternatives!: number;
 
     @Field(() => Int, {nullable:false})
     createdAt!: number;

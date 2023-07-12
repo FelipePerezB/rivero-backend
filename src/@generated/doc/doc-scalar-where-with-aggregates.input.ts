@@ -29,18 +29,15 @@ export class DocScalarWhereWithAggregatesInput {
     @Field(() => JsonWithAggregatesFilter, {nullable:true})
     content?: JsonWithAggregatesFilter;
 
-    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
-    createdAt?: DateTimeNullableWithAggregatesFilter;
-
-    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
-    updateAt?: DateTimeNullableWithAggregatesFilter;
-
-    @Field(() => IntWithAggregatesFilter, {nullable:true})
-    subjectId?: IntWithAggregatesFilter;
-
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     topicId?: IntWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     userId?: IntWithAggregatesFilter;
+
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeNullableWithAggregatesFilter;
+
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    updateAt?: DateTimeNullableWithAggregatesFilter;
 }

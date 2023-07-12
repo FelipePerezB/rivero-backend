@@ -29,18 +29,15 @@ export class DocScalarWhereInput {
     @Field(() => JsonFilter, {nullable:true})
     content?: JsonFilter;
 
-    @Field(() => DateTimeNullableFilter, {nullable:true})
-    createdAt?: DateTimeNullableFilter;
-
-    @Field(() => DateTimeNullableFilter, {nullable:true})
-    updateAt?: DateTimeNullableFilter;
-
-    @Field(() => IntFilter, {nullable:true})
-    subjectId?: IntFilter;
-
     @Field(() => IntFilter, {nullable:true})
     topicId?: IntFilter;
 
     @Field(() => IntFilter, {nullable:true})
     userId?: IntFilter;
+
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    createdAt?: DateTimeNullableFilter;
+
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    updateAt?: DateTimeNullableFilter;
 }

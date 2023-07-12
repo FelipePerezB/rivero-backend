@@ -4,6 +4,7 @@ import { Score } from '../@generated/score/score.model';
 import { ScoreCreateInput } from '../@generated/score/score-create.input';
 import { ScoreUpdateInput } from '../@generated/score/score-update.input';
 import { Prisma } from '@prisma/client';
+import { ScoreWhereInput } from 'src/@generated/score/score-where.input';
 
 @Resolver(() => Score)
 export class ScoresResolver {
@@ -17,11 +18,8 @@ export class ScoresResolver {
   }
 
   @Query(() => [Score], { name: 'scores' })
-  findAll(
-    @Args('gradeId') gradeId: number,
-    @Args('schoolId') schoolId: number,
-  ) {
-    return this.scoreService.groupBySubject(gradeId, schoolId);
+  findAll(@Args('where') where: ScoreWhereInput) {
+    return this.scoreService.findAll({ where });
   }
 
   @Query(() => Score, { name: 'score' })

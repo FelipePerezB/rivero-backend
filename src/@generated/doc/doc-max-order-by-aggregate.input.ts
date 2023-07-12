@@ -15,17 +15,14 @@ export class DocMaxOrderByAggregateInput {
     type?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    updateAt?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    subjectId?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     topicId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     userId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    updateAt?: keyof typeof SortOrder;
 }

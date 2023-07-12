@@ -7,4 +7,7 @@ export class SchoolWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => String, {nullable:true})
+    name?: string;
 }

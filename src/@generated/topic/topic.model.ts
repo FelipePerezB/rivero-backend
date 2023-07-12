@@ -4,7 +4,6 @@ import { ID } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { Subject } from '../subject/subject.model';
 import { Doc } from '../doc/doc.model';
-import { Score } from '../score/score.model';
 import { TopicCount } from './topic-count.output';
 
 @ObjectType()
@@ -30,9 +29,6 @@ export class Topic {
 
     @Field(() => [Doc], {nullable:true})
     Doc?: Array<Doc>;
-
-    @Field(() => [Score], {nullable:true})
-    Score?: Array<Score>;
 
     @Field(() => TopicCount, {nullable:false})
     _count?: TopicCount;

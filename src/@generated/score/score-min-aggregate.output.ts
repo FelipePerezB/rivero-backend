@@ -12,25 +12,10 @@ export class ScoreMinAggregate {
     score?: number;
 
     @Field(() => Int, {nullable:true})
-    subjectId?: number;
-
-    @Field(() => Int, {nullable:true})
-    topicId?: number;
-
-    @Field(() => Int, {nullable:true})
     userId?: number;
 
-    @Field(() => Int, {nullable:true})
-    correct?: number;
-
-    @Field(() => Int, {nullable:true})
-    total?: number;
-
-    @Field(() => Int, {nullable:true})
-    wrong?: number;
-
-    @Field(() => Int, {nullable:true})
-    null?: number;
+    @Field(() => String, {nullable:true})
+    alternatives?: string;
 
     @Field(() => Int, {nullable:true})
     docId?: number;

@@ -7,4 +7,7 @@ export class GradeWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => String, {nullable:true})
+    grade?: string;
 }

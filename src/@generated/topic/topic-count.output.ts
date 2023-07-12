@@ -7,7 +7,4 @@ export class TopicCount {
 
     @Field(() => Int, {nullable:false})
     Doc?: number;
-
-    @Field(() => Int, {nullable:false})
-    Score?: number;
 }

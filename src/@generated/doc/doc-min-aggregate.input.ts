@@ -14,17 +14,14 @@ export class DocMinAggregateInput {
     type?: true;
 
     @Field(() => Boolean, {nullable:true})
-    createdAt?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    updateAt?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    subjectId?: true;
-
-    @Field(() => Boolean, {nullable:true})
     topicId?: true;
 
     @Field(() => Boolean, {nullable:true})
     userId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updateAt?: true;
 }

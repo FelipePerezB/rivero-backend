@@ -1,13 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { Doc, Grade, Prisma } from '@prisma/client';
+import { Doc, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class DocsService {
   constructor(private prisma: PrismaService) {}
   create(data: Prisma.DocCreateInput): Promise<Doc> {
-    const grades = data.grades as Grade[];
-    const gradesId = data.grades.createMany.data as any;
     return this.prisma.doc.create({
       data: {
         ...data,
@@ -49,7 +47,6 @@ export class DocsService {
             grade: true,
           },
         },
-        subject: true,
         topic: true,
       },
     });
@@ -72,8 +69,8 @@ export class DocsService {
       include: {
         grades: {
           include: {
-            grade: true
-          }
+            grade: true,
+          },
         },
       },
     });
@@ -86,7 +83,6 @@ export class DocsService {
       where: docWhereUniqueInput,
       include: {
         grades: true,
-        subject: true,
         topic: true,
       },
     });

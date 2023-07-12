@@ -42,22 +42,18 @@ export class TopicsService {
   }): Promise<any[]> {
     return this.prisma.topic.findMany({
       where: {
-        Doc: {
-          some: {
-            subjectId,
-          },
-        },
+        subjectId,
       },
       select: {
         id: true,
         name: true,
+        subjectId: true,
         Doc: {
           select: {
             title: true,
             id: true,
           },
           where: {
-            subjectId,
             grades: {
               some: {
                 gradeId,

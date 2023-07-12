@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SubjectCreateNestedOneWithoutTopicsInput } from '../subject/subject-create-nested-one-without-topics.input';
-import { ScoreCreateNestedManyWithoutTopicInput } from '../score/score-create-nested-many-without-topic.input';
 
 @InputType()
 export class TopicCreateWithoutDocInput {
@@ -17,7 +16,4 @@ export class TopicCreateWithoutDocInput {
 
     @Field(() => SubjectCreateNestedOneWithoutTopicsInput, {nullable:true})
     subject?: SubjectCreateNestedOneWithoutTopicsInput;
-
-    @Field(() => ScoreCreateNestedManyWithoutTopicInput, {nullable:true})
-    Score?: ScoreCreateNestedManyWithoutTopicInput;
 }

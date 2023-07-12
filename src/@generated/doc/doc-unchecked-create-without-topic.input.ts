@@ -20,17 +20,14 @@ export class DocUncheckedCreateWithoutTopicInput {
     @Field(() => GraphQLJSON, {nullable:false})
     content!: any;
 
+    @Field(() => Int, {nullable:false})
+    userId!: number;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:false})
-    subjectId!: number;
-
-    @Field(() => Int, {nullable:false})
-    userId!: number;
 
     @Field(() => GradesOnDocsUncheckedCreateNestedManyWithoutDocInput, {nullable:true})
     grades?: GradesOnDocsUncheckedCreateNestedManyWithoutDocInput;

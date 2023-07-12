@@ -9,9 +9,6 @@ export class DocSumOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    subjectId?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     topicId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

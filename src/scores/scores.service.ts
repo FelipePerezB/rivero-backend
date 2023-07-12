@@ -11,21 +11,75 @@ export class ScoresService {
     });
   }
 
+  gradeAvg() {
+    return this.prisma.score.groupBy({
+      by: ['docId'],
+      _avg: {
+        score: true,
+      },
+    });
+  }
+
   async groupBySubject(gradeId: number, schoolId: number) {
-    return this.prisma.score.findMany({
+    const data = await this.prisma.score.findMany({
       where: {
         user: {
-          schoolId: schoolId,
-          gradeId: gradeId,
+          gradeId,
+          schoolId,
         },
-        document: {
-          type: 'PAES'
-        }
       },
-      include: {
-        document: true
-      }
+      select: {
+        docId: true,
+        userId: true,
+        score: true,
+      },
     });
+    const res = data.map((score) => ({}));
+    return data;
+  }
+
+  async findScores() {
+    const data = await this.prisma.topic.findMany({
+      where: {
+        name: {
+          startsWith: 'Ensayo',
+        },
+      },
+      select: {
+        subject: {
+          select: {
+            id: true,
+            name: true,
+            color: true,
+          },
+        },
+        Doc: {
+          select: {
+            title: true,
+            id: true,
+            Score: {
+              select: {
+                score: true,
+                userId: true,
+              },
+            },
+          },
+        },
+      },
+    });
+    const res = {};
+    data.forEach(({ subject, Doc }) => {
+      const docs = {};
+      Doc.forEach((doc) => {
+        const scores = {};
+        doc.Score.forEach(({ score, userId }) => {
+          scores[userId] = score ?? {};
+        });
+        docs[doc.title] = { ...scores } ?? {};
+      });
+      res[subject?.name] = { docs: docs, color: subject.color } ?? {};
+    });
+    return res;
   }
 
   findAll(params: {
@@ -39,35 +93,7 @@ export class ScoresService {
     return this.prisma.score.findMany({
       skip,
       take,
-      cursor,
-      where: {
-        user: {
-          schoolId: 1,
-          gradeId: 1,
-        },
-      },
-      orderBy,
-      include: {
-        document: {
-          select: {
-            id: true,
-          },
-        },
-        subject: {
-          select: {
-            id: true,
-          },
-        },
-        user: {
-          include: {
-            grade: {
-              select: {
-                id: true,
-              },
-            },
-          },
-        },
-      },
+      where,
     });
   }
 

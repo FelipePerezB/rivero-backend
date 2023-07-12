@@ -20,15 +20,12 @@ export class DocUncheckedUpdateManyWithoutDocInput {
     @Field(() => GraphQLJSON, {nullable:true})
     content?: any;
 
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    topicId?: IntFieldUpdateOperationsInput;
+
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
-
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    subjectId?: IntFieldUpdateOperationsInput;
-
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    topicId?: IntFieldUpdateOperationsInput;
 }

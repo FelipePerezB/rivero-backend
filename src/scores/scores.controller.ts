@@ -21,8 +21,8 @@ export class ScoresController {
 
   @HttpCode(HttpStatus.OK)
   @Get()
-  findAll(): Promise<Score[]> {
-    return this.scoresService.findAll({});
+  findAll(): any {
+    return this.scoresService.findScores();
   }
 
   @HttpCode(HttpStatus.CREATED)

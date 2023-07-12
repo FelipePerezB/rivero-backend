@@ -7,4 +7,7 @@ export class SubjectWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => String, {nullable:true})
+    name?: string;
 }

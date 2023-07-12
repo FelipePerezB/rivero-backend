@@ -21,20 +21,17 @@ export class DocUncheckedUpdateWithoutScoreInput {
     @Field(() => GraphQLJSON, {nullable:true})
     content?: any;
 
-    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
-    createdAt?: NullableDateTimeFieldUpdateOperationsInput;
-
-    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
-    updateAt?: NullableDateTimeFieldUpdateOperationsInput;
-
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    subjectId?: IntFieldUpdateOperationsInput;
-
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
     topicId?: IntFieldUpdateOperationsInput;
 
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
     userId?: IntFieldUpdateOperationsInput;
+
+    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput;
+
+    @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
+    updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => GradesOnDocsUncheckedUpdateManyWithoutDocNestedInput, {nullable:true})
     grades?: GradesOnDocsUncheckedUpdateManyWithoutDocNestedInput;

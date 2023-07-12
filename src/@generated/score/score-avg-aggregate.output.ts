@@ -12,25 +12,7 @@ export class ScoreAvgAggregate {
     score?: number;
 
     @Field(() => Float, {nullable:true})
-    subjectId?: number;
-
-    @Field(() => Float, {nullable:true})
-    topicId?: number;
-
-    @Field(() => Float, {nullable:true})
     userId?: number;
-
-    @Field(() => Float, {nullable:true})
-    correct?: number;
-
-    @Field(() => Float, {nullable:true})
-    total?: number;
-
-    @Field(() => Float, {nullable:true})
-    wrong?: number;
-
-    @Field(() => Float, {nullable:true})
-    null?: number;
 
     @Field(() => Float, {nullable:true})
     docId?: number;

@@ -8,9 +8,6 @@ export class DocSumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    subjectId?: true;
-
-    @Field(() => Boolean, {nullable:true})
     topicId?: true;
 
     @Field(() => Boolean, {nullable:true})

@@ -14,18 +14,15 @@ export class DocMinAggregate {
     @Field(() => String, {nullable:true})
     type?: string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
-
-    @Field(() => Date, {nullable:true})
-    updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:true})
-    subjectId?: number;
-
     @Field(() => Int, {nullable:true})
     topicId?: number;
 
     @Field(() => Int, {nullable:true})
     userId?: number;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updateAt?: Date | string;
 }

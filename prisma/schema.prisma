@@ -45,44 +45,34 @@ model User {
 
 model Doc {
   id        Int            @id @default(autoincrement())
-  author    User           @relation(fields: [userId], references: [id])
   title     String
   type      String
   content   Json
-  createdAt DateTime?      @default(now())
-  updateAt  DateTime?      @updatedAt
-  subjectId Int
-  subject   Subject        @relation(fields: [subjectId], references: [id])
   topicId   Int
   topic     Topic          @relation(fields: [topicId], references: [id])
   grades    GradesOnDocs[]
-  Score     Score[]
   userId    Int
+  author    User           @relation(fields: [userId], references: [id])
+  Score     Score[]
+  createdAt DateTime?      @default(now())
+  updateAt  DateTime?      @updatedAt
 }
 
 model Score {
   id           Int       @id @default(autoincrement())
   score        Int
-  subject      Subject   @relation(fields: [subjectId], references: [id])
-  subjectId    Int
-  topic        Topic     @relation(fields: [topicId], references: [id])
-  topicId      Int
-  user         User      @relation(fields: [userId], references: [id])
   userId       Int
-  correct      Int
-  total        Int
-  wrong        Int
-  null         Int
-  document     Doc       @relation(fields: [docId], references: [id])
+  alternatives String
+  user         User      @relation(fields: [userId], references: [id])
   docId        Int
-  alternatives Json
+  document     Doc       @relation(fields: [docId], references: [id])
   createdAt    DateTime? @default(now())
   updateAt     DateTime? @updatedAt
 }
 
 model Grade {
   id        Int               @id @default(autoincrement())
-  grade     String
+  grade     String            @unique
   createdAt DateTime?         @default(now())
   updateAt  DateTime?         @updatedAt
   users     User[]
@@ -92,30 +82,27 @@ model Grade {
 
 model Subject {
   id        Int                 @id @default(autoincrement())
-  name      String
+  name      String              @unique
   color     String
-  createdAt DateTime?           @default(now())
-  updateAt  DateTime?           @updatedAt
-  docs      Doc[]
   schools   SubjectsOnSchools[]
   topics    Topic[]
-  Score     Score[]
+  createdAt DateTime?           @default(now())
+  updateAt  DateTime?           @updatedAt
 }
 
 model Topic {
   id        Int       @id @default(autoincrement())
-  name      String
+  name      String    @unique
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
   subject   Subject?  @relation(fields: [subjectId], references: [id])
   subjectId Int?
   Doc       Doc[]
-  Score     Score[]
 }
 
 model School {
   id        Int                 @id @default(autoincrement())
-  name      String
+  name      String              @unique
   users     User[]
   createdAt DateTime?           @default(now())
   updateAt  DateTime?           @updatedAt

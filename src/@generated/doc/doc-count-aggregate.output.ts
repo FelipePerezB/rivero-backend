@@ -18,19 +18,16 @@ export class DocCountAggregate {
     content!: number;
 
     @Field(() => Int, {nullable:false})
-    createdAt!: number;
-
-    @Field(() => Int, {nullable:false})
-    updateAt!: number;
-
-    @Field(() => Int, {nullable:false})
-    subjectId!: number;
-
-    @Field(() => Int, {nullable:false})
     topicId!: number;
 
     @Field(() => Int, {nullable:false})
     userId!: number;
+
+    @Field(() => Int, {nullable:false})
+    createdAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    updateAt!: number;
 
     @Field(() => Int, {nullable:false})
     _all!: number;

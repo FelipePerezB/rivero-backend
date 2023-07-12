@@ -22,11 +22,10 @@ CREATE TABLE "Doc" (
     "title" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "content" JSONB NOT NULL,
-    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
-    "updateAt" TIMESTAMP(3),
-    "subjectId" INTEGER NOT NULL,
     "topicId" INTEGER NOT NULL,
     "userId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3),
 
     CONSTRAINT "Doc_pkey" PRIMARY KEY ("id")
 );
@@ -35,15 +34,9 @@ CREATE TABLE "Doc" (
 CREATE TABLE "Score" (
     "id" SERIAL NOT NULL,
     "score" INTEGER NOT NULL,
-    "subjectId" INTEGER NOT NULL,
-    "topicId" INTEGER NOT NULL,
     "userId" INTEGER NOT NULL,
-    "correct" INTEGER NOT NULL,
-    "total" INTEGER NOT NULL,
-    "wrong" INTEGER NOT NULL,
-    "null" INTEGER NOT NULL,
+    "alternatives" TEXT NOT NULL,
     "docId" INTEGER NOT NULL,
-    "alternatives" JSONB NOT NULL,
     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updateAt" TIMESTAMP(3),
 
@@ -125,6 +118,18 @@ CREATE TABLE "GradesOnDocs" (
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Grade_grade_key" ON "Grade"("grade");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Subject_name_key" ON "Subject"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Topic_name_key" ON "Topic"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "School_name_key" ON "School"("name");
+
 -- AddForeignKey
 ALTER TABLE "User" ADD CONSTRAINT "User_gradeId_fkey" FOREIGN KEY ("gradeId") REFERENCES "Grade"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
@@ -132,19 +137,10 @@ ALTER TABLE "User" ADD CONSTRAINT "User_gradeId_fkey" FOREIGN KEY ("gradeId") RE
 ALTER TABLE "User" ADD CONSTRAINT "User_schoolId_fkey" FOREIGN KEY ("schoolId") REFERENCES "School"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Doc" ADD CONSTRAINT "Doc_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Doc" ADD CONSTRAINT "Doc_subjectId_fkey" FOREIGN KEY ("subjectId") REFERENCES "Subject"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
 ALTER TABLE "Doc" ADD CONSTRAINT "Doc_topicId_fkey" FOREIGN KEY ("topicId") REFERENCES "Topic"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Score" ADD CONSTRAINT "Score_subjectId_fkey" FOREIGN KEY ("subjectId") REFERENCES "Subject"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Score" ADD CONSTRAINT "Score_topicId_fkey" FOREIGN KEY ("topicId") REFERENCES "Topic"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Doc" ADD CONSTRAINT "Doc_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Score" ADD CONSTRAINT "Score_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
