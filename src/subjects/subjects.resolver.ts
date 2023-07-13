@@ -4,6 +4,7 @@ import { Subject } from '../@generated/subject/subject.model';
 import { SubjectCreateInput } from '../@generated/subject/subject-create.input';
 import { SubjectUpdateInput } from '../@generated/subject/subject-update.input';
 import { Prisma } from '@prisma/client';
+import { SubjectWhereInput } from 'src/@generated/subject/subject-where.input';
 
 @Resolver(() => Subject)
 export class SubjectsResolver {
@@ -19,8 +20,8 @@ export class SubjectsResolver {
   }
 
   @Query(() => [Subject], { name: 'subjects' })
-  findAll() {
-    return this.subjectService.findAll({});
+  findAll(@Args('where') where: SubjectWhereInput) {
+    return this.subjectService.findAll({where});
   }
 
   @Query(() => Subject, { name: 'subject' })

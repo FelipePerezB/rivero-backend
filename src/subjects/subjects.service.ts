@@ -11,22 +11,16 @@ export class SubjectsService {
     });
   }
 
-  findAll(params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.SubjectWhereUniqueInput;
-    where?: Prisma.SubjectWhereInput;
-    orderBy?: Prisma.SubjectOrderByWithRelationInput;
-  }): Promise<Subject[]> {
-    const { skip, take, cursor, where, orderBy } = params;
+  findAll(params: { where?: Prisma.SubjectWhereInput }): Promise<Subject[]> {
+    const { where } = params;
     return this.prisma.subject.findMany({
-      skip,
-      take,
-      cursor,
       where,
-      orderBy,
       include: {
-        topics: true,
+        topics: {
+          include: {
+            Doc: true,
+          },
+        },
       },
     });
   }
