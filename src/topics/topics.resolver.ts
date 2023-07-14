@@ -18,8 +18,8 @@ export class TopicsResolver {
   }
 
   @Query(() => [Topic], { name: 'topics' })
-  findAll(params: { where?: TopicWhereInput }) {
-    return this.topicService.findAll(params);
+  findAll(@Args('where') where: TopicWhereInput) {
+    return this.topicService.findAll({ where });
   }
 
   @Query(() => Topic, { name: 'topic' })
