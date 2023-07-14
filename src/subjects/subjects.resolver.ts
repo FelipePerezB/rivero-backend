@@ -21,7 +21,7 @@ export class SubjectsResolver {
 
   @Query(() => [Subject], { name: 'subjects' })
   findAll(@Args('where') where: SubjectWhereInput) {
-    return this.subjectService.findAll({where});
+    return this.subjectService.findAll({ where });
   }
 
   @Query(() => Subject, { name: 'subject' })

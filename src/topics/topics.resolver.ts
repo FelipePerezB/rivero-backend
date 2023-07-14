@@ -4,6 +4,7 @@ import { Topic } from '../@generated/topic/topic.model';
 import { TopicCreateInput } from '../@generated/topic/topic-create.input';
 import { TopicUpdateInput } from '../@generated/topic/topic-update.input';
 import { Prisma } from '@prisma/client';
+import { TopicWhereInput } from 'src/@generated/topic/topic-where.input';
 
 @Resolver(() => Topic)
 export class TopicsResolver {
@@ -17,8 +18,8 @@ export class TopicsResolver {
   }
 
   @Query(() => [Topic], { name: 'topics' })
-  findAll() {
-    return this.topicService.findAll({});
+  findAll(params: { where?: TopicWhereInput }) {
+    return this.topicService.findAll(params);
   }
 
   @Query(() => Topic, { name: 'topic' })
