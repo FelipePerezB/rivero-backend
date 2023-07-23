@@ -1,7 +1,7 @@
-import { Resolver, Args, Query, Context } from '@nestjs/graphql';
-import { BadRequestException, UnauthorizedException } from '@nestjs/common';
+import { Resolver, Args, Query } from '@nestjs/graphql';
+import { BadRequestException } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LoginResult, LoginUserInput } from './auth.dto';
+import { LoginUserInput } from './auth.dto';
 import { User } from 'src/@generated/user/user.model';
 // import { User } from 'src/user-entities/users/user.entity';
 
@@ -14,7 +14,7 @@ import { User } from 'src/@generated/user/user.model';
 export class AuthResolver {
   constructor(private authService: AuthService) {}
 
-  @Query(() => Promise<User>)
+  @Query(() => User)
   async login(@Args('user') user: LoginUserInput): Promise<User> {
     const { password, email } = user;
     const result = await this.authService.validateUser(email, password);
