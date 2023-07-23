@@ -14,7 +14,7 @@ import { User } from 'src/@generated/user/user.model';
 export class AuthResolver {
   constructor(private authService: AuthService) {}
 
-  @Query(() => LoginResult)
+  @Query(() => Promise<User>)
   async login(@Args('user') user: LoginUserInput): Promise<User> {
     const { password, email } = user;
     const result = await this.authService.validateUser(email, password);
