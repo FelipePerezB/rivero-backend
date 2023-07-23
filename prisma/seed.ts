@@ -1,5 +1,7 @@
 import { PrismaClient } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
 const prisma = new PrismaClient();
+const encrypt = async (password: string) => await bcrypt.hash(password, 10);
 async function main() {
   await prisma.school.upsert({
     where: { name: 'Colegio Pucón' },
@@ -102,7 +104,7 @@ async function main() {
       lastname: 'admin',
       nickname: 'adminsito',
       gradeId: 1,
-      password: 'admin123',
+      password: await encrypt('admin123'),
       stars: 0,
       role: 'admin',
       schoolId: 1,
@@ -117,7 +119,7 @@ async function main() {
       lastname: 'admin',
       nickname: 'adminsito',
       gradeId: 1,
-      password: 'admin123',
+      password: await encrypt('admin123'),
       stars: 0,
       role: 'admin',
       schoolId: 1,
@@ -132,7 +134,7 @@ async function main() {
       lastname: 'admin',
       nickname: 'adminsito',
       gradeId: 1,
-      password: 'admin123',
+      password: await encrypt('admin123'),
       stars: 0,
       role: 'admin',
       schoolId: 1,

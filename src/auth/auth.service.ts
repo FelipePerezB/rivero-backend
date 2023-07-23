@@ -18,7 +18,7 @@ export class AuthService {
     if (!user) throw new UnauthorizedException('Not allow');
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return null;
-    // return this.genereateJWT(user);
+    return this.genereateJWT(user);
   }
 
   genereateJWT(user: any) {
@@ -29,10 +29,10 @@ export class AuthService {
     return { token: this.jwtService.sign(payload), user };
   }
 
-  // async validateJwtPayload(payload: PayloadToken) {
-  //   const user = await this.usersService.findOne(payload.sub);
-  //   if (user) return user;
+  async validateJwtPayload(payload: PayloadToken) {
+    const user = await this.usersService.findOne({ id: payload.sub });
+    if (user) return user;
 
-  //   return undefined;
-  // }
+    return undefined;
+  }
 }
