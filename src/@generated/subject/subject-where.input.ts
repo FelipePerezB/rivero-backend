@@ -3,8 +3,8 @@ import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
-import { SubjectsOnSchoolsListRelationFilter } from '../subjects-on-schools/subjects-on-schools-list-relation-filter.input';
 import { TopicListRelationFilter } from '../topic/topic-list-relation-filter.input';
+import { SubtopicListRelationFilter } from '../subtopic/subtopic-list-relation-filter.input';
 
 @InputType()
 export class SubjectWhereInput {
@@ -33,9 +33,9 @@ export class SubjectWhereInput {
     @Field(() => DateTimeNullableFilter, {nullable:true})
     updateAt?: DateTimeNullableFilter;
 
-    @Field(() => SubjectsOnSchoolsListRelationFilter, {nullable:true})
-    schools?: SubjectsOnSchoolsListRelationFilter;
-
     @Field(() => TopicListRelationFilter, {nullable:true})
     topics?: TopicListRelationFilter;
+
+    @Field(() => SubtopicListRelationFilter, {nullable:true})
+    Subtopic?: SubtopicListRelationFilter;
 }

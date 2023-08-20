@@ -4,8 +4,9 @@ import { SubjectCreateWithoutTopicsInput } from './subject-create-without-topics
 import { Type } from 'class-transformer';
 import { SubjectCreateOrConnectWithoutTopicsInput } from './subject-create-or-connect-without-topics.input';
 import { SubjectUpsertWithoutTopicsInput } from './subject-upsert-without-topics.input';
+import { SubjectWhereInput } from './subject-where.input';
 import { SubjectWhereUniqueInput } from './subject-where-unique.input';
-import { SubjectUpdateWithoutTopicsInput } from './subject-update-without-topics.input';
+import { SubjectUpdateToOneWithWhereWithoutTopicsInput } from './subject-update-to-one-with-where-without-topics.input';
 
 @InputType()
 export class SubjectUpdateOneWithoutTopicsNestedInput {
@@ -22,17 +23,19 @@ export class SubjectUpdateOneWithoutTopicsNestedInput {
     @Type(() => SubjectUpsertWithoutTopicsInput)
     upsert?: SubjectUpsertWithoutTopicsInput;
 
-    @Field(() => Boolean, {nullable:true})
-    disconnect?: boolean;
+    @Field(() => SubjectWhereInput, {nullable:true})
+    @Type(() => SubjectWhereInput)
+    disconnect?: SubjectWhereInput;
 
-    @Field(() => Boolean, {nullable:true})
-    delete?: boolean;
+    @Field(() => SubjectWhereInput, {nullable:true})
+    @Type(() => SubjectWhereInput)
+    delete?: SubjectWhereInput;
 
     @Field(() => SubjectWhereUniqueInput, {nullable:true})
     @Type(() => SubjectWhereUniqueInput)
     connect?: SubjectWhereUniqueInput;
 
-    @Field(() => SubjectUpdateWithoutTopicsInput, {nullable:true})
-    @Type(() => SubjectUpdateWithoutTopicsInput)
-    update?: SubjectUpdateWithoutTopicsInput;
+    @Field(() => SubjectUpdateToOneWithWhereWithoutTopicsInput, {nullable:true})
+    @Type(() => SubjectUpdateToOneWithWhereWithoutTopicsInput)
+    update?: SubjectUpdateToOneWithWhereWithoutTopicsInput;
 }

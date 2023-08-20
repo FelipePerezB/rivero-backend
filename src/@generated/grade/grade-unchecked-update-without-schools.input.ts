@@ -4,7 +4,6 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { UserUncheckedUpdateManyWithoutGradeNestedInput } from '../user/user-unchecked-update-many-without-grade-nested.input';
-import { GradesOnDocsUncheckedUpdateManyWithoutGradeNestedInput } from '../grades-on-docs/grades-on-docs-unchecked-update-many-without-grade-nested.input';
 
 @InputType()
 export class GradeUncheckedUpdateWithoutSchoolsInput {
@@ -23,7 +22,4 @@ export class GradeUncheckedUpdateWithoutSchoolsInput {
 
     @Field(() => UserUncheckedUpdateManyWithoutGradeNestedInput, {nullable:true})
     users?: UserUncheckedUpdateManyWithoutGradeNestedInput;
-
-    @Field(() => GradesOnDocsUncheckedUpdateManyWithoutGradeNestedInput, {nullable:true})
-    docs?: GradesOnDocsUncheckedUpdateManyWithoutGradeNestedInput;
 }

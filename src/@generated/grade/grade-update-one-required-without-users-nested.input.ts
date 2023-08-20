@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { GradeCreateOrConnectWithoutUsersInput } from './grade-create-or-connect-without-users.input';
 import { GradeUpsertWithoutUsersInput } from './grade-upsert-without-users.input';
 import { GradeWhereUniqueInput } from './grade-where-unique.input';
-import { GradeUpdateWithoutUsersInput } from './grade-update-without-users.input';
+import { GradeUpdateToOneWithWhereWithoutUsersInput } from './grade-update-to-one-with-where-without-users.input';
 
 @InputType()
 export class GradeUpdateOneRequiredWithoutUsersNestedInput {
@@ -26,7 +26,7 @@ export class GradeUpdateOneRequiredWithoutUsersNestedInput {
     @Type(() => GradeWhereUniqueInput)
     connect?: GradeWhereUniqueInput;
 
-    @Field(() => GradeUpdateWithoutUsersInput, {nullable:true})
-    @Type(() => GradeUpdateWithoutUsersInput)
-    update?: GradeUpdateWithoutUsersInput;
+    @Field(() => GradeUpdateToOneWithWhereWithoutUsersInput, {nullable:true})
+    @Type(() => GradeUpdateToOneWithWhereWithoutUsersInput)
+    update?: GradeUpdateToOneWithWhereWithoutUsersInput;
 }

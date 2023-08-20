@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Role } from '../prisma/role.enum';
 
 @InputType()
 export class UserCreateManyInput {
@@ -23,8 +24,8 @@ export class UserCreateManyInput {
     @Field(() => String, {nullable:false})
     password!: string;
 
-    @Field(() => String, {nullable:false})
-    role!: string;
+    @Field(() => Role, {nullable:false})
+    role!: keyof typeof Role;
 
     @Field(() => String, {nullable:false})
     nickname!: string;

@@ -4,6 +4,7 @@ import { GraphQLJSON } from 'graphql-type-json';
 import { TopicCreateNestedOneWithoutDocInput } from '../topic/topic-create-nested-one-without-doc.input';
 import { UserCreateNestedOneWithoutDocInput } from '../user/user-create-nested-one-without-doc.input';
 import { ScoreCreateNestedManyWithoutDocumentInput } from '../score/score-create-nested-many-without-document.input';
+import { SubtopicCreateNestedOneWithoutDocInput } from '../subtopic/subtopic-create-nested-one-without-doc.input';
 
 @InputType()
 export class DocCreateWithoutGradesInput {
@@ -31,4 +32,7 @@ export class DocCreateWithoutGradesInput {
 
     @Field(() => ScoreCreateNestedManyWithoutDocumentInput, {nullable:true})
     Score?: ScoreCreateNestedManyWithoutDocumentInput;
+
+    @Field(() => SubtopicCreateNestedOneWithoutDocInput, {nullable:true})
+    Subtopic?: SubtopicCreateNestedOneWithoutDocInput;
 }

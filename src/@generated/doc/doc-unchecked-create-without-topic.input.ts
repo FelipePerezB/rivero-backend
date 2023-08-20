@@ -1,8 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
-import { GradesOnDocsUncheckedCreateNestedManyWithoutDocInput } from '../grades-on-docs/grades-on-docs-unchecked-create-nested-many-without-doc.input';
+import { Privacity } from '../prisma/privacity.enum';
+import { DocTypes } from '../prisma/doc-types.enum';
 import { ScoreUncheckedCreateNestedManyWithoutDocumentInput } from '../score/score-unchecked-create-nested-many-without-document.input';
 
 @InputType()
@@ -11,14 +11,17 @@ export class DocUncheckedCreateWithoutTopicInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => Privacity, {nullable:false})
+    privacity!: keyof typeof Privacity;
+
     @Field(() => String, {nullable:false})
     title!: string;
 
-    @Field(() => String, {nullable:false})
-    type!: string;
+    @Field(() => DocTypes, {nullable:false})
+    type!: keyof typeof DocTypes;
 
-    @Field(() => GraphQLJSON, {nullable:false})
-    content!: any;
+    @Field(() => String, {nullable:false})
+    content!: string;
 
     @Field(() => Int, {nullable:false})
     userId!: number;
@@ -29,8 +32,8 @@ export class DocUncheckedCreateWithoutTopicInput {
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
-    @Field(() => GradesOnDocsUncheckedCreateNestedManyWithoutDocInput, {nullable:true})
-    grades?: GradesOnDocsUncheckedCreateNestedManyWithoutDocInput;
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
 
     @Field(() => ScoreUncheckedCreateNestedManyWithoutDocumentInput, {nullable:true})
     Score?: ScoreUncheckedCreateNestedManyWithoutDocumentInput;

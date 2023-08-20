@@ -13,4 +13,7 @@ export class DocAvgAggregate {
 
     @Field(() => Float, {nullable:true})
     userId?: number;
+
+    @Field(() => Float, {nullable:true})
+    subtopicId?: number;
 }

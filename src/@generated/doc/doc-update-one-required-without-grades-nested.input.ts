@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { DocCreateOrConnectWithoutGradesInput } from './doc-create-or-connect-without-grades.input';
 import { DocUpsertWithoutGradesInput } from './doc-upsert-without-grades.input';
 import { DocWhereUniqueInput } from './doc-where-unique.input';
-import { DocUpdateWithoutGradesInput } from './doc-update-without-grades.input';
+import { DocUpdateToOneWithWhereWithoutGradesInput } from './doc-update-to-one-with-where-without-grades.input';
 
 @InputType()
 export class DocUpdateOneRequiredWithoutGradesNestedInput {
@@ -26,7 +26,7 @@ export class DocUpdateOneRequiredWithoutGradesNestedInput {
     @Type(() => DocWhereUniqueInput)
     connect?: DocWhereUniqueInput;
 
-    @Field(() => DocUpdateWithoutGradesInput, {nullable:true})
-    @Type(() => DocUpdateWithoutGradesInput)
-    update?: DocUpdateWithoutGradesInput;
+    @Field(() => DocUpdateToOneWithWhereWithoutGradesInput, {nullable:true})
+    @Type(() => DocUpdateToOneWithWhereWithoutGradesInput)
+    update?: DocUpdateToOneWithWhereWithoutGradesInput;
 }

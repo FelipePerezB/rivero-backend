@@ -8,8 +8,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  // directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-  // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 // generator nestgraphql {
@@ -19,6 +17,13 @@ datasource db {
 //   output   = "../src/@generated"
 // }
 
+enum Role {
+  ADMIN
+  STUDENT
+  TEACHER
+  DIRECTOR
+}
+
 model User {
   id        Int       @id @default(autoincrement())
   email     String    @unique
@@ -26,7 +31,7 @@ model User {
   lastname  String
   stars     Int
   password  String
-  role      String
+  role      Role
   nickname  String
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
@@ -38,19 +43,33 @@ model User {
   Doc       Doc[]
 }
 
+enum Privacity {
+  PUBLIC
+  PRIVATE
+  RESTRICTED
+}
+
+enum DocTypes {
+  EVALUATION
+  NOTES
+  EXERCISES
+}
+
 model Doc {
-  id        Int            @id @default(autoincrement())
-  title     String
-  type      String
-  content   Json
-  topicId   Int
-  topic     Topic          @relation(fields: [topicId], references: [id])
-  grades    GradesOnDocs[]
-  userId    Int
-  author    User           @relation(fields: [userId], references: [id])
-  Score     Score[]
-  createdAt DateTime?      @default(now())
-  updateAt  DateTime?      @updatedAt
+  id         Int       @id @default(autoincrement())
+  privacity  Privacity
+  title      String
+  type       DocTypes
+  content    String
+  topicId    Int
+  topic      Topic     @relation(fields: [topicId], references: [id])
+  userId     Int
+  author     User      @relation(fields: [userId], references: [id])
+  Score      Score[]
+  createdAt  DateTime? @default(now())
+  updateAt   DateTime? @updatedAt
+  Subtopic   Subtopic? @relation(fields: [subtopicId], references: [id])
+  subtopicId Int?
 }
 
 model Score {
@@ -71,69 +90,56 @@ model Grade {
   createdAt DateTime?         @default(now())
   updateAt  DateTime?         @updatedAt
   users     User[]
-  docs      GradesOnDocs[]
   schools   GradesOnSchools[]
 }
 
 model Subject {
-  id        Int                 @id @default(autoincrement())
-  name      String              @unique
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
   color     String
-  schools   SubjectsOnSchools[]
   topics    Topic[]
-  createdAt DateTime?           @default(now())
-  updateAt  DateTime?           @updatedAt
+  createdAt DateTime?  @default(now())
+  updateAt  DateTime?  @updatedAt
+  Subtopic  Subtopic[]
 }
 
 model Topic {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  createdAt DateTime?  @default(now())
+  updateAt  DateTime?  @updatedAt
+  subject   Subject?   @relation(fields: [subjectId], references: [id])
+  subjectId Int?
+  Doc       Doc[]
+  Subtopic  Subtopic[]
+}
+
+model Subtopic {
   id        Int       @id @default(autoincrement())
   name      String    @unique
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
   subject   Subject?  @relation(fields: [subjectId], references: [id])
   subjectId Int?
+  Topic     Topic     @relation(fields: [topicId], references: [id])
   Doc       Doc[]
+  topicId   Int
 }
 
 model School {
-  id        Int                 @id @default(autoincrement())
-  name      String              @unique
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
   users     User[]
-  createdAt DateTime?           @default(now())
-  updateAt  DateTime?           @updatedAt
-  subjects  SubjectsOnSchools[]
-  grades    GradesOnSchools[]
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
 }
 
 model GradesOnSchools {
   Grade     Grade     @relation(fields: [gradeId], references: [id])
   gradeId   Int
-  School    School    @relation(fields: [schoolId], references: [id])
   schoolId  Int
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
 
   @@id([gradeId, schoolId])
-}
-
-model SubjectsOnSchools {
-  Subject   Subject?  @relation(fields: [subjectId], references: [id])
-  subjectId Int
-  School    School?   @relation(fields: [schoolId], references: [id])
-  schoolId  Int
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @updatedAt
-
-  @@id([subjectId, schoolId])
-}
-
-model GradesOnDocs {
-  doc       Doc       @relation(fields: [docId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  docId     Int
-  grade     Grade     @relation(fields: [gradeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  gradeId   Int
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @updatedAt
-
-  @@id([gradeId, docId])
 }

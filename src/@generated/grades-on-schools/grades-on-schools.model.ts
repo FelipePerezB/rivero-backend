@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { Grade } from '../grade/grade.model';
-import { School } from '../school/school.model';
 
 @ObjectType()
 export class GradesOnSchools {
@@ -21,7 +20,4 @@ export class GradesOnSchools {
 
     @Field(() => Grade, {nullable:false})
     Grade?: Grade;
-
-    @Field(() => School, {nullable:false})
-    School?: School;
 }

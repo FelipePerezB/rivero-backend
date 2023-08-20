@@ -19,6 +19,7 @@ export class SubjectsService {
         topics: {
           include: {
             Doc: true,
+            Subtopic: true,
           },
         },
       },

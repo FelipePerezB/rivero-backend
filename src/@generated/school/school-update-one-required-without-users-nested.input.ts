@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { SchoolCreateOrConnectWithoutUsersInput } from './school-create-or-connect-without-users.input';
 import { SchoolUpsertWithoutUsersInput } from './school-upsert-without-users.input';
 import { SchoolWhereUniqueInput } from './school-where-unique.input';
-import { SchoolUpdateWithoutUsersInput } from './school-update-without-users.input';
+import { SchoolUpdateToOneWithWhereWithoutUsersInput } from './school-update-to-one-with-where-without-users.input';
 
 @InputType()
 export class SchoolUpdateOneRequiredWithoutUsersNestedInput {
@@ -26,7 +26,7 @@ export class SchoolUpdateOneRequiredWithoutUsersNestedInput {
     @Type(() => SchoolWhereUniqueInput)
     connect?: SchoolWhereUniqueInput;
 
-    @Field(() => SchoolUpdateWithoutUsersInput, {nullable:true})
-    @Type(() => SchoolUpdateWithoutUsersInput)
-    update?: SchoolUpdateWithoutUsersInput;
+    @Field(() => SchoolUpdateToOneWithWhereWithoutUsersInput, {nullable:true})
+    @Type(() => SchoolUpdateToOneWithWhereWithoutUsersInput)
+    update?: SchoolUpdateToOneWithWhereWithoutUsersInput;
 }

@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Role } from '../prisma/role.enum';
 
 @ObjectType()
 export class UserMaxAggregate {
@@ -23,8 +24,8 @@ export class UserMaxAggregate {
     @Field(() => String, {nullable:true})
     password?: string;
 
-    @Field(() => String, {nullable:true})
-    role?: string;
+    @Field(() => Role, {nullable:true})
+    role?: keyof typeof Role;
 
     @Field(() => String, {nullable:true})
     nickname?: string;

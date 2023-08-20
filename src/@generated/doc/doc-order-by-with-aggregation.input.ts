@@ -15,6 +15,9 @@ export class DocOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    privacity?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     title?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
@@ -34,6 +37,9 @@ export class DocOrderByWithAggregationInput {
 
     @Field(() => SortOrderInput, {nullable:true})
     updateAt?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    subtopicId?: SortOrderInput;
 
     @Field(() => DocCountOrderByAggregateInput, {nullable:true})
     _count?: DocCountOrderByAggregateInput;

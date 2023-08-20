@@ -13,4 +13,7 @@ export class DocSumAggregate {
 
     @Field(() => Int, {nullable:true})
     userId?: number;
+
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
 }

@@ -1,13 +1,15 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
+import { EnumPrivacityFilter } from '../prisma/enum-privacity-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
-import { JsonFilter } from '../prisma/json-filter.input';
+import { EnumDocTypesFilter } from '../prisma/enum-doc-types-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
+import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { TopicRelationFilter } from '../topic/topic-relation-filter.input';
-import { GradesOnDocsListRelationFilter } from '../grades-on-docs/grades-on-docs-list-relation-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
 import { ScoreListRelationFilter } from '../score/score-list-relation-filter.input';
+import { SubtopicNullableRelationFilter } from '../prisma/subtopic-nullable-relation-filter.input';
 
 @InputType()
 export class DocWhereInput {
@@ -24,14 +26,17 @@ export class DocWhereInput {
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
 
+    @Field(() => EnumPrivacityFilter, {nullable:true})
+    privacity?: EnumPrivacityFilter;
+
     @Field(() => StringFilter, {nullable:true})
     title?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    type?: StringFilter;
+    @Field(() => EnumDocTypesFilter, {nullable:true})
+    type?: EnumDocTypesFilter;
 
-    @Field(() => JsonFilter, {nullable:true})
-    content?: JsonFilter;
+    @Field(() => StringFilter, {nullable:true})
+    content?: StringFilter;
 
     @Field(() => IntFilter, {nullable:true})
     topicId?: IntFilter;
@@ -45,15 +50,18 @@ export class DocWhereInput {
     @Field(() => DateTimeNullableFilter, {nullable:true})
     updateAt?: DateTimeNullableFilter;
 
+    @Field(() => IntNullableFilter, {nullable:true})
+    subtopicId?: IntNullableFilter;
+
     @Field(() => TopicRelationFilter, {nullable:true})
     topic?: TopicRelationFilter;
-
-    @Field(() => GradesOnDocsListRelationFilter, {nullable:true})
-    grades?: GradesOnDocsListRelationFilter;
 
     @Field(() => UserRelationFilter, {nullable:true})
     author?: UserRelationFilter;
 
     @Field(() => ScoreListRelationFilter, {nullable:true})
     Score?: ScoreListRelationFilter;
+
+    @Field(() => SubtopicNullableRelationFilter, {nullable:true})
+    Subtopic?: SubtopicNullableRelationFilter;
 }

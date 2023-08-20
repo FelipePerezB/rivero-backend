@@ -6,6 +6,7 @@ import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-d
 import { TopicUpdateOneRequiredWithoutDocNestedInput } from '../topic/topic-update-one-required-without-doc-nested.input';
 import { UserUpdateOneRequiredWithoutDocNestedInput } from '../user/user-update-one-required-without-doc-nested.input';
 import { ScoreUpdateManyWithoutDocumentNestedInput } from '../score/score-update-many-without-document-nested.input';
+import { SubtopicUpdateOneWithoutDocNestedInput } from '../subtopic/subtopic-update-one-without-doc-nested.input';
 
 @InputType()
 export class DocUpdateWithoutGradesInput {
@@ -33,4 +34,7 @@ export class DocUpdateWithoutGradesInput {
 
     @Field(() => ScoreUpdateManyWithoutDocumentNestedInput, {nullable:true})
     Score?: ScoreUpdateManyWithoutDocumentNestedInput;
+
+    @Field(() => SubtopicUpdateOneWithoutDocNestedInput, {nullable:true})
+    Subtopic?: SubtopicUpdateOneWithoutDocNestedInput;
 }

@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Role } from '../prisma/role.enum';
 import { Grade } from '../grade/grade.model';
 import { School } from '../school/school.model';
 import { Score } from '../score/score.model';
@@ -29,8 +30,8 @@ export class User {
     @Field(() => String, {nullable:false})
     password!: string;
 
-    @Field(() => String, {nullable:false})
-    role!: string;
+    @Field(() => Role, {nullable:false})
+    role!: keyof typeof Role;
 
     @Field(() => String, {nullable:false})
     nickname!: string;

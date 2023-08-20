@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { DocCreateOrConnectWithoutScoreInput } from './doc-create-or-connect-without-score.input';
 import { DocUpsertWithoutScoreInput } from './doc-upsert-without-score.input';
 import { DocWhereUniqueInput } from './doc-where-unique.input';
-import { DocUpdateWithoutScoreInput } from './doc-update-without-score.input';
+import { DocUpdateToOneWithWhereWithoutScoreInput } from './doc-update-to-one-with-where-without-score.input';
 
 @InputType()
 export class DocUpdateOneRequiredWithoutScoreNestedInput {
@@ -26,7 +26,7 @@ export class DocUpdateOneRequiredWithoutScoreNestedInput {
     @Type(() => DocWhereUniqueInput)
     connect?: DocWhereUniqueInput;
 
-    @Field(() => DocUpdateWithoutScoreInput, {nullable:true})
-    @Type(() => DocUpdateWithoutScoreInput)
-    update?: DocUpdateWithoutScoreInput;
+    @Field(() => DocUpdateToOneWithWhereWithoutScoreInput, {nullable:true})
+    @Type(() => DocUpdateToOneWithWhereWithoutScoreInput)
+    update?: DocUpdateToOneWithWhereWithoutScoreInput;
 }

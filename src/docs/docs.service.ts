@@ -42,11 +42,6 @@ export class DocsService {
         // },
       },
       include: {
-        grades: {
-          include: {
-            grade: true,
-          },
-        },
         topic: true,
       },
     });
@@ -66,13 +61,6 @@ export class DocsService {
       cursor,
       where,
       orderBy,
-      include: {
-        grades: {
-          include: {
-            grade: true,
-          },
-        },
-      },
     });
   }
 
@@ -82,7 +70,6 @@ export class DocsService {
     return this.prisma.doc.findUnique({
       where: docWhereUniqueInput,
       include: {
-        grades: true,
         topic: true,
       },
     });

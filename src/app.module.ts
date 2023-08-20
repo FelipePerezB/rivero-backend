@@ -14,6 +14,7 @@ import { DocsModule } from './docs/docs.module';
 import { GradesModule } from './grades/grades.module';
 import { TopicsModule } from './topics/topics.module';
 import { ScoresModule } from './scores/scores.module';
+import { SubtopicsModule } from './subtopics/subtopics.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { ScoresModule } from './scores/scores.module';
     GradesModule,
     TopicsModule,
     ScoresModule,
+    SubtopicsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -4,6 +4,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { GraphQLJSON } from 'graphql-type-json';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
+import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-field-update-operations.input';
 import { ScoreUncheckedUpdateManyWithoutDocumentNestedInput } from '../score/score-unchecked-update-many-without-document-nested.input';
 
 @InputType()
@@ -32,6 +33,9 @@ export class DocUncheckedUpdateWithoutGradesInput {
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
+
+    @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
+    subtopicId?: NullableIntFieldUpdateOperationsInput;
 
     @Field(() => ScoreUncheckedUpdateManyWithoutDocumentNestedInput, {nullable:true})
     Score?: ScoreUncheckedUpdateManyWithoutDocumentNestedInput;

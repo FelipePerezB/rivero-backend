@@ -27,6 +27,7 @@ export class TopicsService {
       orderBy,
       include: {
         Doc: true,
+        Subtopic: true,
       },
     });
   }
@@ -50,13 +51,6 @@ export class TopicsService {
           select: {
             title: true,
             id: true,
-          },
-          where: {
-            grades: {
-              some: {
-                gradeId,
-              },
-            },
           },
         },
       },

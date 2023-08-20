@@ -9,6 +9,9 @@ export class DocCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    privacity!: number;
+
+    @Field(() => Int, {nullable:false})
     title!: number;
 
     @Field(() => Int, {nullable:false})
@@ -28,6 +31,9 @@ export class DocCountAggregate {
 
     @Field(() => Int, {nullable:false})
     updateAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    subtopicId!: number;
 
     @Field(() => Int, {nullable:false})
     _all!: number;

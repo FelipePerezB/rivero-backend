@@ -4,6 +4,7 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { SubjectUpdateOneWithoutTopicsNestedInput } from '../subject/subject-update-one-without-topics-nested.input';
 import { DocUpdateManyWithoutTopicNestedInput } from '../doc/doc-update-many-without-topic-nested.input';
+import { SubtopicUpdateManyWithoutTopicNestedInput } from '../subtopic/subtopic-update-many-without-topic-nested.input';
 
 @InputType()
 export class TopicUpdateInput {
@@ -22,4 +23,7 @@ export class TopicUpdateInput {
 
     @Field(() => DocUpdateManyWithoutTopicNestedInput, {nullable:true})
     Doc?: DocUpdateManyWithoutTopicNestedInput;
+
+    @Field(() => SubtopicUpdateManyWithoutTopicNestedInput, {nullable:true})
+    Subtopic?: SubtopicUpdateManyWithoutTopicNestedInput;
 }

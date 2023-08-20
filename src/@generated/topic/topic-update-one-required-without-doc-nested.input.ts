@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { TopicCreateOrConnectWithoutDocInput } from './topic-create-or-connect-without-doc.input';
 import { TopicUpsertWithoutDocInput } from './topic-upsert-without-doc.input';
 import { TopicWhereUniqueInput } from './topic-where-unique.input';
-import { TopicUpdateWithoutDocInput } from './topic-update-without-doc.input';
+import { TopicUpdateToOneWithWhereWithoutDocInput } from './topic-update-to-one-with-where-without-doc.input';
 
 @InputType()
 export class TopicUpdateOneRequiredWithoutDocNestedInput {
@@ -26,7 +26,7 @@ export class TopicUpdateOneRequiredWithoutDocNestedInput {
     @Type(() => TopicWhereUniqueInput)
     connect?: TopicWhereUniqueInput;
 
-    @Field(() => TopicUpdateWithoutDocInput, {nullable:true})
-    @Type(() => TopicUpdateWithoutDocInput)
-    update?: TopicUpdateWithoutDocInput;
+    @Field(() => TopicUpdateToOneWithWhereWithoutDocInput, {nullable:true})
+    @Type(() => TopicUpdateToOneWithWhereWithoutDocInput)
+    update?: TopicUpdateToOneWithWhereWithoutDocInput;
 }

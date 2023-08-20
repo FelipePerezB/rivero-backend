@@ -2,8 +2,8 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { SortOrderInput } from '../prisma/sort-order.input';
-import { SubjectsOnSchoolsOrderByRelationAggregateInput } from '../subjects-on-schools/subjects-on-schools-order-by-relation-aggregate.input';
 import { TopicOrderByRelationAggregateInput } from '../topic/topic-order-by-relation-aggregate.input';
+import { SubtopicOrderByRelationAggregateInput } from '../subtopic/subtopic-order-by-relation-aggregate.input';
 
 @InputType()
 export class SubjectOrderByWithRelationInput {
@@ -23,9 +23,9 @@ export class SubjectOrderByWithRelationInput {
     @Field(() => SortOrderInput, {nullable:true})
     updateAt?: SortOrderInput;
 
-    @Field(() => SubjectsOnSchoolsOrderByRelationAggregateInput, {nullable:true})
-    schools?: SubjectsOnSchoolsOrderByRelationAggregateInput;
-
     @Field(() => TopicOrderByRelationAggregateInput, {nullable:true})
     topics?: TopicOrderByRelationAggregateInput;
+
+    @Field(() => SubtopicOrderByRelationAggregateInput, {nullable:true})
+    Subtopic?: SubtopicOrderByRelationAggregateInput;
 }

@@ -8,10 +8,16 @@ export class DocMinAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    privacity?: true;
+
+    @Field(() => Boolean, {nullable:true})
     title?: true;
 
     @Field(() => Boolean, {nullable:true})
     type?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    content?: true;
 
     @Field(() => Boolean, {nullable:true})
     topicId?: true;
@@ -24,4 +30,7 @@ export class DocMinAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     updateAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    subtopicId?: true;
 }

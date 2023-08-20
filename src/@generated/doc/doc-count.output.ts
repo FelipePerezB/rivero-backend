@@ -6,8 +6,5 @@ import { Int } from '@nestjs/graphql';
 export class DocCount {
 
     @Field(() => Int, {nullable:false})
-    grades?: number;
-
-    @Field(() => Int, {nullable:false})
     Score?: number;
 }

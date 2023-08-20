@@ -1,9 +1,11 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
+import { EnumPrivacityWithAggregatesFilter } from '../prisma/enum-privacity-with-aggregates-filter.input';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
-import { JsonWithAggregatesFilter } from '../prisma/json-with-aggregates-filter.input';
+import { EnumDocTypesWithAggregatesFilter } from '../prisma/enum-doc-types-with-aggregates-filter.input';
 import { DateTimeNullableWithAggregatesFilter } from '../prisma/date-time-nullable-with-aggregates-filter.input';
+import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input';
 
 @InputType()
 export class DocScalarWhereWithAggregatesInput {
@@ -20,14 +22,17 @@ export class DocScalarWhereWithAggregatesInput {
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     id?: IntWithAggregatesFilter;
 
+    @Field(() => EnumPrivacityWithAggregatesFilter, {nullable:true})
+    privacity?: EnumPrivacityWithAggregatesFilter;
+
     @Field(() => StringWithAggregatesFilter, {nullable:true})
     title?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    type?: StringWithAggregatesFilter;
+    @Field(() => EnumDocTypesWithAggregatesFilter, {nullable:true})
+    type?: EnumDocTypesWithAggregatesFilter;
 
-    @Field(() => JsonWithAggregatesFilter, {nullable:true})
-    content?: JsonWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    content?: StringWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     topicId?: IntWithAggregatesFilter;
@@ -40,4 +45,7 @@ export class DocScalarWhereWithAggregatesInput {
 
     @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
     updateAt?: DateTimeNullableWithAggregatesFilter;
+
+    @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
+    subtopicId?: IntNullableWithAggregatesFilter;
 }

@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { UserCreateOrConnectWithoutDocInput } from './user-create-or-connect-without-doc.input';
 import { UserUpsertWithoutDocInput } from './user-upsert-without-doc.input';
 import { UserWhereUniqueInput } from './user-where-unique.input';
-import { UserUpdateWithoutDocInput } from './user-update-without-doc.input';
+import { UserUpdateToOneWithWhereWithoutDocInput } from './user-update-to-one-with-where-without-doc.input';
 
 @InputType()
 export class UserUpdateOneRequiredWithoutDocNestedInput {
@@ -26,7 +26,7 @@ export class UserUpdateOneRequiredWithoutDocNestedInput {
     @Type(() => UserWhereUniqueInput)
     connect?: UserWhereUniqueInput;
 
-    @Field(() => UserUpdateWithoutDocInput, {nullable:true})
-    @Type(() => UserUpdateWithoutDocInput)
-    update?: UserUpdateWithoutDocInput;
+    @Field(() => UserUpdateToOneWithWhereWithoutDocInput, {nullable:true})
+    @Type(() => UserUpdateToOneWithWhereWithoutDocInput)
+    update?: UserUpdateToOneWithWhereWithoutDocInput;
 }

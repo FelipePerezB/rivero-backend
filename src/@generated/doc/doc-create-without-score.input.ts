@@ -1,21 +1,25 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
+import { Privacity } from '../prisma/privacity.enum';
+import { DocTypes } from '../prisma/doc-types.enum';
 import { TopicCreateNestedOneWithoutDocInput } from '../topic/topic-create-nested-one-without-doc.input';
-import { GradesOnDocsCreateNestedManyWithoutDocInput } from '../grades-on-docs/grades-on-docs-create-nested-many-without-doc.input';
 import { UserCreateNestedOneWithoutDocInput } from '../user/user-create-nested-one-without-doc.input';
+import { SubtopicCreateNestedOneWithoutDocInput } from '../subtopic/subtopic-create-nested-one-without-doc.input';
 
 @InputType()
 export class DocCreateWithoutScoreInput {
 
+    @Field(() => Privacity, {nullable:false})
+    privacity!: keyof typeof Privacity;
+
     @Field(() => String, {nullable:false})
     title!: string;
 
-    @Field(() => String, {nullable:false})
-    type!: string;
+    @Field(() => DocTypes, {nullable:false})
+    type!: keyof typeof DocTypes;
 
-    @Field(() => GraphQLJSON, {nullable:false})
-    content!: any;
+    @Field(() => String, {nullable:false})
+    content!: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
@@ -26,9 +30,9 @@ export class DocCreateWithoutScoreInput {
     @Field(() => TopicCreateNestedOneWithoutDocInput, {nullable:false})
     topic!: TopicCreateNestedOneWithoutDocInput;
 
-    @Field(() => GradesOnDocsCreateNestedManyWithoutDocInput, {nullable:true})
-    grades?: GradesOnDocsCreateNestedManyWithoutDocInput;
-
     @Field(() => UserCreateNestedOneWithoutDocInput, {nullable:false})
     author!: UserCreateNestedOneWithoutDocInput;
+
+    @Field(() => SubtopicCreateNestedOneWithoutDocInput, {nullable:true})
+    Subtopic?: SubtopicCreateNestedOneWithoutDocInput;
 }

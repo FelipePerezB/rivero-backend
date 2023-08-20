@@ -12,4 +12,7 @@ export class DocSumAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     userId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    subtopicId?: true;
 }

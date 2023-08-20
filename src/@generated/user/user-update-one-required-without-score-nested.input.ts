@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { UserCreateOrConnectWithoutScoreInput } from './user-create-or-connect-without-score.input';
 import { UserUpsertWithoutScoreInput } from './user-upsert-without-score.input';
 import { UserWhereUniqueInput } from './user-where-unique.input';
-import { UserUpdateWithoutScoreInput } from './user-update-without-score.input';
+import { UserUpdateToOneWithWhereWithoutScoreInput } from './user-update-to-one-with-where-without-score.input';
 
 @InputType()
 export class UserUpdateOneRequiredWithoutScoreNestedInput {
@@ -26,7 +26,7 @@ export class UserUpdateOneRequiredWithoutScoreNestedInput {
     @Type(() => UserWhereUniqueInput)
     connect?: UserWhereUniqueInput;
 
-    @Field(() => UserUpdateWithoutScoreInput, {nullable:true})
-    @Type(() => UserUpdateWithoutScoreInput)
-    update?: UserUpdateWithoutScoreInput;
+    @Field(() => UserUpdateToOneWithWhereWithoutScoreInput, {nullable:true})
+    @Type(() => UserUpdateToOneWithWhereWithoutScoreInput)
+    update?: UserUpdateToOneWithWhereWithoutScoreInput;
 }

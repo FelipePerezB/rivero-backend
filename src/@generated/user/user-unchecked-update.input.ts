@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { EnumRoleFieldUpdateOperationsInput } from '../prisma/enum-role-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { ScoreUncheckedUpdateManyWithoutUserNestedInput } from '../score/score-unchecked-update-many-without-user-nested.input';
 import { DocUncheckedUpdateManyWithoutAuthorNestedInput } from '../doc/doc-unchecked-update-many-without-author-nested.input';
@@ -27,8 +28,8 @@ export class UserUncheckedUpdateInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     password?: StringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    role?: StringFieldUpdateOperationsInput;
+    @Field(() => EnumRoleFieldUpdateOperationsInput, {nullable:true})
+    role?: EnumRoleFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     nickname?: StringFieldUpdateOperationsInput;

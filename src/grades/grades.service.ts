@@ -35,9 +35,6 @@ export class GradesService {
   ): Promise<Grade | null> {
     return this.prisma.grade.findUnique({
       where: gradeWhereUniqueInput,
-      include: {
-        docs: true,
-      },
     });
   }
 

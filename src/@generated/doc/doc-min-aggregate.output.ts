@@ -1,6 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Privacity } from '../prisma/privacity.enum';
+import { DocTypes } from '../prisma/doc-types.enum';
 
 @ObjectType()
 export class DocMinAggregate {
@@ -8,11 +10,17 @@ export class DocMinAggregate {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => Privacity, {nullable:true})
+    privacity?: keyof typeof Privacity;
+
     @Field(() => String, {nullable:true})
     title?: string;
 
+    @Field(() => DocTypes, {nullable:true})
+    type?: keyof typeof DocTypes;
+
     @Field(() => String, {nullable:true})
-    type?: string;
+    content?: string;
 
     @Field(() => Int, {nullable:true})
     topicId?: number;
@@ -25,4 +33,7 @@ export class DocMinAggregate {
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
+
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
 }

@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
+import { EnumRoleFilter } from '../prisma/enum-role-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 
 @InputType()
@@ -34,8 +35,8 @@ export class UserScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    role?: StringFilter;
+    @Field(() => EnumRoleFilter, {nullable:true})
+    role?: EnumRoleFilter;
 
     @Field(() => StringFilter, {nullable:true})
     nickname?: StringFilter;

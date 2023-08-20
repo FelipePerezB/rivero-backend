@@ -1,7 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
+import { Privacity } from '../prisma/privacity.enum';
+import { DocTypes } from '../prisma/doc-types.enum';
 import { DocCountAggregate } from './doc-count-aggregate.output';
 import { DocAvgAggregate } from './doc-avg-aggregate.output';
 import { DocSumAggregate } from './doc-sum-aggregate.output';
@@ -14,14 +15,17 @@ export class DocGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
+    @Field(() => Privacity, {nullable:false})
+    privacity!: keyof typeof Privacity;
+
     @Field(() => String, {nullable:false})
     title!: string;
 
-    @Field(() => String, {nullable:false})
-    type!: string;
+    @Field(() => DocTypes, {nullable:false})
+    type!: keyof typeof DocTypes;
 
-    @Field(() => GraphQLJSON, {nullable:false})
-    content!: any;
+    @Field(() => String, {nullable:false})
+    content!: string;
 
     @Field(() => Int, {nullable:false})
     topicId!: number;
@@ -34,6 +38,9 @@ export class DocGroupBy {
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
+
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
 
     @Field(() => DocCountAggregate, {nullable:true})
     _count?: DocCountAggregate;

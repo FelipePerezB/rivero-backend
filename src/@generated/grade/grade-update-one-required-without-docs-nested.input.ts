@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { GradeCreateOrConnectWithoutDocsInput } from './grade-create-or-connect-without-docs.input';
 import { GradeUpsertWithoutDocsInput } from './grade-upsert-without-docs.input';
 import { GradeWhereUniqueInput } from './grade-where-unique.input';
-import { GradeUpdateWithoutDocsInput } from './grade-update-without-docs.input';
+import { GradeUpdateToOneWithWhereWithoutDocsInput } from './grade-update-to-one-with-where-without-docs.input';
 
 @InputType()
 export class GradeUpdateOneRequiredWithoutDocsNestedInput {
@@ -26,7 +26,7 @@ export class GradeUpdateOneRequiredWithoutDocsNestedInput {
     @Type(() => GradeWhereUniqueInput)
     connect?: GradeWhereUniqueInput;
 
-    @Field(() => GradeUpdateWithoutDocsInput, {nullable:true})
-    @Type(() => GradeUpdateWithoutDocsInput)
-    update?: GradeUpdateWithoutDocsInput;
+    @Field(() => GradeUpdateToOneWithWhereWithoutDocsInput, {nullable:true})
+    @Type(() => GradeUpdateToOneWithWhereWithoutDocsInput)
+    update?: GradeUpdateToOneWithWhereWithoutDocsInput;
 }

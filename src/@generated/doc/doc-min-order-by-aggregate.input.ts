@@ -9,10 +9,16 @@ export class DocMinOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    privacity?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     title?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     type?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    content?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     topicId?: keyof typeof SortOrder;
@@ -25,4 +31,7 @@ export class DocMinOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
     updateAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    subtopicId?: keyof typeof SortOrder;
 }

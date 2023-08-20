@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { SubjectsOnSchoolsCreateNestedManyWithoutSubjectInput } from '../subjects-on-schools/subjects-on-schools-create-nested-many-without-subject.input';
 import { TopicCreateNestedManyWithoutSubjectInput } from '../topic/topic-create-nested-many-without-subject.input';
+import { SubtopicCreateNestedManyWithoutSubjectInput } from '../subtopic/subtopic-create-nested-many-without-subject.input';
 
 @InputType()
 export class SubjectCreateInput {
@@ -18,9 +18,9 @@ export class SubjectCreateInput {
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
-    @Field(() => SubjectsOnSchoolsCreateNestedManyWithoutSubjectInput, {nullable:true})
-    schools?: SubjectsOnSchoolsCreateNestedManyWithoutSubjectInput;
-
     @Field(() => TopicCreateNestedManyWithoutSubjectInput, {nullable:true})
     topics?: TopicCreateNestedManyWithoutSubjectInput;
+
+    @Field(() => SubtopicCreateNestedManyWithoutSubjectInput, {nullable:true})
+    Subtopic?: SubtopicCreateNestedManyWithoutSubjectInput;
 }

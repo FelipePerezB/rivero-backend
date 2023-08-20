@@ -31,6 +31,9 @@ export class DocUncheckedCreateWithoutGradesInput {
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
+
     @Field(() => ScoreUncheckedCreateNestedManyWithoutDocumentInput, {nullable:true})
     Score?: ScoreUncheckedCreateNestedManyWithoutDocumentInput;
 }

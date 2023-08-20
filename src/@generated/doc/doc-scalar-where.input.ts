@@ -1,9 +1,11 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
+import { EnumPrivacityFilter } from '../prisma/enum-privacity-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
-import { JsonFilter } from '../prisma/json-filter.input';
+import { EnumDocTypesFilter } from '../prisma/enum-doc-types-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
+import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 
 @InputType()
 export class DocScalarWhereInput {
@@ -20,14 +22,17 @@ export class DocScalarWhereInput {
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
 
+    @Field(() => EnumPrivacityFilter, {nullable:true})
+    privacity?: EnumPrivacityFilter;
+
     @Field(() => StringFilter, {nullable:true})
     title?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    type?: StringFilter;
+    @Field(() => EnumDocTypesFilter, {nullable:true})
+    type?: EnumDocTypesFilter;
 
-    @Field(() => JsonFilter, {nullable:true})
-    content?: JsonFilter;
+    @Field(() => StringFilter, {nullable:true})
+    content?: StringFilter;
 
     @Field(() => IntFilter, {nullable:true})
     topicId?: IntFilter;
@@ -40,4 +45,7 @@ export class DocScalarWhereInput {
 
     @Field(() => DateTimeNullableFilter, {nullable:true})
     updateAt?: DateTimeNullableFilter;
+
+    @Field(() => IntNullableFilter, {nullable:true})
+    subtopicId?: IntNullableFilter;
 }
