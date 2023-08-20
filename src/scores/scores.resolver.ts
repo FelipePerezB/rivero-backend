@@ -34,7 +34,7 @@ export class ScoresResolver {
   ) {
     return this.scoreService.update({
       where: { id },
-      data: updateScoreInput as Prisma.ScoreUpdateInput,
+      data: updateScoreInput as unknown as Prisma.ScoreUpdateInput,
     });
   }
 

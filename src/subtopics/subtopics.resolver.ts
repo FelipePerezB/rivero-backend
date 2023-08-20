@@ -36,7 +36,7 @@ export class SubtopicsResolver {
   ) {
     return this.subtopicService.update({
       where: { id },
-      data: updateSubtopicInput as Prisma.SubtopicUpdateInput,
+      data: updateSubtopicInput as unknown as Prisma.SubtopicUpdateInput,
     });
   }
 

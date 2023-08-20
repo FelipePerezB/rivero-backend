@@ -33,7 +33,7 @@ export class GradesResolver {
   ) {
     return this.gradeService.update({
       where: { id },
-      data: updateGradeInput as Prisma.GradeUpdateInput,
+      data: updateGradeInput as unknown as Prisma.GradeUpdateInput,
     });
   }
 

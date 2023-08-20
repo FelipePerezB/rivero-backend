@@ -32,7 +32,7 @@ export class DocsResolver {
   ) {
     return this.docsService.update({
       where: { id },
-      data: updateDocInput as Prisma.DocUpdateInput,
+      data: updateDocInput as unknown as Prisma.DocUpdateInput,
     });
   }
 

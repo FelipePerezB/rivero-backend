@@ -36,7 +36,7 @@ export class SchoolsResolver {
   ) {
     return this.schoolService.update({
       where: { id },
-      data: updateSchoolInput as Prisma.SchoolUpdateInput,
+      data: updateSchoolInput as unknown as Prisma.SchoolUpdateInput,
     });
   }
 

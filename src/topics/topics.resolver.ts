@@ -34,7 +34,7 @@ export class TopicsResolver {
   ) {
     return this.topicService.update({
       where: { id },
-      data: updateTopicInput as Prisma.TopicUpdateInput,
+      data: updateTopicInput as unknown as Prisma.TopicUpdateInput,
     });
   }
 

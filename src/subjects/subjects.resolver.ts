@@ -36,7 +36,7 @@ export class SubjectsResolver {
   ) {
     return this.subjectService.update({
       where: { id },
-      data: updateSubjectInput as Prisma.SubjectUpdateInput,
+      data: updateSubjectInput as unknown as Prisma.SubjectUpdateInput,
     });
   }
 

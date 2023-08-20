@@ -46,7 +46,7 @@ export class UsersResolver {
   ) {
     return this.usersService.update({
       where: { id },
-      data: updateUserInput as Prisma.UserUpdateInput,
+      data: updateUserInput as unknown as Prisma.UserUpdateInput,
     });
   }
 
