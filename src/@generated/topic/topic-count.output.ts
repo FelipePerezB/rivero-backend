@@ -4,10 +4,9 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class TopicCount {
+  @Field(() => Int, { nullable: false })
+  Doc?: number;
 
-    @Field(() => Int, {nullable:false})
-    Doc?: number;
-
-    @Field(() => Int, {nullable:false})
-    Subtopic?: number;
+  @Field(() => Int, { nullable: false })
+  Subtopic?: number;
 }
