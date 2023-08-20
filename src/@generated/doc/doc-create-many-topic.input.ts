@@ -10,6 +10,9 @@ export class DocCreateManyTopicInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => String, {nullable:false})
+    externalId!: string;
+
     @Field(() => Privacity, {nullable:false})
     privacity!: keyof typeof Privacity;
 
@@ -23,6 +26,12 @@ export class DocCreateManyTopicInput {
     content!: string;
 
     @Field(() => Int, {nullable:false})
+    subjectId!: number;
+
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
+
+    @Field(() => Int, {nullable:false})
     userId!: number;
 
     @Field(() => Date, {nullable:true})
@@ -30,7 +39,4 @@ export class DocCreateManyTopicInput {
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:true})
-    subtopicId?: number;
 }

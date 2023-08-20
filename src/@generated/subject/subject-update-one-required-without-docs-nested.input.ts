@@ -5,7 +5,7 @@ import { Type } from 'class-transformer';
 import { SubjectCreateOrConnectWithoutDocsInput } from './subject-create-or-connect-without-docs.input';
 import { SubjectUpsertWithoutDocsInput } from './subject-upsert-without-docs.input';
 import { SubjectWhereUniqueInput } from './subject-where-unique.input';
-import { SubjectUpdateWithoutDocsInput } from './subject-update-without-docs.input';
+import { SubjectUpdateToOneWithWhereWithoutDocsInput } from './subject-update-to-one-with-where-without-docs.input';
 
 @InputType()
 export class SubjectUpdateOneRequiredWithoutDocsNestedInput {
@@ -26,7 +26,7 @@ export class SubjectUpdateOneRequiredWithoutDocsNestedInput {
     @Type(() => SubjectWhereUniqueInput)
     connect?: SubjectWhereUniqueInput;
 
-    @Field(() => SubjectUpdateWithoutDocsInput, {nullable:true})
-    @Type(() => SubjectUpdateWithoutDocsInput)
-    update?: SubjectUpdateWithoutDocsInput;
+    @Field(() => SubjectUpdateToOneWithWhereWithoutDocsInput, {nullable:true})
+    @Type(() => SubjectUpdateToOneWithWhereWithoutDocsInput)
+    update?: SubjectUpdateToOneWithWhereWithoutDocsInput;
 }

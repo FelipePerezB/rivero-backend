@@ -30,7 +30,7 @@ export class Score {
     updateAt!: Date | null;
 
     @Field(() => User, {nullable:false})
-    user?: User;
+    User?: User;
 
     @Field(() => Doc, {nullable:false})
     document?: Doc;

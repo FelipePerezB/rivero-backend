@@ -21,5 +21,5 @@ export class GradeUncheckedUpdateWithoutUsersInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput, {nullable:true})
-    schools?: GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput;
+    Schools?: GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput;
 }

@@ -42,7 +42,7 @@ export class DocsService {
         // },
       },
       include: {
-        topic: true,
+        Topic: true,
       },
     });
   }
@@ -70,7 +70,7 @@ export class DocsService {
     return this.prisma.doc.findUnique({
       where: docWhereUniqueInput,
       include: {
-        topic: true,
+        Topic: true,
       },
     });
   }

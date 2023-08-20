@@ -6,18 +6,22 @@ import { EnumPrivacityFilter } from '../prisma/enum-privacity-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { EnumDocTypesFilter } from '../prisma/enum-doc-types-filter.input';
 import { IntFilter } from '../prisma/int-filter.input';
-import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
-import { TopicRelationFilter } from '../topic/topic-relation-filter.input';
-import { UserRelationFilter } from '../user/user-relation-filter.input';
+import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { ScoreListRelationFilter } from '../score/score-list-relation-filter.input';
+import { SubjectRelationFilter } from '../subject/subject-relation-filter.input';
+import { TopicRelationFilter } from '../topic/topic-relation-filter.input';
 import { SubtopicNullableRelationFilter } from '../prisma/subtopic-nullable-relation-filter.input';
+import { UserRelationFilter } from '../user/user-relation-filter.input';
 
 @InputType()
 export class DocWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => String, {nullable:true})
+    externalId?: string;
 
     @Field(() => [DocWhereInput], {nullable:true})
     AND?: Array<DocWhereInput>;
@@ -41,7 +45,13 @@ export class DocWhereUniqueInput {
     content?: StringFilter;
 
     @Field(() => IntFilter, {nullable:true})
+    subjectId?: IntFilter;
+
+    @Field(() => IntFilter, {nullable:true})
     topicId?: IntFilter;
+
+    @Field(() => IntNullableFilter, {nullable:true})
+    subtopicId?: IntNullableFilter;
 
     @Field(() => IntFilter, {nullable:true})
     userId?: IntFilter;
@@ -52,18 +62,18 @@ export class DocWhereUniqueInput {
     @Field(() => DateTimeNullableFilter, {nullable:true})
     updateAt?: DateTimeNullableFilter;
 
-    @Field(() => IntNullableFilter, {nullable:true})
-    subtopicId?: IntNullableFilter;
-
-    @Field(() => TopicRelationFilter, {nullable:true})
-    topic?: TopicRelationFilter;
-
-    @Field(() => UserRelationFilter, {nullable:true})
-    author?: UserRelationFilter;
-
     @Field(() => ScoreListRelationFilter, {nullable:true})
     Score?: ScoreListRelationFilter;
 
+    @Field(() => SubjectRelationFilter, {nullable:true})
+    Subject?: SubjectRelationFilter;
+
+    @Field(() => TopicRelationFilter, {nullable:true})
+    Topic?: TopicRelationFilter;
+
     @Field(() => SubtopicNullableRelationFilter, {nullable:true})
     Subtopic?: SubtopicNullableRelationFilter;
+
+    @Field(() => UserRelationFilter, {nullable:true})
+    Author?: UserRelationFilter;
 }

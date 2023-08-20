@@ -20,9 +20,6 @@ export class UserUncheckedUpdateManyWithoutSchoolInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     lastname?: StringFieldUpdateOperationsInput;
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    stars?: IntFieldUpdateOperationsInput;
-
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     password?: StringFieldUpdateOperationsInput;
 

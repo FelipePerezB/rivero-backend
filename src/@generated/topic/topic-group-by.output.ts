@@ -16,14 +16,14 @@ export class TopicGroupBy {
     @Field(() => String, {nullable:false})
     name!: string;
 
+    @Field(() => Int, {nullable:true})
+    subjectId?: number;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:true})
-    subjectId?: number;
 
     @Field(() => TopicCountAggregate, {nullable:true})
     _count?: TopicCountAggregate;

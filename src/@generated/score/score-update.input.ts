@@ -22,7 +22,7 @@ export class ScoreUpdateInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => UserUpdateOneRequiredWithoutScoreNestedInput, {nullable:true})
-    user?: UserUpdateOneRequiredWithoutScoreNestedInput;
+    User?: UserUpdateOneRequiredWithoutScoreNestedInput;
 
     @Field(() => DocUpdateOneRequiredWithoutScoreNestedInput, {nullable:true})
     document?: DocUpdateOneRequiredWithoutScoreNestedInput;

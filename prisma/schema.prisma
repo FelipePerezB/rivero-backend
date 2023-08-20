@@ -10,12 +10,12 @@ datasource db {
   url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
 }
 
-// generator nestgraphql {
-//   provider = "node node_modules/prisma-nestjs-graphql"
-//   // for yarn monorepos
-//   // provider = "prisma-nestjs-graphql"
-//   output   = "../src/@generated"
-// }
+generator nestgraphql {
+  provider = "node node_modules/prisma-nestjs-graphql"
+  // for yarn monorepos
+  // provider = "prisma-nestjs-graphql"
+  output   = "../src/@generated"
+}
 
 enum Role {
   ADMIN
@@ -29,15 +29,14 @@ model User {
   email     String    @unique
   name      String
   lastname  String
-  stars     Int
   password  String
   role      Role
   nickname  String
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
-  grade     Grade     @relation(fields: [gradeId], references: [id])
+  Grade     Grade     @relation(fields: [gradeId], references: [id])
   gradeId   Int
-  school    School    @relation(fields: [schoolId], references: [id])
+  School    School    @relation(fields: [schoolId], references: [id])
   schoolId  Int
   Score     Score[]
   Doc       Doc[]
@@ -46,7 +45,6 @@ model User {
 enum Privacity {
   PUBLIC
   PRIVATE
-  RESTRICTED
 }
 
 enum DocTypes {
@@ -57,19 +55,22 @@ enum DocTypes {
 
 model Doc {
   id         Int       @id @default(autoincrement())
+  externalId String       @unique
   privacity  Privacity
   title      String
   type       DocTypes
   content    String
-  topicId    Int
-  topic      Topic     @relation(fields: [topicId], references: [id])
-  userId     Int
-  author     User      @relation(fields: [userId], references: [id])
   Score      Score[]
-  createdAt  DateTime? @default(now())
-  updateAt   DateTime? @updatedAt
+  Subject    Subject   @relation(fields: [subjectId], references: [id])
+  subjectId  Int
+  Topic      Topic     @relation(fields: [topicId], references: [id])
+  topicId    Int
   Subtopic   Subtopic? @relation(fields: [subtopicId], references: [id])
   subtopicId Int?
+  Author     User      @relation(fields: [userId], references: [id])
+  userId     Int
+  createdAt  DateTime? @default(now())
+  updateAt   DateTime? @updatedAt
 }
 
 model Score {
@@ -77,7 +78,7 @@ model Score {
   score        Int
   userId       Int
   alternatives String
-  user         User      @relation(fields: [userId], references: [id])
+  User         User      @relation(fields: [userId], references: [id])
   docId        Int
   document     Doc       @relation(fields: [docId], references: [id])
   createdAt    DateTime? @default(now())
@@ -87,31 +88,32 @@ model Score {
 model Grade {
   id        Int               @id @default(autoincrement())
   grade     String            @unique
+  Users     User[]
+  Schools   GradesOnSchools[]
   createdAt DateTime?         @default(now())
   updateAt  DateTime?         @updatedAt
-  users     User[]
-  schools   GradesOnSchools[]
 }
 
 model Subject {
   id        Int        @id @default(autoincrement())
   name      String     @unique
   color     String
-  topics    Topic[]
+  Topics    Topic[]
+  Subtopic  Subtopic[]
+  Docs      Doc[]
   createdAt DateTime?  @default(now())
   updateAt  DateTime?  @updatedAt
-  Subtopic  Subtopic[]
 }
 
 model Topic {
   id        Int        @id @default(autoincrement())
   name      String     @unique
+  Subject   Subject?   @relation(fields: [subjectId], references: [id])
+  subjectId Int?
+  Docs      Doc[]
+  Subtopics Subtopic[]
   createdAt DateTime?  @default(now())
   updateAt  DateTime?  @updatedAt
-  subject   Subject?   @relation(fields: [subjectId], references: [id])
-  subjectId Int?
-  Doc       Doc[]
-  Subtopic  Subtopic[]
 }
 
 model Subtopic {
@@ -119,17 +121,17 @@ model Subtopic {
   name      String    @unique
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
-  subject   Subject?  @relation(fields: [subjectId], references: [id])
+  Subject   Subject?  @relation(fields: [subjectId], references: [id])
   subjectId Int?
   Topic     Topic     @relation(fields: [topicId], references: [id])
-  Doc       Doc[]
+  Docs      Doc[]
   topicId   Int
 }
 
 model School {
   id        Int       @id @default(autoincrement())
   name      String    @unique
-  users     User[]
+  Users     User[]
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
 }

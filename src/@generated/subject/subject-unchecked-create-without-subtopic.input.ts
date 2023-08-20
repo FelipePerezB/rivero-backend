@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { TopicUncheckedCreateNestedManyWithoutSubjectInput } from '../topic/topic-unchecked-create-nested-many-without-subject.input';
+import { DocUncheckedCreateNestedManyWithoutSubjectInput } from '../doc/doc-unchecked-create-nested-many-without-subject.input';
 
 @InputType()
 export class SubjectUncheckedCreateWithoutSubtopicInput {
@@ -22,5 +23,8 @@ export class SubjectUncheckedCreateWithoutSubtopicInput {
     updateAt?: Date | string;
 
     @Field(() => TopicUncheckedCreateNestedManyWithoutSubjectInput, {nullable:true})
-    topics?: TopicUncheckedCreateNestedManyWithoutSubjectInput;
+    Topics?: TopicUncheckedCreateNestedManyWithoutSubjectInput;
+
+    @Field(() => DocUncheckedCreateNestedManyWithoutSubjectInput, {nullable:true})
+    Docs?: DocUncheckedCreateNestedManyWithoutSubjectInput;
 }

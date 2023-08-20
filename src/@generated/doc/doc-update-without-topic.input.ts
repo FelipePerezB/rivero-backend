@@ -1,15 +1,19 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { EnumPrivacityFieldUpdateOperationsInput } from '../prisma/enum-privacity-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { EnumPrivacityFieldUpdateOperationsInput } from '../prisma/enum-privacity-field-update-operations.input';
 import { EnumDocTypesFieldUpdateOperationsInput } from '../prisma/enum-doc-types-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { UserUpdateOneRequiredWithoutDocNestedInput } from '../user/user-update-one-required-without-doc-nested.input';
 import { ScoreUpdateManyWithoutDocumentNestedInput } from '../score/score-update-many-without-document-nested.input';
-import { SubtopicUpdateOneWithoutDocNestedInput } from '../subtopic/subtopic-update-one-without-doc-nested.input';
+import { SubjectUpdateOneRequiredWithoutDocsNestedInput } from '../subject/subject-update-one-required-without-docs-nested.input';
+import { SubtopicUpdateOneWithoutDocsNestedInput } from '../subtopic/subtopic-update-one-without-docs-nested.input';
+import { UserUpdateOneRequiredWithoutDocNestedInput } from '../user/user-update-one-required-without-doc-nested.input';
 
 @InputType()
 export class DocUpdateWithoutTopicInput {
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    externalId?: StringFieldUpdateOperationsInput;
 
     @Field(() => EnumPrivacityFieldUpdateOperationsInput, {nullable:true})
     privacity?: EnumPrivacityFieldUpdateOperationsInput;
@@ -29,12 +33,15 @@ export class DocUpdateWithoutTopicInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
-    @Field(() => UserUpdateOneRequiredWithoutDocNestedInput, {nullable:true})
-    author?: UserUpdateOneRequiredWithoutDocNestedInput;
-
     @Field(() => ScoreUpdateManyWithoutDocumentNestedInput, {nullable:true})
     Score?: ScoreUpdateManyWithoutDocumentNestedInput;
 
-    @Field(() => SubtopicUpdateOneWithoutDocNestedInput, {nullable:true})
-    Subtopic?: SubtopicUpdateOneWithoutDocNestedInput;
+    @Field(() => SubjectUpdateOneRequiredWithoutDocsNestedInput, {nullable:true})
+    Subject?: SubjectUpdateOneRequiredWithoutDocsNestedInput;
+
+    @Field(() => SubtopicUpdateOneWithoutDocsNestedInput, {nullable:true})
+    Subtopic?: SubtopicUpdateOneWithoutDocsNestedInput;
+
+    @Field(() => UserUpdateOneRequiredWithoutDocNestedInput, {nullable:true})
+    Author?: UserUpdateOneRequiredWithoutDocNestedInput;
 }

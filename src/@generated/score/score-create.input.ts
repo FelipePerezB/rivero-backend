@@ -20,7 +20,7 @@ export class ScoreCreateInput {
     updateAt?: Date | string;
 
     @Field(() => UserCreateNestedOneWithoutScoreInput, {nullable:false})
-    user!: UserCreateNestedOneWithoutScoreInput;
+    User!: UserCreateNestedOneWithoutScoreInput;
 
     @Field(() => DocCreateNestedOneWithoutScoreInput, {nullable:false})
     document!: DocCreateNestedOneWithoutScoreInput;

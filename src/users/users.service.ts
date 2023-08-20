@@ -73,18 +73,6 @@ export class UsersService {
     });
   }
 
-  scores(): Promise<User[]> {
-    const rta = this.prisma.user.findMany({
-      orderBy: [
-        {
-          stars: 'desc',
-        },
-      ],
-    });
-    // const rta = this.prisma.user.findMany({ order: { stars: 'DESC' } });
-    return rta;
-  }
-
   findByEmail(email: string): Promise<User> {
     return this.prisma.user.findUnique({ where: { email } });
   }

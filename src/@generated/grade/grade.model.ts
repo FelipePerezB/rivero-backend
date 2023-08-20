@@ -21,10 +21,10 @@ export class Grade {
     updateAt!: Date | null;
 
     @Field(() => [User], {nullable:true})
-    users?: Array<User>;
+    Users?: Array<User>;
 
     @Field(() => [GradesOnSchools], {nullable:true})
-    schools?: Array<GradesOnSchools>;
+    Schools?: Array<GradesOnSchools>;
 
     @Field(() => GradeCount, {nullable:false})
     _count?: GradeCount;

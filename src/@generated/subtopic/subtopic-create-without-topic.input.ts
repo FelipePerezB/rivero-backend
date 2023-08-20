@@ -16,8 +16,8 @@ export class SubtopicCreateWithoutTopicInput {
     updateAt?: Date | string;
 
     @Field(() => SubjectCreateNestedOneWithoutSubtopicInput, {nullable:true})
-    subject?: SubjectCreateNestedOneWithoutSubtopicInput;
+    Subject?: SubjectCreateNestedOneWithoutSubtopicInput;
 
     @Field(() => DocCreateNestedManyWithoutSubtopicInput, {nullable:true})
-    Doc?: DocCreateNestedManyWithoutSubtopicInput;
+    Docs?: DocCreateNestedManyWithoutSubtopicInput;
 }

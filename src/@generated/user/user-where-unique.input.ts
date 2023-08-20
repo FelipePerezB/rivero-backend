@@ -3,9 +3,9 @@ import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { UserWhereInput } from './user-where.input';
 import { StringFilter } from '../prisma/string-filter.input';
-import { IntFilter } from '../prisma/int-filter.input';
 import { EnumRoleFilter } from '../prisma/enum-role-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
+import { IntFilter } from '../prisma/int-filter.input';
 import { GradeRelationFilter } from '../grade/grade-relation-filter.input';
 import { SchoolRelationFilter } from '../school/school-relation-filter.input';
 import { ScoreListRelationFilter } from '../score/score-list-relation-filter.input';
@@ -35,9 +35,6 @@ export class UserWhereUniqueInput {
     @Field(() => StringFilter, {nullable:true})
     lastname?: StringFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    stars?: IntFilter;
-
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
 
@@ -60,10 +57,10 @@ export class UserWhereUniqueInput {
     schoolId?: IntFilter;
 
     @Field(() => GradeRelationFilter, {nullable:true})
-    grade?: GradeRelationFilter;
+    Grade?: GradeRelationFilter;
 
     @Field(() => SchoolRelationFilter, {nullable:true})
-    school?: SchoolRelationFilter;
+    School?: SchoolRelationFilter;
 
     @Field(() => ScoreListRelationFilter, {nullable:true})
     Score?: ScoreListRelationFilter;

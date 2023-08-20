@@ -12,11 +12,11 @@ export class TopicCountOrderByAggregateInput {
     name?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    subjectId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     updateAt?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    subjectId?: keyof typeof SortOrder;
 }

@@ -10,6 +10,9 @@ export class DocCreateManySubtopicInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => String, {nullable:false})
+    externalId!: string;
+
     @Field(() => Privacity, {nullable:false})
     privacity!: keyof typeof Privacity;
 
@@ -21,6 +24,9 @@ export class DocCreateManySubtopicInput {
 
     @Field(() => String, {nullable:false})
     content!: string;
+
+    @Field(() => Int, {nullable:false})
+    subjectId!: number;
 
     @Field(() => Int, {nullable:false})
     topicId!: number;

@@ -22,5 +22,5 @@ export class SubtopicUncheckedCreateWithoutTopicInput {
     subjectId?: number;
 
     @Field(() => DocUncheckedCreateNestedManyWithoutSubtopicInput, {nullable:true})
-    Doc?: DocUncheckedCreateNestedManyWithoutSubtopicInput;
+    Docs?: DocUncheckedCreateNestedManyWithoutSubtopicInput;
 }

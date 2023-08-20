@@ -40,7 +40,7 @@ export class ScoreWhereInput {
     updateAt?: DateTimeNullableFilter;
 
     @Field(() => UserRelationFilter, {nullable:true})
-    user?: UserRelationFilter;
+    User?: UserRelationFilter;
 
     @Field(() => DocRelationFilter, {nullable:true})
     document?: DocRelationFilter;

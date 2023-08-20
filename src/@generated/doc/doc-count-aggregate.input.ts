@@ -8,6 +8,9 @@ export class DocCountAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    externalId?: true;
+
+    @Field(() => Boolean, {nullable:true})
     privacity?: true;
 
     @Field(() => Boolean, {nullable:true})
@@ -20,7 +23,13 @@ export class DocCountAggregateInput {
     content?: true;
 
     @Field(() => Boolean, {nullable:true})
+    subjectId?: true;
+
+    @Field(() => Boolean, {nullable:true})
     topicId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    subtopicId?: true;
 
     @Field(() => Boolean, {nullable:true})
     userId?: true;
@@ -30,9 +39,6 @@ export class DocCountAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     updateAt?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    subtopicId?: true;
 
     @Field(() => Boolean, {nullable:true})
     _all?: true;

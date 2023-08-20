@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { TopicCreateNestedOneWithoutSubtopicInput } from '../topic/topic-create-nested-one-without-subtopic.input';
+import { TopicCreateNestedOneWithoutSubtopicsInput } from '../topic/topic-create-nested-one-without-subtopics.input';
 import { DocCreateNestedManyWithoutSubtopicInput } from '../doc/doc-create-nested-many-without-subtopic.input';
 
 @InputType()
@@ -15,9 +15,9 @@ export class SubtopicCreateWithoutSubjectInput {
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
-    @Field(() => TopicCreateNestedOneWithoutSubtopicInput, {nullable:false})
-    Topic!: TopicCreateNestedOneWithoutSubtopicInput;
+    @Field(() => TopicCreateNestedOneWithoutSubtopicsInput, {nullable:false})
+    Topic!: TopicCreateNestedOneWithoutSubtopicsInput;
 
     @Field(() => DocCreateNestedManyWithoutSubtopicInput, {nullable:true})
-    Doc?: DocCreateNestedManyWithoutSubtopicInput;
+    Docs?: DocCreateNestedManyWithoutSubtopicInput;
 }

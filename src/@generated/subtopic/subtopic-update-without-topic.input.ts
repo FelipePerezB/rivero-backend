@@ -18,8 +18,8 @@ export class SubtopicUpdateWithoutTopicInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => SubjectUpdateOneWithoutSubtopicNestedInput, {nullable:true})
-    subject?: SubjectUpdateOneWithoutSubtopicNestedInput;
+    Subject?: SubjectUpdateOneWithoutSubtopicNestedInput;
 
     @Field(() => DocUpdateManyWithoutSubtopicNestedInput, {nullable:true})
-    Doc?: DocUpdateManyWithoutSubtopicNestedInput;
+    Docs?: DocUpdateManyWithoutSubtopicNestedInput;
 }

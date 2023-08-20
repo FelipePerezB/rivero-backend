@@ -25,5 +25,5 @@ export class SubtopicUncheckedUpdateWithoutTopicInput {
     subjectId?: NullableIntFieldUpdateOperationsInput;
 
     @Field(() => DocUncheckedUpdateManyWithoutSubtopicNestedInput, {nullable:true})
-    Doc?: DocUncheckedUpdateManyWithoutSubtopicNestedInput;
+    Docs?: DocUncheckedUpdateManyWithoutSubtopicNestedInput;
 }

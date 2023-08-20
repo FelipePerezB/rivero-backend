@@ -22,8 +22,8 @@ export class TopicUncheckedUpdateWithoutSubjectInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => DocUncheckedUpdateManyWithoutTopicNestedInput, {nullable:true})
-    Doc?: DocUncheckedUpdateManyWithoutTopicNestedInput;
+    Docs?: DocUncheckedUpdateManyWithoutTopicNestedInput;
 
     @Field(() => SubtopicUncheckedUpdateManyWithoutTopicNestedInput, {nullable:true})
-    Subtopic?: SubtopicUncheckedUpdateManyWithoutTopicNestedInput;
+    Subtopics?: SubtopicUncheckedUpdateManyWithoutTopicNestedInput;
 }

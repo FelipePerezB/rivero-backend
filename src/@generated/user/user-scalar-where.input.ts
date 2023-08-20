@@ -29,9 +29,6 @@ export class UserScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     lastname?: StringFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    stars?: IntFilter;
-
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
 

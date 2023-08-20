@@ -17,9 +17,6 @@ export class UserCountAggregateInput {
     lastname?: true;
 
     @Field(() => Boolean, {nullable:true})
-    stars?: true;
-
-    @Field(() => Boolean, {nullable:true})
     password?: true;
 
     @Field(() => Boolean, {nullable:true})

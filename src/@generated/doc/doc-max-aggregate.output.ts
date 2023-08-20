@@ -10,6 +10,9 @@ export class DocMaxAggregate {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => String, {nullable:true})
+    externalId?: string;
+
     @Field(() => Privacity, {nullable:true})
     privacity?: keyof typeof Privacity;
 
@@ -23,7 +26,13 @@ export class DocMaxAggregate {
     content?: string;
 
     @Field(() => Int, {nullable:true})
+    subjectId?: number;
+
+    @Field(() => Int, {nullable:true})
     topicId?: number;
+
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
 
     @Field(() => Int, {nullable:true})
     userId?: number;
@@ -33,7 +42,4 @@ export class DocMaxAggregate {
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:true})
-    subtopicId?: number;
 }

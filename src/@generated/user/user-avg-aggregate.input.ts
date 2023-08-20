@@ -8,9 +8,6 @@ export class UserAvgAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    stars?: true;
-
-    @Field(() => Boolean, {nullable:true})
     gradeId?: true;
 
     @Field(() => Boolean, {nullable:true})

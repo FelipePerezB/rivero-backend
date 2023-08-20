@@ -6,8 +6,11 @@ import { Int } from '@nestjs/graphql';
 export class SubjectCount {
 
     @Field(() => Int, {nullable:false})
-    topics?: number;
+    Topics?: number;
 
     @Field(() => Int, {nullable:false})
     Subtopic?: number;
+
+    @Field(() => Int, {nullable:false})
+    Docs?: number;
 }

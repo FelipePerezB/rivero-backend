@@ -15,5 +15,5 @@ export class SchoolCreateInput {
     updateAt?: Date | string;
 
     @Field(() => UserCreateNestedManyWithoutSchoolInput, {nullable:true})
-    users?: UserCreateNestedManyWithoutSchoolInput;
+    Users?: UserCreateNestedManyWithoutSchoolInput;
 }

@@ -17,9 +17,6 @@ export class UserMaxAggregateInput {
     lastname?: true;
 
     @Field(() => Boolean, {nullable:true})
-    stars?: true;
-
-    @Field(() => Boolean, {nullable:true})
     password?: true;
 
     @Field(() => Boolean, {nullable:true})

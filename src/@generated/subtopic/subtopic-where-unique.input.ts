@@ -40,11 +40,11 @@ export class SubtopicWhereUniqueInput {
     topicId?: IntFilter;
 
     @Field(() => SubjectNullableRelationFilter, {nullable:true})
-    subject?: SubjectNullableRelationFilter;
+    Subject?: SubjectNullableRelationFilter;
 
     @Field(() => TopicRelationFilter, {nullable:true})
     Topic?: TopicRelationFilter;
 
     @Field(() => DocListRelationFilter, {nullable:true})
-    Doc?: DocListRelationFilter;
+    Docs?: DocListRelationFilter;
 }

@@ -13,18 +13,18 @@ export class TopicUncheckedCreateInput {
     @Field(() => String, {nullable:false})
     name!: string;
 
+    @Field(() => Int, {nullable:true})
+    subjectId?: number;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
-    @Field(() => Int, {nullable:true})
-    subjectId?: number;
-
     @Field(() => DocUncheckedCreateNestedManyWithoutTopicInput, {nullable:true})
-    Doc?: DocUncheckedCreateNestedManyWithoutTopicInput;
+    Docs?: DocUncheckedCreateNestedManyWithoutTopicInput;
 
     @Field(() => SubtopicUncheckedCreateNestedManyWithoutTopicInput, {nullable:true})
-    Subtopic?: SubtopicUncheckedCreateNestedManyWithoutTopicInput;
+    Subtopics?: SubtopicUncheckedCreateNestedManyWithoutTopicInput;
 }

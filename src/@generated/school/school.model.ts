@@ -20,7 +20,7 @@ export class School {
     updateAt!: Date | null;
 
     @Field(() => [User], {nullable:true})
-    users?: Array<User>;
+    Users?: Array<User>;
 
     @Field(() => SchoolCount, {nullable:false})
     _count?: SchoolCount;

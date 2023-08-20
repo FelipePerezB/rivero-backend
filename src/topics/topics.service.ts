@@ -26,8 +26,12 @@ export class TopicsService {
       where,
       orderBy,
       include: {
-        Doc: true,
-        Subtopic: true,
+        _count: true,
+        Subtopics: {
+          include: {
+            Docs: true,
+          },
+        },
       },
     });
   }
@@ -46,8 +50,9 @@ export class TopicsService {
         id: true,
         name: true,
         subjectId: true,
-        Doc: {
+        Docs: {
           select: {
+            _count: true,
             title: true,
             id: true,
           },

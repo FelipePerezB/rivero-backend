@@ -18,11 +18,6 @@ export class UsersResolver {
     return this.usersService.create(createUserInput as Prisma.UserCreateInput);
   }
 
-  @Query(() => [User])
-  stars() {
-    return this.usersService.scores();
-  }
-
   // @UseGuards(JwtAuthGuard)
   @Query(() => [User], { name: 'users' })
   findAll() {

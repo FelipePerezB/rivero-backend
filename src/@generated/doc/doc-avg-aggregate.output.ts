@@ -9,11 +9,14 @@ export class DocAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
+    subjectId?: number;
+
+    @Field(() => Float, {nullable:true})
     topicId?: number;
 
     @Field(() => Float, {nullable:true})
-    userId?: number;
+    subtopicId?: number;
 
     @Field(() => Float, {nullable:true})
-    subtopicId?: number;
+    userId?: number;
 }

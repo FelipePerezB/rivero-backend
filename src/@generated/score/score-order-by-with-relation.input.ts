@@ -30,7 +30,7 @@ export class ScoreOrderByWithRelationInput {
     updateAt?: SortOrderInput;
 
     @Field(() => UserOrderByWithRelationInput, {nullable:true})
-    user?: UserOrderByWithRelationInput;
+    User?: UserOrderByWithRelationInput;
 
     @Field(() => DocOrderByWithRelationInput, {nullable:true})
     document?: DocOrderByWithRelationInput;

@@ -12,8 +12,6 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User, Prisma } from '@prisma/client';
-import { UserUpdateInput } from 'src/@generated/user/user-update.input';
-import { UserCreateInput } from 'src/@generated/user/user-create.input';
 
 @Controller('users')
 export class UsersController {
@@ -29,14 +27,6 @@ export class UsersController {
   @Post()
   async signupUser(@Body() subjectData: Prisma.UserCreateInput): Promise<User> {
     return this.usersService.create(subjectData);
-  }
-  @HttpCode(HttpStatus.CREATED)
-  @Post('sendInvitation')
-  async sendInvitation(@Body() data: Prisma.UserCreateInput) {
-    // const res = await axios
-    const res = this.usersService.sendInvitation();
-    console.log(res);
-    return res;
   }
 
   @HttpCode(HttpStatus.OK)

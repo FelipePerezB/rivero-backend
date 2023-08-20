@@ -11,11 +11,11 @@ export class TopicMinAggregateInput {
     name?: true;
 
     @Field(() => Boolean, {nullable:true})
+    subjectId?: true;
+
+    @Field(() => Boolean, {nullable:true})
     createdAt?: true;
 
     @Field(() => Boolean, {nullable:true})
     updateAt?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    subjectId?: true;
 }

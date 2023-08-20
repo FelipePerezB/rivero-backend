@@ -17,11 +17,11 @@ export class TopicCreateInput {
     updateAt?: Date | string;
 
     @Field(() => SubjectCreateNestedOneWithoutTopicsInput, {nullable:true})
-    subject?: SubjectCreateNestedOneWithoutTopicsInput;
+    Subject?: SubjectCreateNestedOneWithoutTopicsInput;
 
     @Field(() => DocCreateNestedManyWithoutTopicInput, {nullable:true})
-    Doc?: DocCreateNestedManyWithoutTopicInput;
+    Docs?: DocCreateNestedManyWithoutTopicInput;
 
     @Field(() => SubtopicCreateNestedManyWithoutTopicInput, {nullable:true})
-    Subtopic?: SubtopicCreateNestedManyWithoutTopicInput;
+    Subtopics?: SubtopicCreateNestedManyWithoutTopicInput;
 }

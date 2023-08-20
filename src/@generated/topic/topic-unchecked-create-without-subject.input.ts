@@ -20,8 +20,8 @@ export class TopicUncheckedCreateWithoutSubjectInput {
     updateAt?: Date | string;
 
     @Field(() => DocUncheckedCreateNestedManyWithoutTopicInput, {nullable:true})
-    Doc?: DocUncheckedCreateNestedManyWithoutTopicInput;
+    Docs?: DocUncheckedCreateNestedManyWithoutTopicInput;
 
     @Field(() => SubtopicUncheckedCreateNestedManyWithoutTopicInput, {nullable:true})
-    Subtopic?: SubtopicUncheckedCreateNestedManyWithoutTopicInput;
+    Subtopics?: SubtopicUncheckedCreateNestedManyWithoutTopicInput;
 }

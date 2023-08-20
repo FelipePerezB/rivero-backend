@@ -1,11 +1,11 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
-import { EnumPrivacityWithAggregatesFilter } from '../prisma/enum-privacity-with-aggregates-filter.input';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
+import { EnumPrivacityWithAggregatesFilter } from '../prisma/enum-privacity-with-aggregates-filter.input';
 import { EnumDocTypesWithAggregatesFilter } from '../prisma/enum-doc-types-with-aggregates-filter.input';
-import { DateTimeNullableWithAggregatesFilter } from '../prisma/date-time-nullable-with-aggregates-filter.input';
 import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input';
+import { DateTimeNullableWithAggregatesFilter } from '../prisma/date-time-nullable-with-aggregates-filter.input';
 
 @InputType()
 export class DocScalarWhereWithAggregatesInput {
@@ -22,6 +22,9 @@ export class DocScalarWhereWithAggregatesInput {
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     id?: IntWithAggregatesFilter;
 
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    externalId?: StringWithAggregatesFilter;
+
     @Field(() => EnumPrivacityWithAggregatesFilter, {nullable:true})
     privacity?: EnumPrivacityWithAggregatesFilter;
 
@@ -35,7 +38,13 @@ export class DocScalarWhereWithAggregatesInput {
     content?: StringWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
+    subjectId?: IntWithAggregatesFilter;
+
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
     topicId?: IntWithAggregatesFilter;
+
+    @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
+    subtopicId?: IntNullableWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     userId?: IntWithAggregatesFilter;
@@ -45,7 +54,4 @@ export class DocScalarWhereWithAggregatesInput {
 
     @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
     updateAt?: DateTimeNullableWithAggregatesFilter;
-
-    @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
-    subtopicId?: IntNullableWithAggregatesFilter;
 }

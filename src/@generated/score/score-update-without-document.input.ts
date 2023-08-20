@@ -21,5 +21,5 @@ export class ScoreUpdateWithoutDocumentInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => UserUpdateOneRequiredWithoutScoreNestedInput, {nullable:true})
-    user?: UserUpdateOneRequiredWithoutScoreNestedInput;
+    User?: UserUpdateOneRequiredWithoutScoreNestedInput;
 }

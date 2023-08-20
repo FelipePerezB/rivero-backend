@@ -30,5 +30,5 @@ export class SchoolWhereUniqueInput {
     updateAt?: DateTimeNullableFilter;
 
     @Field(() => UserListRelationFilter, {nullable:true})
-    users?: UserListRelationFilter;
+    Users?: UserListRelationFilter;
 }

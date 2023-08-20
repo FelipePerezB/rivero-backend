@@ -21,5 +21,5 @@ export class SchoolUncheckedUpdateInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => UserUncheckedUpdateManyWithoutSchoolNestedInput, {nullable:true})
-    users?: UserUncheckedUpdateManyWithoutSchoolNestedInput;
+    Users?: UserUncheckedUpdateManyWithoutSchoolNestedInput;
 }

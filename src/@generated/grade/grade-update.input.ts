@@ -18,8 +18,8 @@ export class GradeUpdateInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => UserUpdateManyWithoutGradeNestedInput, {nullable:true})
-    users?: UserUpdateManyWithoutGradeNestedInput;
+    Users?: UserUpdateManyWithoutGradeNestedInput;
 
     @Field(() => GradesOnSchoolsUpdateManyWithoutGradeNestedInput, {nullable:true})
-    schools?: GradesOnSchoolsUpdateManyWithoutGradeNestedInput;
+    Schools?: GradesOnSchoolsUpdateManyWithoutGradeNestedInput;
 }

@@ -6,8 +6,8 @@ import { Int } from '@nestjs/graphql';
 export class GradeCount {
 
     @Field(() => Int, {nullable:false})
-    users?: number;
+    Users?: number;
 
     @Field(() => Int, {nullable:false})
-    schools?: number;
+    Schools?: number;
 }

@@ -20,8 +20,8 @@ export class GradeUncheckedCreateInput {
     updateAt?: Date | string;
 
     @Field(() => UserUncheckedCreateNestedManyWithoutGradeInput, {nullable:true})
-    users?: UserUncheckedCreateNestedManyWithoutGradeInput;
+    Users?: UserUncheckedCreateNestedManyWithoutGradeInput;
 
     @Field(() => GradesOnSchoolsUncheckedCreateNestedManyWithoutGradeInput, {nullable:true})
-    schools?: GradesOnSchoolsUncheckedCreateNestedManyWithoutGradeInput;
+    Schools?: GradesOnSchoolsUncheckedCreateNestedManyWithoutGradeInput;
 }

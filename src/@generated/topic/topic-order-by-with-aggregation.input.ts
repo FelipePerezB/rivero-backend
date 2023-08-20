@@ -18,13 +18,13 @@ export class TopicOrderByWithAggregationInput {
     name?: keyof typeof SortOrder;
 
     @Field(() => SortOrderInput, {nullable:true})
+    subjectId?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
     createdAt?: SortOrderInput;
 
     @Field(() => SortOrderInput, {nullable:true})
     updateAt?: SortOrderInput;
-
-    @Field(() => SortOrderInput, {nullable:true})
-    subjectId?: SortOrderInput;
 
     @Field(() => TopicCountOrderByAggregateInput, {nullable:true})
     _count?: TopicCountOrderByAggregateInput;

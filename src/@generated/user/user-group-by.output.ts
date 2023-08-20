@@ -23,9 +23,6 @@ export class UserGroupBy {
     @Field(() => String, {nullable:false})
     lastname!: string;
 
-    @Field(() => Int, {nullable:false})
-    stars!: number;
-
     @Field(() => String, {nullable:false})
     password!: string;
 

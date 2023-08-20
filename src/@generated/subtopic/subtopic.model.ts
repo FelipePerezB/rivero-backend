@@ -29,13 +29,13 @@ export class Subtopic {
     topicId!: number;
 
     @Field(() => Subject, {nullable:true})
-    subject?: Subject | null;
+    Subject?: Subject | null;
 
     @Field(() => Topic, {nullable:false})
     Topic?: Topic;
 
     @Field(() => [Doc], {nullable:true})
-    Doc?: Array<Doc>;
+    Docs?: Array<Doc>;
 
     @Field(() => SubtopicCount, {nullable:false})
     _count?: SubtopicCount;

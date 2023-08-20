@@ -20,5 +20,5 @@ export class SchoolOrderByWithRelationInput {
     updateAt?: SortOrderInput;
 
     @Field(() => UserOrderByRelationAggregateInput, {nullable:true})
-    users?: UserOrderByRelationAggregateInput;
+    Users?: UserOrderByRelationAggregateInput;
 }

@@ -16,23 +16,23 @@ export class Topic {
     @Field(() => String, {nullable:false})
     name!: string;
 
+    @Field(() => Int, {nullable:true})
+    subjectId!: number | null;
+
     @Field(() => Date, {nullable:true})
     createdAt!: Date | null;
 
     @Field(() => Date, {nullable:true})
     updateAt!: Date | null;
 
-    @Field(() => Int, {nullable:true})
-    subjectId!: number | null;
-
     @Field(() => Subject, {nullable:true})
-    subject?: Subject | null;
+    Subject?: Subject | null;
 
     @Field(() => [Doc], {nullable:true})
-    Doc?: Array<Doc>;
+    Docs?: Array<Doc>;
 
     @Field(() => [Subtopic], {nullable:true})
-    Subtopic?: Array<Subtopic>;
+    Subtopics?: Array<Subtopic>;
 
     @Field(() => TopicCount, {nullable:false})
     _count?: TopicCount;

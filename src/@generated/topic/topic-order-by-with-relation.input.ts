@@ -16,20 +16,20 @@ export class TopicOrderByWithRelationInput {
     name?: keyof typeof SortOrder;
 
     @Field(() => SortOrderInput, {nullable:true})
+    subjectId?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
     createdAt?: SortOrderInput;
 
     @Field(() => SortOrderInput, {nullable:true})
     updateAt?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    subjectId?: SortOrderInput;
-
     @Field(() => SubjectOrderByWithRelationInput, {nullable:true})
-    subject?: SubjectOrderByWithRelationInput;
+    Subject?: SubjectOrderByWithRelationInput;
 
     @Field(() => DocOrderByRelationAggregateInput, {nullable:true})
-    Doc?: DocOrderByRelationAggregateInput;
+    Docs?: DocOrderByRelationAggregateInput;
 
     @Field(() => SubtopicOrderByRelationAggregateInput, {nullable:true})
-    Subtopic?: SubtopicOrderByRelationAggregateInput;
+    Subtopics?: SubtopicOrderByRelationAggregateInput;
 }

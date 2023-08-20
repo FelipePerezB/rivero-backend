@@ -11,12 +11,12 @@ export class TopicMaxAggregate {
     @Field(() => String, {nullable:true})
     name?: string;
 
+    @Field(() => Int, {nullable:true})
+    subjectId?: number;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:true})
-    subjectId?: number;
 }

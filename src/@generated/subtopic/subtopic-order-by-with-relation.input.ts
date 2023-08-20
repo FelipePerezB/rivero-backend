@@ -28,11 +28,11 @@ export class SubtopicOrderByWithRelationInput {
     topicId?: keyof typeof SortOrder;
 
     @Field(() => SubjectOrderByWithRelationInput, {nullable:true})
-    subject?: SubjectOrderByWithRelationInput;
+    Subject?: SubjectOrderByWithRelationInput;
 
     @Field(() => TopicOrderByWithRelationInput, {nullable:true})
     Topic?: TopicOrderByWithRelationInput;
 
     @Field(() => DocOrderByRelationAggregateInput, {nullable:true})
-    Doc?: DocOrderByRelationAggregateInput;
+    Docs?: DocOrderByRelationAggregateInput;
 }

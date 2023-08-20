@@ -17,5 +17,5 @@ export class SchoolUpdateInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => UserUpdateManyWithoutSchoolNestedInput, {nullable:true})
-    users?: UserUpdateManyWithoutSchoolNestedInput;
+    Users?: UserUpdateManyWithoutSchoolNestedInput;
 }

@@ -23,9 +23,6 @@ export class UserOrderByWithRelationInput {
     lastname?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    stars?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     password?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
@@ -47,10 +44,10 @@ export class UserOrderByWithRelationInput {
     schoolId?: keyof typeof SortOrder;
 
     @Field(() => GradeOrderByWithRelationInput, {nullable:true})
-    grade?: GradeOrderByWithRelationInput;
+    Grade?: GradeOrderByWithRelationInput;
 
     @Field(() => SchoolOrderByWithRelationInput, {nullable:true})
-    school?: SchoolOrderByWithRelationInput;
+    School?: SchoolOrderByWithRelationInput;
 
     @Field(() => ScoreOrderByRelationAggregateInput, {nullable:true})
     Score?: ScoreOrderByRelationAggregateInput;

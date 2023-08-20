@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { SubjectUpdateWithoutDocsInput } from './subject-update-without-docs.input';
 import { Type } from 'class-transformer';
 import { SubjectCreateWithoutDocsInput } from './subject-create-without-docs.input';
+import { SubjectWhereInput } from './subject-where.input';
 
 @InputType()
 export class SubjectUpsertWithoutDocsInput {
@@ -14,4 +15,8 @@ export class SubjectUpsertWithoutDocsInput {
     @Field(() => SubjectCreateWithoutDocsInput, {nullable:false})
     @Type(() => SubjectCreateWithoutDocsInput)
     create!: SubjectCreateWithoutDocsInput;
+
+    @Field(() => SubjectWhereInput, {nullable:true})
+    @Type(() => SubjectWhereInput)
+    where?: SubjectWhereInput;
 }

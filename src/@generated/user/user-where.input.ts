@@ -33,9 +33,6 @@ export class UserWhereInput {
     @Field(() => StringFilter, {nullable:true})
     lastname?: StringFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    stars?: IntFilter;
-
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
 
@@ -58,10 +55,10 @@ export class UserWhereInput {
     schoolId?: IntFilter;
 
     @Field(() => GradeRelationFilter, {nullable:true})
-    grade?: GradeRelationFilter;
+    Grade?: GradeRelationFilter;
 
     @Field(() => SchoolRelationFilter, {nullable:true})
-    school?: SchoolRelationFilter;
+    School?: SchoolRelationFilter;
 
     @Field(() => ScoreListRelationFilter, {nullable:true})
     Score?: ScoreListRelationFilter;

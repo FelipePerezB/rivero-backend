@@ -1,22 +1,29 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
-import { UserCreateNestedOneWithoutDocInput } from '../user/user-create-nested-one-without-doc.input';
-import { TopicCreateNestedOneWithoutDocInput } from '../topic/topic-create-nested-one-without-doc.input';
-import { GradesOnDocsCreateNestedManyWithoutDocInput } from '../grades-on-docs/grades-on-docs-create-nested-many-without-doc.input';
+import { Privacity } from '../prisma/privacity.enum';
+import { DocTypes } from '../prisma/doc-types.enum';
 import { ScoreCreateNestedManyWithoutDocumentInput } from '../score/score-create-nested-many-without-document.input';
+import { TopicCreateNestedOneWithoutDocsInput } from '../topic/topic-create-nested-one-without-docs.input';
+import { SubtopicCreateNestedOneWithoutDocsInput } from '../subtopic/subtopic-create-nested-one-without-docs.input';
+import { UserCreateNestedOneWithoutDocInput } from '../user/user-create-nested-one-without-doc.input';
 
 @InputType()
 export class DocCreateWithoutSubjectInput {
 
     @Field(() => String, {nullable:false})
-    title!: string;
+    externalId!: string;
+
+    @Field(() => Privacity, {nullable:false})
+    privacity!: keyof typeof Privacity;
 
     @Field(() => String, {nullable:false})
-    type!: string;
+    title!: string;
 
-    @Field(() => GraphQLJSON, {nullable:false})
-    content!: any;
+    @Field(() => DocTypes, {nullable:false})
+    type!: keyof typeof DocTypes;
+
+    @Field(() => String, {nullable:false})
+    content!: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
@@ -24,15 +31,15 @@ export class DocCreateWithoutSubjectInput {
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
-    @Field(() => UserCreateNestedOneWithoutDocInput, {nullable:false})
-    author!: UserCreateNestedOneWithoutDocInput;
-
-    @Field(() => TopicCreateNestedOneWithoutDocInput, {nullable:false})
-    topic!: TopicCreateNestedOneWithoutDocInput;
-
-    @Field(() => GradesOnDocsCreateNestedManyWithoutDocInput, {nullable:true})
-    grades?: GradesOnDocsCreateNestedManyWithoutDocInput;
-
     @Field(() => ScoreCreateNestedManyWithoutDocumentInput, {nullable:true})
     Score?: ScoreCreateNestedManyWithoutDocumentInput;
+
+    @Field(() => TopicCreateNestedOneWithoutDocsInput, {nullable:false})
+    Topic!: TopicCreateNestedOneWithoutDocsInput;
+
+    @Field(() => SubtopicCreateNestedOneWithoutDocsInput, {nullable:true})
+    Subtopic?: SubtopicCreateNestedOneWithoutDocsInput;
+
+    @Field(() => UserCreateNestedOneWithoutDocInput, {nullable:false})
+    Author!: UserCreateNestedOneWithoutDocInput;
 }

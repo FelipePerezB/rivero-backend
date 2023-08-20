@@ -3,6 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Topic } from '../topic/topic.model';
 import { Subtopic } from '../subtopic/subtopic.model';
+import { Doc } from '../doc/doc.model';
 import { SubjectCount } from './subject-count.output';
 
 @ObjectType()
@@ -24,10 +25,13 @@ export class Subject {
     updateAt!: Date | null;
 
     @Field(() => [Topic], {nullable:true})
-    topics?: Array<Topic>;
+    Topics?: Array<Topic>;
 
     @Field(() => [Subtopic], {nullable:true})
     Subtopic?: Array<Subtopic>;
+
+    @Field(() => [Doc], {nullable:true})
+    Docs?: Array<Doc>;
 
     @Field(() => SubjectCount, {nullable:false})
     _count?: SubjectCount;

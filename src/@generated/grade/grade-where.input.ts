@@ -31,8 +31,8 @@ export class GradeWhereInput {
     updateAt?: DateTimeNullableFilter;
 
     @Field(() => UserListRelationFilter, {nullable:true})
-    users?: UserListRelationFilter;
+    Users?: UserListRelationFilter;
 
     @Field(() => GradesOnSchoolsListRelationFilter, {nullable:true})
-    schools?: GradesOnSchoolsListRelationFilter;
+    Schools?: GradesOnSchoolsListRelationFilter;
 }

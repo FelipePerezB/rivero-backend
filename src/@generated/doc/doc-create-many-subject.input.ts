@@ -1,7 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
+import { Privacity } from '../prisma/privacity.enum';
+import { DocTypes } from '../prisma/doc-types.enum';
 
 @InputType()
 export class DocCreateManySubjectInput {
@@ -10,23 +11,32 @@ export class DocCreateManySubjectInput {
     id?: number;
 
     @Field(() => String, {nullable:false})
-    title!: string;
+    externalId!: string;
+
+    @Field(() => Privacity, {nullable:false})
+    privacity!: keyof typeof Privacity;
 
     @Field(() => String, {nullable:false})
-    type!: string;
+    title!: string;
 
-    @Field(() => GraphQLJSON, {nullable:false})
-    content!: any;
+    @Field(() => DocTypes, {nullable:false})
+    type!: keyof typeof DocTypes;
+
+    @Field(() => String, {nullable:false})
+    content!: string;
+
+    @Field(() => Int, {nullable:false})
+    topicId!: number;
+
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
+
+    @Field(() => Int, {nullable:false})
+    userId!: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:false})
-    topicId!: number;
-
-    @Field(() => Int, {nullable:false})
-    userId!: number;
 }

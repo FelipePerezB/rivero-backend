@@ -15,6 +15,9 @@ export class DocGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
+    @Field(() => String, {nullable:false})
+    externalId!: string;
+
     @Field(() => Privacity, {nullable:false})
     privacity!: keyof typeof Privacity;
 
@@ -28,7 +31,13 @@ export class DocGroupBy {
     content!: string;
 
     @Field(() => Int, {nullable:false})
+    subjectId!: number;
+
+    @Field(() => Int, {nullable:false})
     topicId!: number;
+
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
 
     @Field(() => Int, {nullable:false})
     userId!: number;
@@ -38,9 +47,6 @@ export class DocGroupBy {
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
-
-    @Field(() => Int, {nullable:true})
-    subtopicId?: number;
 
     @Field(() => DocCountAggregate, {nullable:true})
     _count?: DocCountAggregate;

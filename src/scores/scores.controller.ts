@@ -12,8 +12,6 @@ import {
 } from '@nestjs/common';
 import { ScoresService } from './scores.service';
 import { Prisma, Score } from '@prisma/client';
-import { ScoreCreateInput } from 'src/@generated/score/score-create.input';
-import { ScoreUpdateInput } from 'src/@generated/score/score-update.input';
 
 @Controller('scores')
 export class ScoresController {
@@ -22,7 +20,7 @@ export class ScoresController {
   @HttpCode(HttpStatus.OK)
   @Get()
   findAll(): any {
-    return this.scoresService.findScores();
+    return this.scoresService.findAll({});
   }
 
   @HttpCode(HttpStatus.CREATED)

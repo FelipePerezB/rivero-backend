@@ -8,11 +8,14 @@ export class DocAvgAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    subjectId?: true;
+
+    @Field(() => Boolean, {nullable:true})
     topicId?: true;
 
     @Field(() => Boolean, {nullable:true})
-    userId?: true;
+    subtopicId?: true;
 
     @Field(() => Boolean, {nullable:true})
-    subtopicId?: true;
+    userId?: true;
 }

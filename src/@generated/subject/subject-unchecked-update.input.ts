@@ -5,6 +5,7 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { TopicUncheckedUpdateManyWithoutSubjectNestedInput } from '../topic/topic-unchecked-update-many-without-subject-nested.input';
 import { SubtopicUncheckedUpdateManyWithoutSubjectNestedInput } from '../subtopic/subtopic-unchecked-update-many-without-subject-nested.input';
+import { DocUncheckedUpdateManyWithoutSubjectNestedInput } from '../doc/doc-unchecked-update-many-without-subject-nested.input';
 
 @InputType()
 export class SubjectUncheckedUpdateInput {
@@ -25,8 +26,11 @@ export class SubjectUncheckedUpdateInput {
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => TopicUncheckedUpdateManyWithoutSubjectNestedInput, {nullable:true})
-    topics?: TopicUncheckedUpdateManyWithoutSubjectNestedInput;
+    Topics?: TopicUncheckedUpdateManyWithoutSubjectNestedInput;
 
     @Field(() => SubtopicUncheckedUpdateManyWithoutSubjectNestedInput, {nullable:true})
     Subtopic?: SubtopicUncheckedUpdateManyWithoutSubjectNestedInput;
+
+    @Field(() => DocUncheckedUpdateManyWithoutSubjectNestedInput, {nullable:true})
+    Docs?: DocUncheckedUpdateManyWithoutSubjectNestedInput;
 }

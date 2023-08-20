@@ -20,66 +20,66 @@ export class ScoresService {
     });
   }
 
-  async groupBySubject(gradeId: number, schoolId: number) {
-    const data = await this.prisma.score.findMany({
-      where: {
-        user: {
-          gradeId,
-          schoolId,
-        },
-      },
-      select: {
-        docId: true,
-        userId: true,
-        score: true,
-      },
-    });
-    return data;
-  }
+  // async groupBySubject(gradeId: number, schoolId: number) {
+  //   const data = await this.prisma.score.findMany({
+  //     where: {
+  //       user: {
+  //         gradeId,
+  //         schoolId,
+  //       },
+  //     },
+  //     select: {
+  //       docId: true,
+  //       userId: true,
+  //       score: true,
+  //     },
+  //   });
+  //   return data;
+  // }
 
-  async findScores() {
-    const data = await this.prisma.topic.findMany({
-      where: {
-        name: {
-          startsWith: 'Ensayo',
-        },
-      },
-      select: {
-        subject: {
-          select: {
-            id: true,
-            name: true,
-            color: true,
-          },
-        },
-        Doc: {
-          select: {
-            title: true,
-            id: true,
-            Score: {
-              select: {
-                score: true,
-                userId: true,
-              },
-            },
-          },
-        },
-      },
-    });
-    const res = {};
-    data.forEach(({ subject, Doc }) => {
-      const docs = {};
-      Doc.forEach((doc) => {
-        const scores = {};
-        doc.Score.forEach(({ score, userId }) => {
-          scores[userId] = score ?? {};
-        });
-        docs[doc.title] = { ...scores } ?? {};
-      });
-      res[subject?.name] = { docs: docs, color: subject.color } ?? {};
-    });
-    return res;
-  }
+  // async findScores() {
+  //   const data = await this.prisma.topic.findMany({
+  //     where: {
+  //       name: {
+  //         startsWith: 'Ensayo',
+  //       },
+  //     },
+  //     select: {
+  //       subject: {
+  //         select: {
+  //           id: true,
+  //           name: true,
+  //           color: true,
+  //         },
+  //       },
+  //       Doc: {
+  //         select: {
+  //           title: true,
+  //           id: true,
+  //           Score: {
+  //             select: {
+  //               score: true,
+  //               userId: true,
+  //             },
+  //           },
+  //         },
+  //       },
+  //     },
+  //   });
+  //   const res = {};
+  //   data.forEach(({ , Docs }) => {
+  //     const docs = {};
+  //     Doc.forEach((doc) => {
+  //       const scores = {};
+  //       doc.Score.forEach(({ score, userId }) => {
+  //         scores[userId] = score ?? {};
+  //       });
+  //       docs[doc.title] = { ...scores } ?? {};
+  //     });
+  //     res[subject?.name] = { docs: docs, color: subject.color } ?? {};
+  //   });
+  //   return res;
+  // }
 
   findAll(params: { where?: Prisma.ScoreWhereInput }): Promise<Score[]> {
     const { where } = params;

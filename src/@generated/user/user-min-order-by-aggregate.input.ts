@@ -18,9 +18,6 @@ export class UserMinOrderByAggregateInput {
     lastname?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    stars?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     password?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
