@@ -34,7 +34,6 @@ export class TopicsService {
 
   findByGradeAndSubject({
     subjectId,
-    gradeId,
   }: {
     subjectId: number;
     gradeId: number;
