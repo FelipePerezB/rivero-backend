@@ -34,9 +34,9 @@ export class UsersController {
   @Post('sendInvitation')
   async sendInvitation(@Body() data: Prisma.UserCreateInput) {
     // const res = await axios
-    const res =  this.usersService.sendInvitation();
-    console.log(res)
-    return res
+    const res = this.usersService.sendInvitation();
+    console.log(res);
+    return res;
   }
 
   @HttpCode(HttpStatus.OK)
