@@ -23,7 +23,7 @@
     "migration:generate": "pnpm run typeorm migration:generate -d src/database/dataSource.ts",
     "migration:run": "pnpm run typeorm migration:run -d src/database/dataSource.ts",
     "migration:revert": "pnpm run typeorm migration:revert -d src/database/dataSource.ts",
-    "seed": "ts-node --transpile-only prisma/seed.ts"
+    "seed": "ts-node --transpile-only prisma/seed.ts --reset"
   },
   "dependencies": {
     "@apollo/server": "^4.3.2",

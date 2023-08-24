@@ -78,7 +78,7 @@ async function main() {
     update: {},
     create: {
       name: 'álgebra',
-      subjectId: 1,
+      subjectId: 2,
     },
   });
 
@@ -87,7 +87,7 @@ async function main() {
     update: {},
     create: {
       name: 'geometria',
-      subjectId: 1,
+      subjectId: 2,
     },
   });
 
@@ -96,7 +96,7 @@ async function main() {
     update: {},
     create: {
       name: 'ecuaciones',
-      subjectId: 1,
+      subjectId: 2,
       topicId: 1,
     },
   });
@@ -106,7 +106,7 @@ async function main() {
     update: {},
     create: {
       name: 'productos notables',
-      subjectId: 1,
+      subjectId: 2,
       topicId: 1,
     },
   });
