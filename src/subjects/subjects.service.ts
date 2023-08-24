@@ -16,9 +16,48 @@ export class SubjectsService {
     return this.prisma.subject.findMany({
       where,
       include: {
-        _count: true,
+        _count: {
+          select: {
+            Docs: true,
+          },
+        },
         Topics: {
-          include: {
+          select: {
+            name: true,
+          },
+          // include: {
+          // s
+          // Subtopics: {
+          //   include: {
+          //     Docs: {
+          //       select: {
+          //         title: true,
+          //         id: true,
+          //       },
+          //     },
+          //   },
+          // },
+          // _count: {
+          //   select: {
+          //     Docs: true,
+          //   },
+          // },
+          // },
+        },
+      },
+    });
+  }
+
+  findOne(
+    subjectWhereUniqueInput: Prisma.SubjectWhereUniqueInput,
+  ): Promise<Subject | null> {
+    return this.prisma.subject.findUnique({
+      where: subjectWhereUniqueInput,
+      include: {
+        Topics: {
+          select: {
+            id: true,
+            name: true,
             Subtopics: {
               include: {
                 Docs: {
@@ -37,14 +76,6 @@ export class SubjectsService {
           },
         },
       },
-    });
-  }
-
-  findOne(
-    subjectWhereUniqueInput: Prisma.SubjectWhereUniqueInput,
-  ): Promise<Subject | null> {
-    return this.prisma.subject.findUnique({
-      where: subjectWhereUniqueInput,
     });
   }
 
