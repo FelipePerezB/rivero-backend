@@ -7,7 +7,7 @@ import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-d
 export class GradeUpdateManyMutationInput {
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    grade?: StringFieldUpdateOperationsInput;
+    name?: StringFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;

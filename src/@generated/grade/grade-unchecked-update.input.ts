@@ -4,7 +4,6 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { UserUncheckedUpdateManyWithoutGradeNestedInput } from '../user/user-unchecked-update-many-without-grade-nested.input';
-import { GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput } from '../grades-on-schools/grades-on-schools-unchecked-update-many-without-grade-nested.input';
 
 @InputType()
 export class GradeUncheckedUpdateInput {
@@ -13,7 +12,7 @@ export class GradeUncheckedUpdateInput {
     id?: IntFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    grade?: StringFieldUpdateOperationsInput;
+    name?: StringFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;
@@ -21,9 +20,9 @@ export class GradeUncheckedUpdateInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    schoolId?: IntFieldUpdateOperationsInput;
+
     @Field(() => UserUncheckedUpdateManyWithoutGradeNestedInput, {nullable:true})
     Users?: UserUncheckedUpdateManyWithoutGradeNestedInput;
-
-    @Field(() => GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput, {nullable:true})
-    Schools?: GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput;
 }

@@ -9,11 +9,14 @@ export class GradeMaxAggregate {
     id?: number;
 
     @Field(() => String, {nullable:true})
-    grade?: string;
+    name?: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
+
+    @Field(() => Int, {nullable:true})
+    schoolId?: number;
 }

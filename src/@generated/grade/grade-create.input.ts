@@ -1,13 +1,13 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { UserCreateNestedManyWithoutGradeInput } from '../user/user-create-nested-many-without-grade.input';
-import { GradesOnSchoolsCreateNestedManyWithoutGradeInput } from '../grades-on-schools/grades-on-schools-create-nested-many-without-grade.input';
+import { SchoolCreateNestedOneWithoutGradesInput } from '../school/school-create-nested-one-without-grades.input';
 
 @InputType()
 export class GradeCreateInput {
 
     @Field(() => String, {nullable:false})
-    grade!: string;
+    name!: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
@@ -18,6 +18,6 @@ export class GradeCreateInput {
     @Field(() => UserCreateNestedManyWithoutGradeInput, {nullable:true})
     Users?: UserCreateNestedManyWithoutGradeInput;
 
-    @Field(() => GradesOnSchoolsCreateNestedManyWithoutGradeInput, {nullable:true})
-    Schools?: GradesOnSchoolsCreateNestedManyWithoutGradeInput;
+    @Field(() => SchoolCreateNestedOneWithoutGradesInput, {nullable:false})
+    School!: SchoolCreateNestedOneWithoutGradesInput;
 }

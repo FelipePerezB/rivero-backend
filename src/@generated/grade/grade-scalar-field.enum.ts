@@ -2,9 +2,10 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum GradeScalarFieldEnum {
     id = "id",
-    grade = "grade",
+    name = "name",
     createdAt = "createdAt",
-    updateAt = "updateAt"
+    updateAt = "updateAt",
+    schoolId = "schoolId"
 }
 
 

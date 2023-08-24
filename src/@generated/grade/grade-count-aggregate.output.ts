@@ -9,13 +9,16 @@ export class GradeCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
-    grade!: number;
+    name!: number;
 
     @Field(() => Int, {nullable:false})
     createdAt!: number;
 
     @Field(() => Int, {nullable:false})
     updateAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    schoolId!: number;
 
     @Field(() => Int, {nullable:false})
     _all!: number;

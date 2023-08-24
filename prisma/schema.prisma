@@ -55,7 +55,7 @@ enum DocTypes {
 
 model Doc {
   id         Int       @id @default(autoincrement())
-  externalId String       @unique
+  externalId String    @unique
   privacity  Privacity
   title      String
   type       DocTypes
@@ -86,12 +86,13 @@ model Score {
 }
 
 model Grade {
-  id        Int               @id @default(autoincrement())
-  grade     String            @unique
+  id        Int       @id @default(autoincrement())
+  name     String
   Users     User[]
-  Schools   GradesOnSchools[]
-  createdAt DateTime?         @default(now())
-  updateAt  DateTime?         @updatedAt
+  School   School    @relation(fields: [schoolId], references: [id])
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
+  schoolId  Int
 }
 
 model Subject {
@@ -134,14 +135,5 @@ model School {
   Users     User[]
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
-}
-
-model GradesOnSchools {
-  Grade     Grade     @relation(fields: [gradeId], references: [id])
-  gradeId   Int
-  schoolId  Int
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @updatedAt
-
-  @@id([gradeId, schoolId])
+  Grades     Grade[]
 }

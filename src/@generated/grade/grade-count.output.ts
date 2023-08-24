@@ -7,7 +7,4 @@ export class GradeCount {
 
     @Field(() => Int, {nullable:false})
     Users?: number;
-
-    @Field(() => Int, {nullable:false})
-    Schools?: number;
 }

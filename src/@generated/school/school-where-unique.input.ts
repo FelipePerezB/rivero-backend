@@ -4,6 +4,7 @@ import { Int } from '@nestjs/graphql';
 import { SchoolWhereInput } from './school-where.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { UserListRelationFilter } from '../user/user-list-relation-filter.input';
+import { GradeListRelationFilter } from '../grade/grade-list-relation-filter.input';
 
 @InputType()
 export class SchoolWhereUniqueInput {
@@ -31,4 +32,7 @@ export class SchoolWhereUniqueInput {
 
     @Field(() => UserListRelationFilter, {nullable:true})
     Users?: UserListRelationFilter;
+
+    @Field(() => GradeListRelationFilter, {nullable:true})
+    Grades?: GradeListRelationFilter;
 }

@@ -7,4 +7,7 @@ export class GradeSumAggregate {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => Int, {nullable:true})
+    schoolId?: number;
 }

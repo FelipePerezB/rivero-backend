@@ -20,11 +20,14 @@ export class GradeScalarWhereWithAggregatesInput {
     id?: IntWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
-    grade?: StringWithAggregatesFilter;
+    name?: StringWithAggregatesFilter;
 
     @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
     createdAt?: DateTimeNullableWithAggregatesFilter;
 
     @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
     updateAt?: DateTimeNullableWithAggregatesFilter;
+
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    schoolId?: IntWithAggregatesFilter;
 }

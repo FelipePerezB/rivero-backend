@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
+import { GradeUpdateManyWithoutSchoolNestedInput } from '../grade/grade-update-many-without-school-nested.input';
 
 @InputType()
 export class SchoolUpdateWithoutUsersInput {
@@ -14,4 +15,7 @@ export class SchoolUpdateWithoutUsersInput {
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
+
+    @Field(() => GradeUpdateManyWithoutSchoolNestedInput, {nullable:true})
+    Grades?: GradeUpdateManyWithoutSchoolNestedInput;
 }

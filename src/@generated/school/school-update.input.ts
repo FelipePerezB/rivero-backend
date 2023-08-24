@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { UserUpdateManyWithoutSchoolNestedInput } from '../user/user-update-many-without-school-nested.input';
+import { GradeUpdateManyWithoutSchoolNestedInput } from '../grade/grade-update-many-without-school-nested.input';
 
 @InputType()
 export class SchoolUpdateInput {
@@ -18,4 +19,7 @@ export class SchoolUpdateInput {
 
     @Field(() => UserUpdateManyWithoutSchoolNestedInput, {nullable:true})
     Users?: UserUpdateManyWithoutSchoolNestedInput;
+
+    @Field(() => GradeUpdateManyWithoutSchoolNestedInput, {nullable:true})
+    Grades?: GradeUpdateManyWithoutSchoolNestedInput;
 }

@@ -9,11 +9,14 @@ export class GradeMinOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    grade?: keyof typeof SortOrder;
+    name?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     updateAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    schoolId?: keyof typeof SortOrder;
 }

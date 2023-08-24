@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { User } from '../user/user.model';
+import { Grade } from '../grade/grade.model';
 import { SchoolCount } from './school-count.output';
 
 @ObjectType()
@@ -21,6 +22,9 @@ export class School {
 
     @Field(() => [User], {nullable:true})
     Users?: Array<User>;
+
+    @Field(() => [Grade], {nullable:true})
+    Grades?: Array<Grade>;
 
     @Field(() => SchoolCount, {nullable:false})
     _count?: SchoolCount;

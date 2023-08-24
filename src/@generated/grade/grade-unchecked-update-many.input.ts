@@ -11,11 +11,14 @@ export class GradeUncheckedUpdateManyInput {
     id?: IntFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    grade?: StringFieldUpdateOperationsInput;
+    name?: StringFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
+
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    schoolId?: IntFieldUpdateOperationsInput;
 }

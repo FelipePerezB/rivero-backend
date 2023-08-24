@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { GradeCreateNestedManyWithoutSchoolInput } from '../grade/grade-create-nested-many-without-school.input';
 
 @InputType()
 export class SchoolCreateWithoutUsersInput {
@@ -12,4 +13,7 @@ export class SchoolCreateWithoutUsersInput {
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
+
+    @Field(() => GradeCreateNestedManyWithoutSchoolInput, {nullable:true})
+    Grades?: GradeCreateNestedManyWithoutSchoolInput;
 }

@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 const encrypt = async (password: string) => await bcrypt.hash(password, 10);
 async function main() {
   await prisma.school.upsert({
-    where: { name: 'Colegio Pucón' },
+    where: { id: 1 },
     update: {},
     create: {
       name: 'Colegio Pucón',
@@ -20,88 +20,92 @@ async function main() {
   });
 
   await prisma.grade.upsert({
-    where: { grade: '4° Medio' },
+    where: { id: 1 },
     update: {},
     create: {
-      grade: '4° Medio',
+      schoolId: 1,
+      name: '1° Medio',
     },
   });
 
   await prisma.grade.upsert({
-    where: { grade: '3° Medio' },
+    where: { id: 2 },
     update: {},
     create: {
-      grade: '3° Medio',
+      schoolId: 1,
+      name: '2° Medio',
     },
   });
 
   await prisma.grade.upsert({
-    where: { grade: '2° Medio' },
+    where: { id: 3 },
     update: {},
     create: {
-      grade: '2° Medio',
+      schoolId: 1,
+      name: '3° Medio',
     },
   });
 
   await prisma.grade.upsert({
-    where: { grade: '1° Medio' },
+    where: { id: 4 },
     update: {},
     create: {
-      grade: '1° Medio',
+      schoolId: 1,
+      name: '4° Medio',
     },
   });
 
   await prisma.subject.upsert({
-    where: { name: 'Lenguaje' },
+    where: { name: 'lenguaje' },
     update: {},
     create: {
-      name: 'Lenguaje',
+      name: 'lenguaje',
       color: '#46d37e',
     },
   });
 
   await prisma.subject.upsert({
-    where: { name: 'Matemática' },
+    where: { name: 'matemática' },
     update: {},
     create: {
-      name: 'Matemática',
+      name: 'matemática',
       color: '#e86675',
     },
   });
 
   await prisma.topic.upsert({
-    where: { name: 'Álgebra' },
+    where: { name: 'álgebra' },
     update: {},
     create: {
-      name: 'Álgebra',
+      name: 'álgebra',
       subjectId: 1,
     },
   });
 
   await prisma.topic.upsert({
-    where: { name: 'Geometria' },
+    where: { name: 'geometria' },
     update: {},
     create: {
-      name: 'Geometria',
+      name: 'geometria',
       subjectId: 1,
     },
   });
 
   await prisma.subtopic.upsert({
-    where: { name: 'Ecuaciones' },
+    where: { name: 'ecuaciones' },
     update: {},
     create: {
-      name: 'Ecuaciones',
+      name: 'ecuaciones',
       subjectId: 1,
       topicId: 1,
     },
   });
 
   await prisma.subtopic.upsert({
-    where: { name: 'Productos notables' },
+    where: { name: 'productos notables' },
     update: {},
     create: {
-      name: 'Productos notables',
+      name: 'productos notables',
       subjectId: 1,
       topicId: 1,
     },
@@ -154,7 +158,7 @@ async function main() {
     where: { id: 1 },
     update: {},
     create: {
-      externalId: 'gHQW78Y/WQ',
+      externalId: 'gHQW78YwuwjWQ',
       privacity: 'PRIVATE',
       content: JSON.stringify({
         type: 'doc',
@@ -180,21 +184,21 @@ async function main() {
           ],
         },
       }),
-      title: 'ENSAYO N°2',
-      type: 'EVALUATION',
+      title: 'Productos notables',
+      type: 'NOTES',
       Topic: {
         connect: {
-          name: 'Álgebra',
+          name: 'álgebra',
         },
       },
       Subtopic: {
         connect: {
-          name: 'Ecuaciones',
+          name: 'ecuaciones',
         },
       },
       Subject: {
         connect: {
-          name: 'Matemática',
+          name: 'matemática',
         },
       },
       Author: {
@@ -235,21 +239,21 @@ async function main() {
           ],
         },
       }),
-      title: 'ENSAYO N°2',
-      type: 'EVALUATION',
+      title: 'Sistema de ecuaciones',
+      type: 'NOTES',
       Topic: {
         connect: {
-          name: 'Álgebra',
+          name: 'álgebra',
         },
       },
       Subtopic: {
         connect: {
-          name: 'Ecuaciones',
+          name: 'ecuaciones',
         },
       },
       Subject: {
         connect: {
-          name: 'Matemática',
+          name: 'matemática',
         },
       },
       Author: {

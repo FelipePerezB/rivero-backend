@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput } from '../grades-on-schools/grades-on-schools-unchecked-update-many-without-grade-nested.input';
 
 @InputType()
 export class GradeUncheckedUpdateWithoutUsersInput {
@@ -12,7 +11,7 @@ export class GradeUncheckedUpdateWithoutUsersInput {
     id?: IntFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    grade?: StringFieldUpdateOperationsInput;
+    name?: StringFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;
@@ -20,6 +19,6 @@ export class GradeUncheckedUpdateWithoutUsersInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
-    @Field(() => GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput, {nullable:true})
-    Schools?: GradesOnSchoolsUncheckedUpdateManyWithoutGradeNestedInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    schoolId?: IntFieldUpdateOperationsInput;
 }

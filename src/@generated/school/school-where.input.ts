@@ -4,6 +4,7 @@ import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { UserListRelationFilter } from '../user/user-list-relation-filter.input';
+import { GradeListRelationFilter } from '../grade/grade-list-relation-filter.input';
 
 @InputType()
 export class SchoolWhereInput {
@@ -31,4 +32,7 @@ export class SchoolWhereInput {
 
     @Field(() => UserListRelationFilter, {nullable:true})
     Users?: UserListRelationFilter;
+
+    @Field(() => GradeListRelationFilter, {nullable:true})
+    Grades?: GradeListRelationFilter;
 }

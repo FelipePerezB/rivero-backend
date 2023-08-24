@@ -9,11 +9,14 @@ export class GradeCreateManyInput {
     id?: number;
 
     @Field(() => String, {nullable:false})
-    grade!: string;
+    name!: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
+
+    @Field(() => Int, {nullable:false})
+    schoolId!: number;
 }

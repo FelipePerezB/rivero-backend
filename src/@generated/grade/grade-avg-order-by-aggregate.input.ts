@@ -7,4 +7,7 @@ export class GradeAvgOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
     id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    schoolId?: keyof typeof SortOrder;
 }

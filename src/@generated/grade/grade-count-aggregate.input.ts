@@ -8,13 +8,16 @@ export class GradeCountAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    grade?: true;
+    name?: true;
 
     @Field(() => Boolean, {nullable:true})
     createdAt?: true;
 
     @Field(() => Boolean, {nullable:true})
     updateAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    schoolId?: true;
 
     @Field(() => Boolean, {nullable:true})
     _all?: true;

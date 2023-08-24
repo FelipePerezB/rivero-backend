@@ -15,13 +15,16 @@ export class GradeOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    grade?: keyof typeof SortOrder;
+    name?: keyof typeof SortOrder;
 
     @Field(() => SortOrderInput, {nullable:true})
     createdAt?: SortOrderInput;
 
     @Field(() => SortOrderInput, {nullable:true})
     updateAt?: SortOrderInput;
+
+    @Field(() => SortOrder, {nullable:true})
+    schoolId?: keyof typeof SortOrder;
 
     @Field(() => GradeCountOrderByAggregateInput, {nullable:true})
     _count?: GradeCountOrderByAggregateInput;
