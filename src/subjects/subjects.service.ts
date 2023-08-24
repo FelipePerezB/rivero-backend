@@ -17,7 +17,25 @@ export class SubjectsService {
       where,
       include: {
         _count: true,
-        Topics: true,
+        Topics: {
+          include: {
+            Subtopics: {
+              include: {
+                Docs: {
+                  select: {
+                    title: true,
+                    id: true,
+                  },
+                },
+              },
+            },
+            _count: {
+              select: {
+                Docs: true,
+              },
+            },
+          },
+        },
       },
     });
   }
