@@ -64,12 +64,12 @@ export class DocsService {
     });
   }
 
-  findOne(
-    docWhereUniqueInput: Prisma.DocWhereUniqueInput,
-  ): Promise<Doc | null> {
+  findOne(where?: Prisma.DocWhereUniqueInput): Promise<Doc | null> {
     return this.prisma.doc.findUnique({
-      where: docWhereUniqueInput,
+      where,
       include: {
+        Subtopic: true,
+        Subject: true,
         Topic: true,
       },
     });

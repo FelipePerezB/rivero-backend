@@ -5,6 +5,7 @@ import { DocCreateInput } from '../@generated/doc/doc-create.input';
 import { DocUpdateInput } from '../@generated/doc/doc-update.input';
 import { Prisma } from '@prisma/client';
 import { DocWhereInput } from '../@generated/doc/doc-where.input';
+import { DocWhereUniqueInput } from 'src/@generated/doc/doc-where-unique.input';
 
 @Resolver(() => Doc)
 export class DocsResolver {
@@ -21,8 +22,8 @@ export class DocsResolver {
   }
 
   @Query(() => Doc, { name: 'doc' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.docsService.findOne({ id });
+  findOne(@Args('where') where?: DocWhereUniqueInput) {
+    return this.docsService.findOne(where as Prisma.DocWhereUniqueInput);
   }
 
   @Mutation(() => Doc)
