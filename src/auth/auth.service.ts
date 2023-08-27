@@ -1,4 +1,9 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  HttpServer,
+  Inject,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 // import { UsersService } from '../users/users.service';
@@ -6,11 +11,19 @@ import { JwtService } from '@nestjs/jwt';
 // import { User } from 'src/user-entities/users/user.entity';
 import { UsersService } from 'src/users/users.service';
 import { PayloadToken } from './auth.model';
+import { HttpService } from '@nestjs/axios';
+import { AxiosResponse } from 'axios';
+import { ConfigService, ConfigType } from '@nestjs/config';
+import config from 'src/config';
+
 @Injectable()
 export class AuthService {
   constructor(
+    @Inject(config.KEY)
+    private configService: ConfigType<typeof config>,
     private usersService: UsersService,
     private jwtService: JwtService,
+    private readonly httpService: HttpService,
   ) {}
 
   async validateUser(email: string, password: string) {
@@ -22,6 +35,40 @@ export class AuthService {
     // return this.genereateJWT(user);
   }
 
+  async sendInvitation({
+    email,
+    gradeId,
+    schoolId,
+    role
+  }: {
+    email: string;
+    gradeId?: string | number;
+    schoolId: string | number;
+    role: "ADMIN" | "TEACHER" | "STUDENT"
+  }): Promise<AxiosResponse<any>> {
+    const clerkApiKey = this.configService.clerk.api_key_backend
+    const { data, status } = await this.httpService.axiosRef.post(
+      'https://api.clerk.com/v1/invitations',
+      {
+        email_address: email,
+        redirect_url: 'https://rivero.vercel.app/sign-up',
+        public_metadata: {
+          role,
+          schoolId,
+          gradeId,
+        },
+      },
+      {
+        headers: {
+          Authorization:
+          `Bearer ${clerkApiKey}`,
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    return data;
+  }
+  
   genereateJWT(user: any) {
     const payload: PayloadToken = {
       role: user.role,
