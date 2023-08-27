@@ -64,6 +64,7 @@ export class SubjectsService {
                   select: {
                     title: true,
                     id: true,
+                    externalId: true,
                   },
                 },
               },
