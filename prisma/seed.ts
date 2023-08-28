@@ -1,7 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import * as bcrypt from 'bcrypt';
 const prisma = new PrismaClient();
-const encrypt = async (password: string) => await bcrypt.hash(password, 10);
 async function main() {
   await prisma.school.upsert({
     where: { id: 1 },
@@ -115,12 +113,10 @@ async function main() {
     where: { email: 'felipe@prisma.io' },
     update: {},
     create: {
+      externalId: 'hequeqdbqwqd',
       email: 'felipe@prisma.io',
-      name: 'Felipe',
-      lastname: 'admin',
-      nickname: 'adminsito',
+      username: 'Felipe',
       gradeId: 1,
-      password: await encrypt('admin123'),
       role: 'ADMIN',
       schoolId: 1,
     },
@@ -130,11 +126,9 @@ async function main() {
     update: {},
     create: {
       email: 'martin@prisma.io',
-      name: 'Felipe',
-      lastname: 'admin',
-      nickname: 'adminsito',
+      username: 'Felipe',
+      externalId: '821uqwunwsqsiw',
       gradeId: 1,
-      password: await encrypt('admin123'),
       role: 'ADMIN',
       schoolId: 1,
     },
@@ -143,12 +137,11 @@ async function main() {
     where: { email: 'alicia@prisma.io' },
     update: {},
     create: {
+      externalId: 'wenjdnkj',
       email: 'alicia@prisma.io',
-      name: 'Felipe',
-      lastname: 'admin',
-      nickname: 'adminsito',
+      username: 'Felipe',
       gradeId: 1,
-      password: await encrypt('admin123'),
+
       role: 'ADMIN',
       schoolId: 1,
     },

@@ -21,32 +21,26 @@ export class UserScalarWhereWithAggregatesInput {
     id?: IntWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
+    externalId?: StringWithAggregatesFilter;
+
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
     email?: StringWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
-    name?: StringWithAggregatesFilter;
-
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    lastname?: StringWithAggregatesFilter;
-
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    password?: StringWithAggregatesFilter;
+    username?: StringWithAggregatesFilter;
 
     @Field(() => EnumRoleWithAggregatesFilter, {nullable:true})
     role?: EnumRoleWithAggregatesFilter;
-
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    nickname?: StringWithAggregatesFilter;
-
-    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
-    createdAt?: DateTimeNullableWithAggregatesFilter;
-
-    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
-    updateAt?: DateTimeNullableWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     gradeId?: IntWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     schoolId?: IntWithAggregatesFilter;
+
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeNullableWithAggregatesFilter;
+
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    updateAt?: DateTimeNullableWithAggregatesFilter;
 }

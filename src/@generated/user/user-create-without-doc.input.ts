@@ -9,22 +9,16 @@ import { ScoreCreateNestedManyWithoutUserInput } from '../score/score-create-nes
 export class UserCreateWithoutDocInput {
 
     @Field(() => String, {nullable:false})
+    externalId!: string;
+
+    @Field(() => String, {nullable:false})
     email!: string;
 
     @Field(() => String, {nullable:false})
-    name!: string;
-
-    @Field(() => String, {nullable:false})
-    lastname!: string;
-
-    @Field(() => String, {nullable:false})
-    password!: string;
+    username!: string;
 
     @Field(() => Role, {nullable:false})
     role!: keyof typeof Role;
-
-    @Field(() => String, {nullable:false})
-    nickname!: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

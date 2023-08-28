@@ -15,34 +15,28 @@ export class UserOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    externalId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     email?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    lastname?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    password?: keyof typeof SortOrder;
+    username?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     role?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    nickname?: keyof typeof SortOrder;
-
-    @Field(() => SortOrderInput, {nullable:true})
-    createdAt?: SortOrderInput;
-
-    @Field(() => SortOrderInput, {nullable:true})
-    updateAt?: SortOrderInput;
 
     @Field(() => SortOrder, {nullable:true})
     gradeId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     schoolId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    createdAt?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    updateAt?: SortOrderInput;
 
     @Field(() => UserCountOrderByAggregateInput, {nullable:true})
     _count?: UserCountOrderByAggregateInput;

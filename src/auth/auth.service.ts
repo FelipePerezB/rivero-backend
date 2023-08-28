@@ -1,10 +1,4 @@
-import {
-  HttpServer,
-  Inject,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
+import { Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 // import { UsersService } from '../users/users.service';
 // import { PayloadToken } from './auth.model';
@@ -13,7 +7,7 @@ import { UsersService } from 'src/users/users.service';
 import { PayloadToken } from './auth.model';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
-import { ConfigService, ConfigType } from '@nestjs/config';
+import { ConfigType } from '@nestjs/config';
 import config from 'src/config';
 
 @Injectable()
@@ -26,28 +20,28 @@ export class AuthService {
     private readonly httpService: HttpService,
   ) {}
 
-  async validateUser(email: string, password: string) {
-    const user = await this.usersService.findByEmail(email);
-    if (!user) throw new UnauthorizedException('Not allow');
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return null;
-    return user;
-    // return this.genereateJWT(user);
-  }
+  // async validateUser(email: string, password: string) {
+  //   const user = await this.usersService.findByEmail(email);
+  //   if (!user) throw new UnauthorizedException('Not allow');
+  //   const isMatch = await bcrypt.compare(password, user.password);
+  //   if (!isMatch) return null;
+  //   return user;
+  //   // return this.genereateJWT(user);
+  // }
 
   async sendInvitation({
     email,
     gradeId,
     schoolId,
-    role
+    role,
   }: {
     email: string;
     gradeId?: string | number;
     schoolId: string | number;
-    role: "ADMIN" | "TEACHER" | "STUDENT"
+    role: 'ADMIN' | 'TEACHER' | 'STUDENT';
   }): Promise<AxiosResponse<any>> {
-    const clerkApiKey = this.configService.clerk.api_key_backend
-    const { data, status } = await this.httpService.axiosRef.post(
+    const clerkApiKey = this.configService.clerk.api_key_backend;
+    const { data } = await this.httpService.axiosRef.post(
       'https://api.clerk.com/v1/invitations',
       {
         email_address: email,
@@ -60,15 +54,14 @@ export class AuthService {
       },
       {
         headers: {
-          Authorization:
-          `Bearer ${clerkApiKey}`,
+          Authorization: `Bearer ${clerkApiKey}`,
           'Content-Type': 'application/json',
         },
       },
     );
     return data;
   }
-  
+
   genereateJWT(user: any) {
     const payload: PayloadToken = {
       role: user.role,

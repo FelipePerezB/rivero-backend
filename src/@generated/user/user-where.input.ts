@@ -25,34 +25,28 @@ export class UserWhereInput {
     id?: IntFilter;
 
     @Field(() => StringFilter, {nullable:true})
+    externalId?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
     email?: StringFilter;
 
     @Field(() => StringFilter, {nullable:true})
-    name?: StringFilter;
-
-    @Field(() => StringFilter, {nullable:true})
-    lastname?: StringFilter;
-
-    @Field(() => StringFilter, {nullable:true})
-    password?: StringFilter;
+    username?: StringFilter;
 
     @Field(() => EnumRoleFilter, {nullable:true})
     role?: EnumRoleFilter;
-
-    @Field(() => StringFilter, {nullable:true})
-    nickname?: StringFilter;
-
-    @Field(() => DateTimeNullableFilter, {nullable:true})
-    createdAt?: DateTimeNullableFilter;
-
-    @Field(() => DateTimeNullableFilter, {nullable:true})
-    updateAt?: DateTimeNullableFilter;
 
     @Field(() => IntFilter, {nullable:true})
     gradeId?: IntFilter;
 
     @Field(() => IntFilter, {nullable:true})
     schoolId?: IntFilter;
+
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    createdAt?: DateTimeNullableFilter;
+
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    updateAt?: DateTimeNullableFilter;
 
     @Field(() => GradeRelationFilter, {nullable:true})
     Grade?: GradeRelationFilter;

@@ -25,21 +25,19 @@ enum Role {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
-  name      String
-  lastname  String
-  password  String
-  role      Role
-  nickname  String
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @updatedAt
-  Grade     Grade     @relation(fields: [gradeId], references: [id])
-  gradeId   Int
-  School    School    @relation(fields: [schoolId], references: [id])
-  schoolId  Int
-  Score     Score[]
-  Doc       Doc[]
+  id         Int       @id @default(autoincrement())
+  externalId String       @unique
+  email      String    @unique
+  username   String
+  role       Role
+  Grade      Grade     @relation(fields: [gradeId], references: [id])
+  gradeId    Int
+  School     School    @relation(fields: [schoolId], references: [id])
+  schoolId   Int
+  Score      Score[]
+  Doc        Doc[]
+  createdAt  DateTime? @default(now())
+  updateAt   DateTime? @updatedAt
 }
 
 enum Privacity {
@@ -87,9 +85,9 @@ model Score {
 
 model Grade {
   id        Int       @id @default(autoincrement())
-  name     String
+  name      String
   Users     User[]
-  School   School    @relation(fields: [schoolId], references: [id])
+  School    School    @relation(fields: [schoolId], references: [id])
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
   schoolId  Int
@@ -135,5 +133,5 @@ model School {
   Users     User[]
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
-  Grades     Grade[]
+  Grades    Grade[]
 }

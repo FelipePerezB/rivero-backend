@@ -8,34 +8,28 @@ export class UserCountAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    externalId?: true;
+
+    @Field(() => Boolean, {nullable:true})
     email?: true;
 
     @Field(() => Boolean, {nullable:true})
-    name?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    lastname?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    password?: true;
+    username?: true;
 
     @Field(() => Boolean, {nullable:true})
     role?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    nickname?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    createdAt?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    updateAt?: true;
 
     @Field(() => Boolean, {nullable:true})
     gradeId?: true;
 
     @Field(() => Boolean, {nullable:true})
     schoolId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updateAt?: true;
 
     @Field(() => Boolean, {nullable:true})
     _all?: true;

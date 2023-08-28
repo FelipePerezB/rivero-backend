@@ -10,16 +10,14 @@ CREATE TYPE "DocTypes" AS ENUM ('EVALUATION', 'NOTES', 'EXERCISES');
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
+    "externalId" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
-    "lastname" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
+    "username" TEXT NOT NULL,
     "role" "Role" NOT NULL,
-    "nickname" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
-    "updateAt" TIMESTAMP(3),
     "gradeId" INTEGER NOT NULL,
     "schoolId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3),
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -109,6 +107,9 @@ CREATE TABLE "School" (
 
     CONSTRAINT "School_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_externalId_key" ON "User"("externalId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");

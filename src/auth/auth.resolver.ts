@@ -1,7 +1,5 @@
-import { Resolver, Args, Query } from '@nestjs/graphql';
-import { BadRequestException } from '@nestjs/common';
+import { Resolver } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
-import { LoginUserInput } from './auth.dto';
 import { User } from 'src/@generated/user/user.model';
 // import { User } from 'src/user-entities/users/user.entity';
 
@@ -14,15 +12,15 @@ import { User } from 'src/@generated/user/user.model';
 export class AuthResolver {
   constructor(private authService: AuthService) {}
 
-  @Query(() => User)
-  async login(@Args('user') user: LoginUserInput) {
-    const { password, email } = user;
-    const result = await this.authService.validateUser(email, password);
-    if (result) return result;
-    throw new BadRequestException(
-      'Could not log-in with the provided credentials',
-    );
-  }
+  // @Query(() => User)
+  // async login(@Args('user') user: LoginUserInput) {
+  //   const { password, email } = user;
+  //   const result = await this.authService.validateUser(email, password);
+  //   if (result) return result;
+  //   throw new BadRequestException(
+  //     'Could not log-in with the provided credentials',
+  //   );
+  // }
 
   // There is no username guard here because if the person has the token, they can be any user
   // @Query(() => String)
