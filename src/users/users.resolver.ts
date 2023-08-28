@@ -6,7 +6,6 @@ import { User } from '../@generated/user/user.model';
 import { UserCreateInput } from '../@generated/user/user-create.input';
 import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { Prisma } from '@prisma/client';
-import { UserWhereInput } from 'src/@generated/user/user-where.input';
 import { UserWhereUniqueInput } from 'src/@generated/user/user-where-unique.input';
 // import { UseGuards } from '@nestjs/common';
 // import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
@@ -38,11 +37,11 @@ export class UsersResolver {
 
   @Mutation(() => User)
   updateUser(
-    @Args('id') id: number,
+    @Args('where') where: UserWhereUniqueInput,
     @Args('updateUserInput') updateUserInput: UserUpdateInput,
   ) {
     return this.usersService.update({
-      where: { id },
+      where: where as Prisma.UserWhereUniqueInput,
       data: updateUserInput as unknown as Prisma.UserUpdateInput,
     });
   }
