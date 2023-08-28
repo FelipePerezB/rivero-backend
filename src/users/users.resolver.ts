@@ -48,7 +48,7 @@ export class UsersResolver {
   }
 
   @Mutation(() => User)
-  removeUser(@Args('wherw') where: UserWhereUniqueInput) {
+  removeUser(@Args('where') where: UserWhereUniqueInput) {
     return this.usersService.remove(where as Prisma.UserWhereUniqueInput);
   }
 }
