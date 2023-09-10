@@ -4,6 +4,7 @@ import { Grade } from '../@generated/grade/grade.model';
 import { GradeCreateInput } from '../@generated/grade/grade-create.input';
 import { GradeUpdateInput } from '../@generated/grade/grade-update.input';
 import { Prisma } from '@prisma/client';
+import { GradeWhereInput } from 'src/@generated/grade/grade-where.input';
 
 @Resolver(() => Grade)
 export class GradesResolver {
@@ -17,8 +18,8 @@ export class GradesResolver {
   }
 
   @Query(() => [Grade], { name: 'grades' })
-  findAll() {
-    return this.gradeService.findAll({});
+  findAll(@Args('where') where?: GradeWhereInput) {
+    return this.gradeService.findAll({ where });
   }
 
   @Query(() => Grade, { name: 'grade' })
