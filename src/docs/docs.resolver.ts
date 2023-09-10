@@ -17,7 +17,7 @@ export class DocsResolver {
   }
 
   @Query(() => [Doc], { name: 'docs' })
-  findAll(@Args('where') where?: DocWhereInput) {
+  findAll(@Args('where', { nullable: true }) where?: DocWhereInput) {
     return this.docsService.findAll({ where });
   }
 

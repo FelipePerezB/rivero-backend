@@ -18,7 +18,7 @@ export class GradesResolver {
   }
 
   @Query(() => [Grade], { name: 'grades' })
-  findAll(@Args('where') where?: GradeWhereInput) {
+  findAll(@Args('where', { nullable: true }) where?: GradeWhereInput) {
     return this.gradeService.findAll({ where });
   }
 

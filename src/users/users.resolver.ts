@@ -20,7 +20,7 @@ export class UsersResolver {
 
   // @UseGuards(JwtAuthGuard)
   @Query(() => [User], { name: 'users' })
-  findAll(@Args('where') where?: UserWhereInput) {
+  findAll(@Args('where', { nullable: true }) where?: UserWhereInput) {
     return this.usersService.findAll({ where });
   }
 
