@@ -21,8 +21,8 @@ export class UsersResolver {
 
   // @UseGuards(JwtAuthGuard)
   @Query(() => [User], { name: 'users' })
-  findAll() {
-    return this.usersService.findAll({});
+  findAll(@Args('where') where?: UserWhereUniqueInput) {
+    return this.usersService.findAll({ where });
   }
 
   @Query(() => User, { name: 'userByEmail' })
