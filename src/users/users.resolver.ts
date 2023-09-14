@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { User } from '../@generated/user/user.model';
 import { UserCreateInput } from '../@generated/user/user-create.input';
@@ -30,8 +30,10 @@ export class UsersResolver {
   }
 
   @Query(() => User, { name: 'user' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.usersService.findOne({ id });
+  findOne(@Args('where') where: UserWhereUniqueInput) {
+    return this.usersService.findOne(
+      where as unknown as Prisma.UserWhereUniqueInput,
+    );
   }
 
   @Mutation(() => User)

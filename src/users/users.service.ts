@@ -28,11 +28,9 @@ export class UsersService {
     });
   }
 
-  findOne(
-    userWhereUniqueInput: Prisma.UserWhereUniqueInput,
-  ): Promise<User | null> {
+  findOne(where?: Prisma.UserWhereUniqueInput): Promise<User | null> {
     return this.prisma.user.findUnique({
-      where: userWhereUniqueInput,
+      where,
     });
   }
 
