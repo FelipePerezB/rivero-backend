@@ -4,7 +4,7 @@ import { Subtopic } from '../@generated/subtopic/subtopic.model';
 import { SubtopicCreateInput } from '../@generated/subtopic/subtopic-create.input';
 import { SubtopicUpdateInput } from '../@generated/subtopic/subtopic-update.input';
 import { Prisma } from '@prisma/client';
-import { SubtopicWhereInput } from 'src/@generated/subtopic/subtopic-where.input';
+import { SubtopicWhereInput } from '../@generated/subtopic/subtopic-where.input';
 
 @Resolver(() => Subtopic)
 export class SubtopicsResolver {

@@ -5,7 +5,7 @@ import { NoteCreateInput } from '../@generated/note/note-create.input';
 import { NoteUpdateInput } from '../@generated/note/note-update.input';
 import { Prisma } from '@prisma/client';
 import { NoteWhereInput } from '../@generated/note/note-where.input';
-import { NoteWhereUniqueInput } from 'src/@generated/note/note-where-unique.input';
+import { NoteWhereUniqueInput } from '../@generated/note/note-where-unique.input';
 
 @Resolver(() => Note)
 export class NotesResolver {

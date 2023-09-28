@@ -4,8 +4,8 @@ import { User } from '../@generated/user/user.model';
 import { UserCreateInput } from '../@generated/user/user-create.input';
 import { UserUpdateInput } from '../@generated/user/user-update.input';
 import { Prisma } from '@prisma/client';
-import { UserWhereUniqueInput } from 'src/@generated/user/user-where-unique.input';
-import { UserWhereInput } from 'src/@generated/user/user-where.input';
+import { UserWhereUniqueInput } from '../@generated/user/user-where-unique.input';
+import { UserWhereInput } from '../@generated/user/user-where.input';
 // import { UseGuards } from '@nestjs/common';
 // import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 

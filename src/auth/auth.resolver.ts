@@ -1,6 +1,6 @@
 import { Resolver } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
-import { User } from 'src/@generated/user/user.model';
+import { User } from '../@generated/user/user.model';
 // import { User } from 'src/user-entities/users/user.entity';
 
 // type Login = {
