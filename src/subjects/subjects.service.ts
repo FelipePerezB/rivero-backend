@@ -16,6 +16,11 @@ export class SubjectsService {
     return this.prisma.subject.findMany({
       where,
       include: {
+        _count: {
+          select: {
+            Notes: true,
+          },
+        },
         Topics: {
           select: {
             name: true,
