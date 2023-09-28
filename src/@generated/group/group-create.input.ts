@@ -5,19 +5,20 @@ import { OrganizationCreateNestedOneWithoutGroupsInput } from '../organization/o
 
 @InputType()
 export class GroupCreateInput {
+  @Field(() => String, { nullable: false })
+  name!: string;
 
-    @Field(() => String, {nullable:false})
-    name!: string;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updateAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updateAt?: Date | string;
+  @Field(() => UserCreateNestedManyWithoutGroupInput, { nullable: true })
+  Users?: UserCreateNestedManyWithoutGroupInput;
 
-    @Field(() => UserCreateNestedManyWithoutGroupInput, {nullable:true})
-    Users?: UserCreateNestedManyWithoutGroupInput;
-
-    @Field(() => OrganizationCreateNestedOneWithoutGroupsInput, {nullable:false})
-    Organization!: OrganizationCreateNestedOneWithoutGroupsInput;
+  @Field(() => OrganizationCreateNestedOneWithoutGroupsInput, {
+    nullable: false,
+  })
+  Organization!: OrganizationCreateNestedOneWithoutGroupsInput;
 }
