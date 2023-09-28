@@ -21,7 +21,9 @@ export class UsersResolver {
   // @UseGuards(JwtAuthGuard)
   @Query(() => [User], { name: 'users' })
   findAll(@Args('where', { nullable: true }) where?: UserWhereInput) {
-    return this.usersService.findAll({ where });
+    return this.usersService.findAll({ where } as {
+      where: Prisma.UserWhereInput;
+    });
   }
 
   @Query(() => User, { name: 'userByEmail' })

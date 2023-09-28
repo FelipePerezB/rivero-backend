@@ -9,8 +9,8 @@ export class UserSumAggregate {
     id?: number;
 
     @Field(() => Int, {nullable:true})
-    gradeId?: number;
+    groupId?: number;
 
     @Field(() => Int, {nullable:true})
-    schoolId?: number;
+    organizationId?: number;
 }

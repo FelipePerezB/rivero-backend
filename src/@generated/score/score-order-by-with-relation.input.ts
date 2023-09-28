@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { SortOrderInput } from '../prisma/sort-order.input';
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input';
-import { DocOrderByWithRelationInput } from '../doc/doc-order-by-with-relation.input';
+import { NoteOrderByWithRelationInput } from '../note/note-order-by-with-relation.input';
 
 @InputType()
 export class ScoreOrderByWithRelationInput {
@@ -20,8 +20,8 @@ export class ScoreOrderByWithRelationInput {
     @Field(() => SortOrder, {nullable:true})
     alternatives?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    docId?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    noteId?: SortOrderInput;
 
     @Field(() => SortOrderInput, {nullable:true})
     createdAt?: SortOrderInput;
@@ -32,6 +32,6 @@ export class ScoreOrderByWithRelationInput {
     @Field(() => UserOrderByWithRelationInput, {nullable:true})
     User?: UserOrderByWithRelationInput;
 
-    @Field(() => DocOrderByWithRelationInput, {nullable:true})
-    document?: DocOrderByWithRelationInput;
+    @Field(() => NoteOrderByWithRelationInput, {nullable:true})
+    Note?: NoteOrderByWithRelationInput;
 }

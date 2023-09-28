@@ -3,10 +3,10 @@ import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { EnumRoleFieldUpdateOperationsInput } from '../prisma/enum-role-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { GradeUpdateOneRequiredWithoutUsersNestedInput } from '../grade/grade-update-one-required-without-users-nested.input';
-import { SchoolUpdateOneRequiredWithoutUsersNestedInput } from '../school/school-update-one-required-without-users-nested.input';
+import { GroupUpdateOneRequiredWithoutUsersNestedInput } from '../group/group-update-one-required-without-users-nested.input';
+import { OrganizationUpdateOneRequiredWithoutUsersNestedInput } from '../organization/organization-update-one-required-without-users-nested.input';
 import { ScoreUpdateManyWithoutUserNestedInput } from '../score/score-update-many-without-user-nested.input';
-import { DocUpdateManyWithoutAuthorNestedInput } from '../doc/doc-update-many-without-author-nested.input';
+import { FileUpdateManyWithoutAuthorNestedInput } from '../file/file-update-many-without-author-nested.input';
 
 @InputType()
 export class UserUpdateInput {
@@ -18,7 +18,10 @@ export class UserUpdateInput {
     email?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    username?: StringFieldUpdateOperationsInput;
+    name?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    lastname?: StringFieldUpdateOperationsInput;
 
     @Field(() => EnumRoleFieldUpdateOperationsInput, {nullable:true})
     role?: EnumRoleFieldUpdateOperationsInput;
@@ -29,15 +32,15 @@ export class UserUpdateInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
-    @Field(() => GradeUpdateOneRequiredWithoutUsersNestedInput, {nullable:true})
-    Grade?: GradeUpdateOneRequiredWithoutUsersNestedInput;
+    @Field(() => GroupUpdateOneRequiredWithoutUsersNestedInput, {nullable:true})
+    Group?: GroupUpdateOneRequiredWithoutUsersNestedInput;
 
-    @Field(() => SchoolUpdateOneRequiredWithoutUsersNestedInput, {nullable:true})
-    School?: SchoolUpdateOneRequiredWithoutUsersNestedInput;
+    @Field(() => OrganizationUpdateOneRequiredWithoutUsersNestedInput, {nullable:true})
+    Organization?: OrganizationUpdateOneRequiredWithoutUsersNestedInput;
 
     @Field(() => ScoreUpdateManyWithoutUserNestedInput, {nullable:true})
     Score?: ScoreUpdateManyWithoutUserNestedInput;
 
-    @Field(() => DocUpdateManyWithoutAuthorNestedInput, {nullable:true})
-    Doc?: DocUpdateManyWithoutAuthorNestedInput;
+    @Field(() => FileUpdateManyWithoutAuthorNestedInput, {nullable:true})
+    File?: FileUpdateManyWithoutAuthorNestedInput;
 }

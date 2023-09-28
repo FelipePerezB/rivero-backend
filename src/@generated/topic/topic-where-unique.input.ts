@@ -5,8 +5,8 @@ import { TopicWhereInput } from './topic-where.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { SubjectNullableRelationFilter } from '../prisma/subject-nullable-relation-filter.input';
-import { DocListRelationFilter } from '../doc/doc-list-relation-filter.input';
 import { SubtopicListRelationFilter } from '../subtopic/subtopic-list-relation-filter.input';
+import { NoteListRelationFilter } from '../note/note-list-relation-filter.input';
 
 @InputType()
 export class TopicWhereUniqueInput {
@@ -38,9 +38,9 @@ export class TopicWhereUniqueInput {
     @Field(() => SubjectNullableRelationFilter, {nullable:true})
     Subject?: SubjectNullableRelationFilter;
 
-    @Field(() => DocListRelationFilter, {nullable:true})
-    Docs?: DocListRelationFilter;
-
     @Field(() => SubtopicListRelationFilter, {nullable:true})
     Subtopics?: SubtopicListRelationFilter;
+
+    @Field(() => NoteListRelationFilter, {nullable:true})
+    Notes?: NoteListRelationFilter;
 }

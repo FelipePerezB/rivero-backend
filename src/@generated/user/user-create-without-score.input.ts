@@ -1,9 +1,9 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Role } from '../prisma/role.enum';
-import { GradeCreateNestedOneWithoutUsersInput } from '../grade/grade-create-nested-one-without-users.input';
-import { SchoolCreateNestedOneWithoutUsersInput } from '../school/school-create-nested-one-without-users.input';
-import { DocCreateNestedManyWithoutAuthorInput } from '../doc/doc-create-nested-many-without-author.input';
+import { GroupCreateNestedOneWithoutUsersInput } from '../group/group-create-nested-one-without-users.input';
+import { OrganizationCreateNestedOneWithoutUsersInput } from '../organization/organization-create-nested-one-without-users.input';
+import { FileCreateNestedManyWithoutAuthorInput } from '../file/file-create-nested-many-without-author.input';
 
 @InputType()
 export class UserCreateWithoutScoreInput {
@@ -15,7 +15,10 @@ export class UserCreateWithoutScoreInput {
     email!: string;
 
     @Field(() => String, {nullable:false})
-    username!: string;
+    name!: string;
+
+    @Field(() => String, {nullable:false})
+    lastname!: string;
 
     @Field(() => Role, {nullable:false})
     role!: keyof typeof Role;
@@ -26,12 +29,12 @@ export class UserCreateWithoutScoreInput {
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
-    @Field(() => GradeCreateNestedOneWithoutUsersInput, {nullable:false})
-    Grade!: GradeCreateNestedOneWithoutUsersInput;
+    @Field(() => GroupCreateNestedOneWithoutUsersInput, {nullable:false})
+    Group!: GroupCreateNestedOneWithoutUsersInput;
 
-    @Field(() => SchoolCreateNestedOneWithoutUsersInput, {nullable:false})
-    School!: SchoolCreateNestedOneWithoutUsersInput;
+    @Field(() => OrganizationCreateNestedOneWithoutUsersInput, {nullable:false})
+    Organization!: OrganizationCreateNestedOneWithoutUsersInput;
 
-    @Field(() => DocCreateNestedManyWithoutAuthorInput, {nullable:true})
-    Doc?: DocCreateNestedManyWithoutAuthorInput;
+    @Field(() => FileCreateNestedManyWithoutAuthorInput, {nullable:true})
+    File?: FileCreateNestedManyWithoutAuthorInput;
 }

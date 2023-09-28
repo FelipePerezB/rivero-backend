@@ -8,8 +8,8 @@ export class UserSumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    gradeId?: true;
+    groupId?: true;
 
     @Field(() => Boolean, {nullable:true})
-    schoolId?: true;
+    organizationId?: true;
 }

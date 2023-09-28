@@ -17,7 +17,7 @@ export class ScoreMinAggregateInput {
     alternatives?: true;
 
     @Field(() => Boolean, {nullable:true})
-    docId?: true;
+    noteId?: true;
 
     @Field(() => Boolean, {nullable:true})
     createdAt?: true;

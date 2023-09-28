@@ -13,12 +13,12 @@ export class SubtopicUncheckedUpdateManyWithoutSubjectInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     name?: StringFieldUpdateOperationsInput;
 
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    topicId?: IntFieldUpdateOperationsInput;
+
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
-
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    topicId?: IntFieldUpdateOperationsInput;
 }

@@ -18,7 +18,7 @@ export class ScoreCountAggregate {
     alternatives!: number;
 
     @Field(() => Int, {nullable:false})
-    docId!: number;
+    noteId!: number;
 
     @Field(() => Int, {nullable:false})
     createdAt!: number;

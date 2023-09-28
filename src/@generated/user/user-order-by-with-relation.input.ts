@@ -2,10 +2,10 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { SortOrderInput } from '../prisma/sort-order.input';
-import { GradeOrderByWithRelationInput } from '../grade/grade-order-by-with-relation.input';
-import { SchoolOrderByWithRelationInput } from '../school/school-order-by-with-relation.input';
+import { GroupOrderByWithRelationInput } from '../group/group-order-by-with-relation.input';
+import { OrganizationOrderByWithRelationInput } from '../organization/organization-order-by-with-relation.input';
 import { ScoreOrderByRelationAggregateInput } from '../score/score-order-by-relation-aggregate.input';
-import { DocOrderByRelationAggregateInput } from '../doc/doc-order-by-relation-aggregate.input';
+import { FileOrderByRelationAggregateInput } from '../file/file-order-by-relation-aggregate.input';
 
 @InputType()
 export class UserOrderByWithRelationInput {
@@ -20,16 +20,19 @@ export class UserOrderByWithRelationInput {
     email?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    username?: keyof typeof SortOrder;
+    name?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    lastname?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     role?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    gradeId?: keyof typeof SortOrder;
+    groupId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    schoolId?: keyof typeof SortOrder;
+    organizationId?: keyof typeof SortOrder;
 
     @Field(() => SortOrderInput, {nullable:true})
     createdAt?: SortOrderInput;
@@ -37,15 +40,15 @@ export class UserOrderByWithRelationInput {
     @Field(() => SortOrderInput, {nullable:true})
     updateAt?: SortOrderInput;
 
-    @Field(() => GradeOrderByWithRelationInput, {nullable:true})
-    Grade?: GradeOrderByWithRelationInput;
+    @Field(() => GroupOrderByWithRelationInput, {nullable:true})
+    Group?: GroupOrderByWithRelationInput;
 
-    @Field(() => SchoolOrderByWithRelationInput, {nullable:true})
-    School?: SchoolOrderByWithRelationInput;
+    @Field(() => OrganizationOrderByWithRelationInput, {nullable:true})
+    Organization?: OrganizationOrderByWithRelationInput;
 
     @Field(() => ScoreOrderByRelationAggregateInput, {nullable:true})
     Score?: ScoreOrderByRelationAggregateInput;
 
-    @Field(() => DocOrderByRelationAggregateInput, {nullable:true})
-    Doc?: DocOrderByRelationAggregateInput;
+    @Field(() => FileOrderByRelationAggregateInput, {nullable:true})
+    File?: FileOrderByRelationAggregateInput;
 }

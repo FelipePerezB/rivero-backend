@@ -19,7 +19,9 @@ export class TopicsResolver {
 
   @Query(() => [Topic], { name: 'topics' })
   findAll(@Args('where') where: TopicWhereInput) {
-    return this.topicService.findAll({ where });
+    return this.topicService.findAll({ where } as {
+      where: Prisma.TopicWhereInput;
+    });
   }
 
   @Query(() => Topic, { name: 'topic' })

@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { SubtopicUpdateManyWithoutSubjectNestedInput } from '../subtopic/subtopic-update-many-without-subject-nested.input';
-import { DocUpdateManyWithoutSubjectNestedInput } from '../doc/doc-update-many-without-subject-nested.input';
+import { NoteUpdateManyWithoutSubjectNestedInput } from '../note/note-update-many-without-subject-nested.input';
 
 @InputType()
 export class SubjectUpdateWithoutTopicsInput {
@@ -23,6 +23,6 @@ export class SubjectUpdateWithoutTopicsInput {
     @Field(() => SubtopicUpdateManyWithoutSubjectNestedInput, {nullable:true})
     Subtopic?: SubtopicUpdateManyWithoutSubjectNestedInput;
 
-    @Field(() => DocUpdateManyWithoutSubjectNestedInput, {nullable:true})
-    Docs?: DocUpdateManyWithoutSubjectNestedInput;
+    @Field(() => NoteUpdateManyWithoutSubjectNestedInput, {nullable:true})
+    Notes?: NoteUpdateManyWithoutSubjectNestedInput;
 }

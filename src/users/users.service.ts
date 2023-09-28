@@ -6,8 +6,6 @@ import { PrismaService } from 'src/prisma.service';
 export class UsersService {
   constructor(private prisma: PrismaService) {}
   async create(data: Prisma.UserCreateInput) {
-    // const newPassword = await bcrypt.hash(data.password, 10);
-    // Object.assign(data, { ...data, password: newPassword });
     return this.prisma.user.create({ data });
   }
 
@@ -25,6 +23,9 @@ export class UsersService {
       cursor,
       where,
       orderBy,
+      include: {
+        Group: true,
+      },
     });
   }
 

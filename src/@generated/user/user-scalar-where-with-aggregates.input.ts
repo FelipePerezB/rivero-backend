@@ -27,16 +27,19 @@ export class UserScalarWhereWithAggregatesInput {
     email?: StringWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
-    username?: StringWithAggregatesFilter;
+    name?: StringWithAggregatesFilter;
+
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    lastname?: StringWithAggregatesFilter;
 
     @Field(() => EnumRoleWithAggregatesFilter, {nullable:true})
     role?: EnumRoleWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
-    gradeId?: IntWithAggregatesFilter;
+    groupId?: IntWithAggregatesFilter;
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
-    schoolId?: IntWithAggregatesFilter;
+    organizationId?: IntWithAggregatesFilter;
 
     @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
     createdAt?: DateTimeNullableWithAggregatesFilter;

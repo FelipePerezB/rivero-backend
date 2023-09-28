@@ -18,7 +18,7 @@ export class ScoreMaxAggregate {
     alternatives?: string;
 
     @Field(() => Int, {nullable:true})
-    docId?: number;
+    noteId?: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

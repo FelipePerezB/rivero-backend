@@ -14,5 +14,5 @@ export class ScoreSumAggregateInput {
     userId?: true;
 
     @Field(() => Boolean, {nullable:true})
-    docId?: true;
+    noteId?: true;
 }

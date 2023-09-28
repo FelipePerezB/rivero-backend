@@ -11,15 +11,15 @@ export class SubtopicMaxAggregate {
     @Field(() => String, {nullable:true})
     name?: string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
-
-    @Field(() => Date, {nullable:true})
-    updateAt?: Date | string;
-
     @Field(() => Int, {nullable:true})
     subjectId?: number;
 
     @Field(() => Int, {nullable:true})
     topicId?: number;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updateAt?: Date | string;
 }

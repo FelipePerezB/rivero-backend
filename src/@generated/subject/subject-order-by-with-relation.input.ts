@@ -4,7 +4,7 @@ import { SortOrder } from '../prisma/sort-order.enum';
 import { SortOrderInput } from '../prisma/sort-order.input';
 import { TopicOrderByRelationAggregateInput } from '../topic/topic-order-by-relation-aggregate.input';
 import { SubtopicOrderByRelationAggregateInput } from '../subtopic/subtopic-order-by-relation-aggregate.input';
-import { DocOrderByRelationAggregateInput } from '../doc/doc-order-by-relation-aggregate.input';
+import { NoteOrderByRelationAggregateInput } from '../note/note-order-by-relation-aggregate.input';
 
 @InputType()
 export class SubjectOrderByWithRelationInput {
@@ -30,6 +30,6 @@ export class SubjectOrderByWithRelationInput {
     @Field(() => SubtopicOrderByRelationAggregateInput, {nullable:true})
     Subtopic?: SubtopicOrderByRelationAggregateInput;
 
-    @Field(() => DocOrderByRelationAggregateInput, {nullable:true})
-    Docs?: DocOrderByRelationAggregateInput;
+    @Field(() => NoteOrderByRelationAggregateInput, {nullable:true})
+    Notes?: NoteOrderByRelationAggregateInput;
 }

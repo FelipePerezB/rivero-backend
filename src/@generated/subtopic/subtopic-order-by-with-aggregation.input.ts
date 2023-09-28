@@ -18,16 +18,16 @@ export class SubtopicOrderByWithAggregationInput {
     name?: keyof typeof SortOrder;
 
     @Field(() => SortOrderInput, {nullable:true})
-    createdAt?: SortOrderInput;
-
-    @Field(() => SortOrderInput, {nullable:true})
-    updateAt?: SortOrderInput;
-
-    @Field(() => SortOrderInput, {nullable:true})
     subjectId?: SortOrderInput;
 
     @Field(() => SortOrder, {nullable:true})
     topicId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    createdAt?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    updateAt?: SortOrderInput;
 
     @Field(() => SubtopicCountOrderByAggregateInput, {nullable:true})
     _count?: SubtopicCountOrderByAggregateInput;

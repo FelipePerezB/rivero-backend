@@ -12,5 +12,5 @@ export class SubjectCount {
     Subtopic?: number;
 
     @Field(() => Int, {nullable:false})
-    Docs?: number;
+    Notes?: number;
 }

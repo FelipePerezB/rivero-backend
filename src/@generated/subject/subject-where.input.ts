@@ -5,7 +5,7 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { TopicListRelationFilter } from '../topic/topic-list-relation-filter.input';
 import { SubtopicListRelationFilter } from '../subtopic/subtopic-list-relation-filter.input';
-import { DocListRelationFilter } from '../doc/doc-list-relation-filter.input';
+import { NoteListRelationFilter } from '../note/note-list-relation-filter.input';
 
 @InputType()
 export class SubjectWhereInput {
@@ -40,6 +40,6 @@ export class SubjectWhereInput {
     @Field(() => SubtopicListRelationFilter, {nullable:true})
     Subtopic?: SubtopicListRelationFilter;
 
-    @Field(() => DocListRelationFilter, {nullable:true})
-    Docs?: DocListRelationFilter;
+    @Field(() => NoteListRelationFilter, {nullable:true})
+    Notes?: NoteListRelationFilter;
 }

@@ -17,7 +17,11 @@ export class SubtopicService {
       where,
       include: {
         Topic: true,
-        Docs: true,
+        Notes: {
+          include: {
+            File: true,
+          },
+        },
       },
     });
   }

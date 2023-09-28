@@ -6,8 +6,8 @@ import { Int } from '@nestjs/graphql';
 export class TopicCount {
 
     @Field(() => Int, {nullable:false})
-    Docs?: number;
+    Subtopics?: number;
 
     @Field(() => Int, {nullable:false})
-    Subtopics?: number;
+    Notes?: number;
 }

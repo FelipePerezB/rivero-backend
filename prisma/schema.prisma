@@ -12,8 +12,6 @@ datasource db {
 
 // generator nestgraphql {
 //   provider = "node node_modules/prisma-nestjs-graphql"
-//   // for yarn monorepos
-//   // provider = "prisma-nestjs-graphql"
 //   output   = "../src/@generated"
 // }
 
@@ -25,19 +23,29 @@ enum Role {
 }
 
 model User {
-  id         Int       @id @default(autoincrement())
-  externalId String       @unique
-  email      String    @unique
-  username   String
-  role       Role
-  Grade      Grade     @relation(fields: [gradeId], references: [id])
-  gradeId    Int
-  School     School    @relation(fields: [schoolId], references: [id])
-  schoolId   Int
-  Score      Score[]
-  Doc        Doc[]
-  createdAt  DateTime? @default(now())
-  updateAt   DateTime? @updatedAt
+  id             Int          @id @default(autoincrement())
+  externalId     String       @unique
+  email          String       @unique
+  name           String
+  lastname       String
+  role           Role
+  Group          Group[]
+  Organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId Int
+  Score          Score[]
+  File           File[]
+  createdAt      DateTime?    @default(now())
+  updateAt       DateTime?    @updatedAt
+}
+
+model Group {
+  id             Int          @id @default(autoincrement())
+  name           String
+  Users          User[]
+  Organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId Int
+  createdAt      DateTime?    @default(now())
+  updateAt       DateTime?    @updatedAt
 }
 
 enum Privacity {
@@ -45,28 +53,36 @@ enum Privacity {
   PRIVATE
 }
 
-enum DocTypes {
-  EVALUATION
-  NOTES
-  EXERCISES
+enum Types {
+  PRACTICE
+  DOCUMENT
 }
 
-model Doc {
+model Note {
+  id         Int       @id @default(autoincrement())
+  Subject    Subject?  @relation(fields: [subjectId], references: [id])
+  subjectId  Int?
+  Topic      Topic?    @relation(fields: [topicId], references: [id])
+  topicId    Int?
+  Subtopic   Subtopic  @relation(fields: [subtopicId], references: [id])
+  subtopicId Int
+  File       File      @relation(fields: [fileId], references: [id])
+  fileId     Int
+  type       Types
+  Scores     Score[]
+  createdAt  DateTime? @default(now())
+  updateAt   DateTime? @updatedAt
+}
+
+model File {
   id         Int       @id @default(autoincrement())
   externalId String    @unique
   privacity  Privacity
   title      String
-  type       DocTypes
   content    String
-  Score      Score[]
-  Subject    Subject   @relation(fields: [subjectId], references: [id])
-  subjectId  Int
-  Topic      Topic     @relation(fields: [topicId], references: [id])
-  topicId    Int
-  Subtopic   Subtopic? @relation(fields: [subtopicId], references: [id])
-  subtopicId Int?
-  Author     User      @relation(fields: [userId], references: [id])
-  userId     Int
+  Author     User      @relation(fields: [authorId], references: [id])
+  authorId   Int
+  Note       Note[]
   createdAt  DateTime? @default(now())
   updateAt   DateTime? @updatedAt
 }
@@ -77,20 +93,10 @@ model Score {
   userId       Int
   alternatives String
   User         User      @relation(fields: [userId], references: [id])
-  docId        Int
-  document     Doc       @relation(fields: [docId], references: [id])
+  Note         Note?     @relation(fields: [noteId], references: [id])
+  noteId       Int?
   createdAt    DateTime? @default(now())
   updateAt     DateTime? @updatedAt
-}
-
-model Grade {
-  id        Int       @id @default(autoincrement())
-  name      String
-  Users     User[]
-  School    School    @relation(fields: [schoolId], references: [id])
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @updatedAt
-  schoolId  Int
 }
 
 model Subject {
@@ -99,7 +105,7 @@ model Subject {
   color     String
   Topics    Topic[]
   Subtopic  Subtopic[]
-  Docs      Doc[]
+  Notes     Note[]
   createdAt DateTime?  @default(now())
   updateAt  DateTime?  @updatedAt
 }
@@ -109,8 +115,8 @@ model Topic {
   name      String     @unique
   Subject   Subject?   @relation(fields: [subjectId], references: [id])
   subjectId Int?
-  Docs      Doc[]
   Subtopics Subtopic[]
+  Notes     Note[]
   createdAt DateTime?  @default(now())
   updateAt  DateTime?  @updatedAt
 }
@@ -118,20 +124,20 @@ model Topic {
 model Subtopic {
   id        Int       @id @default(autoincrement())
   name      String    @unique
-  createdAt DateTime? @default(now())
-  updateAt  DateTime? @updatedAt
   Subject   Subject?  @relation(fields: [subjectId], references: [id])
   subjectId Int?
   Topic     Topic     @relation(fields: [topicId], references: [id])
-  Docs      Doc[]
   topicId   Int
+  Notes     Note[]
+  createdAt DateTime? @default(now())
+  updateAt  DateTime? @updatedAt
 }
 
-model School {
+model Organization {
   id        Int       @id @default(autoincrement())
   name      String    @unique
   Users     User[]
+  Groups    Group[]
   createdAt DateTime? @default(now())
   updateAt  DateTime? @updatedAt
-  Grades    Grade[]
 }

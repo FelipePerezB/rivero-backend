@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { Role } from '../prisma/role.enum';
 import { ScoreUncheckedCreateNestedManyWithoutUserInput } from '../score/score-unchecked-create-nested-many-without-user.input';
-import { DocUncheckedCreateNestedManyWithoutAuthorInput } from '../doc/doc-unchecked-create-nested-many-without-author.input';
+import { FileUncheckedCreateNestedManyWithoutAuthorInput } from '../file/file-unchecked-create-nested-many-without-author.input';
 
 @InputType()
 export class UserUncheckedCreateInput {
@@ -18,16 +18,19 @@ export class UserUncheckedCreateInput {
     email!: string;
 
     @Field(() => String, {nullable:false})
-    username!: string;
+    name!: string;
+
+    @Field(() => String, {nullable:false})
+    lastname!: string;
 
     @Field(() => Role, {nullable:false})
     role!: keyof typeof Role;
 
     @Field(() => Int, {nullable:false})
-    gradeId!: number;
+    groupId!: number;
 
     @Field(() => Int, {nullable:false})
-    schoolId!: number;
+    organizationId!: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
@@ -38,6 +41,6 @@ export class UserUncheckedCreateInput {
     @Field(() => ScoreUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
     Score?: ScoreUncheckedCreateNestedManyWithoutUserInput;
 
-    @Field(() => DocUncheckedCreateNestedManyWithoutAuthorInput, {nullable:true})
-    Doc?: DocUncheckedCreateNestedManyWithoutAuthorInput;
+    @Field(() => FileUncheckedCreateNestedManyWithoutAuthorInput, {nullable:true})
+    File?: FileUncheckedCreateNestedManyWithoutAuthorInput;
 }

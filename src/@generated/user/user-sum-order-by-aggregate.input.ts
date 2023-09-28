@@ -9,8 +9,8 @@ export class UserSumOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    gradeId?: keyof typeof SortOrder;
+    groupId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    schoolId?: keyof typeof SortOrder;
+    organizationId?: keyof typeof SortOrder;
 }

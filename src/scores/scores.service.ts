@@ -11,14 +11,14 @@ export class ScoresService {
     });
   }
 
-  gradeAvg() {
-    return this.prisma.score.groupBy({
-      by: ['docId'],
-      _avg: {
-        score: true,
-      },
-    });
-  }
+  // gradeAvg() {
+  //   return this.prisma.score.groupBy({
+  //     by: ['docId'],
+  //     _avg: {
+  //       score: true,
+  //     },
+  //   });
+  // }
 
   // async groupBySubject(gradeId: number, schoolId: number) {
   //   const data = await this.prisma.score.findMany({

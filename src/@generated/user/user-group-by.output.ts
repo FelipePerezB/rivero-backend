@@ -21,16 +21,19 @@ export class UserGroupBy {
     email!: string;
 
     @Field(() => String, {nullable:false})
-    username!: string;
+    name!: string;
+
+    @Field(() => String, {nullable:false})
+    lastname!: string;
 
     @Field(() => Role, {nullable:false})
     role!: keyof typeof Role;
 
     @Field(() => Int, {nullable:false})
-    gradeId!: number;
+    groupId!: number;
 
     @Field(() => Int, {nullable:false})
-    schoolId!: number;
+    organizationId!: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

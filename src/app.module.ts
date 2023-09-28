@@ -8,10 +8,10 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
-import { SchoolsModule } from './schools/schools.module';
+import { OrganizationsModule } from './organizations/organization.module';
 import { SubjectsModule } from './subjects/subjects.module';
-import { DocsModule } from './docs/docs.module';
-import { GradesModule } from './grades/grades.module';
+import { NotesModule } from './notes/notes.module';
+import { GroupsModule } from './groups/groups.module';
 import { TopicsModule } from './topics/topics.module';
 import { ScoresModule } from './scores/scores.module';
 import { SubtopicsModule } from './subtopics/subtopics.module';
@@ -33,10 +33,10 @@ import { SubtopicsModule } from './subtopics/subtopics.module';
     }),
     UsersModule,
     AuthModule,
-    SchoolsModule,
+    OrganizationsModule,
     SubjectsModule,
-    DocsModule,
-    GradesModule,
+    NotesModule,
+    GroupsModule,
     TopicsModule,
     ScoresModule,
     SubtopicsModule,

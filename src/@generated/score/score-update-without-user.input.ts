@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { DocUpdateOneRequiredWithoutScoreNestedInput } from '../doc/doc-update-one-required-without-score-nested.input';
+import { NoteUpdateOneWithoutScoresNestedInput } from '../note/note-update-one-without-scores-nested.input';
 
 @InputType()
 export class ScoreUpdateWithoutUserInput {
@@ -20,6 +20,6 @@ export class ScoreUpdateWithoutUserInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
-    @Field(() => DocUpdateOneRequiredWithoutScoreNestedInput, {nullable:true})
-    document?: DocUpdateOneRequiredWithoutScoreNestedInput;
+    @Field(() => NoteUpdateOneWithoutScoresNestedInput, {nullable:true})
+    Note?: NoteUpdateOneWithoutScoresNestedInput;
 }

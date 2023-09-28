@@ -1,8 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SubjectCreateNestedOneWithoutTopicsInput } from '../subject/subject-create-nested-one-without-topics.input';
-import { DocCreateNestedManyWithoutTopicInput } from '../doc/doc-create-nested-many-without-topic.input';
 import { SubtopicCreateNestedManyWithoutTopicInput } from '../subtopic/subtopic-create-nested-many-without-topic.input';
+import { NoteCreateNestedManyWithoutTopicInput } from '../note/note-create-nested-many-without-topic.input';
 
 @InputType()
 export class TopicCreateInput {
@@ -19,9 +19,9 @@ export class TopicCreateInput {
     @Field(() => SubjectCreateNestedOneWithoutTopicsInput, {nullable:true})
     Subject?: SubjectCreateNestedOneWithoutTopicsInput;
 
-    @Field(() => DocCreateNestedManyWithoutTopicInput, {nullable:true})
-    Docs?: DocCreateNestedManyWithoutTopicInput;
-
     @Field(() => SubtopicCreateNestedManyWithoutTopicInput, {nullable:true})
     Subtopics?: SubtopicCreateNestedManyWithoutTopicInput;
+
+    @Field(() => NoteCreateNestedManyWithoutTopicInput, {nullable:true})
+    Notes?: NoteCreateNestedManyWithoutTopicInput;
 }

@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 async function main() {
-  await prisma.school.upsert({
+  await prisma.organization.upsert({
     where: { id: 1 },
     update: {},
     create: {
@@ -9,7 +9,7 @@ async function main() {
     },
   });
 
-  await prisma.school.upsert({
+  await prisma.organization.upsert({
     where: { name: 'Colegio Alejandria' },
     update: {},
     create: {
@@ -17,38 +17,38 @@ async function main() {
     },
   });
 
-  await prisma.grade.upsert({
+  await prisma.group.upsert({
     where: { id: 1 },
     update: {},
     create: {
-      schoolId: 1,
+      organizationId: 1,
       name: '1° Medio',
     },
   });
 
-  await prisma.grade.upsert({
+  await prisma.group.upsert({
     where: { id: 2 },
     update: {},
     create: {
-      schoolId: 1,
+      organizationId: 1,
       name: '2° Medio',
     },
   });
 
-  await prisma.grade.upsert({
+  await prisma.group.upsert({
     where: { id: 3 },
     update: {},
     create: {
-      schoolId: 1,
+      organizationId: 1,
       name: '3° Medio',
     },
   });
 
-  await prisma.grade.upsert({
+  await prisma.group.upsert({
     where: { id: 4 },
     update: {},
     create: {
-      schoolId: 1,
+      organizationId: 1,
       name: '4° Medio',
     },
   });
@@ -94,7 +94,6 @@ async function main() {
     update: {},
     create: {
       name: 'ecuaciones',
-      subjectId: 2,
       topicId: 1,
     },
   });
@@ -104,7 +103,6 @@ async function main() {
     update: {},
     create: {
       name: 'productos notables',
-      subjectId: 2,
       topicId: 1,
     },
   });
@@ -115,10 +113,13 @@ async function main() {
     create: {
       externalId: 'hequeqdbqwqd',
       email: 'felipe@prisma.io',
-      username: 'Felipe',
-      gradeId: 1,
+      name: 'Felipe',
+      Group: {
+        connect: [{ id: 1 }],
+      },
+      lastname: 'perez',
       role: 'ADMIN',
-      schoolId: 1,
+      organizationId: 1,
     },
   });
   await prisma.user.upsert({
@@ -126,11 +127,14 @@ async function main() {
     update: {},
     create: {
       email: 'martin@prisma.io',
-      username: 'Felipe',
+      name: 'Felipe',
       externalId: '821uqwunwsqsiw',
-      gradeId: 1,
+      Group: {
+        connect: [{ id: 1 }],
+      },
+      lastname: 'perez',
       role: 'ADMIN',
-      schoolId: 1,
+      organizationId: 1,
     },
   });
   await prisma.user.upsert({
@@ -139,226 +143,104 @@ async function main() {
     create: {
       externalId: 'wenjdnkj',
       email: 'alicia@prisma.io',
-      username: 'Felipe',
-      gradeId: 1,
-
+      name: 'Felipe',
+      Group: {
+        connect: [{ id: 1 }],
+      },
+      lastname: 'perez',
       role: 'ADMIN',
-      schoolId: 1,
+      organizationId: 1,
     },
   });
 
-  await prisma.doc.upsert({
+  // subject: "matemática",
+  // topic: "álgebra",
+  // subtopic: "modelos lineales",
+  // document: {
+  //   id: "qbxoYMthcK7XlTWyt6L8u7ZdXTEMHUXf",
+  //   title: "sistema de ecuaciones",
+  //   privacity: "private" as configAttrs["privacity"],
+  // content:
+  // },
+
+  await prisma.file.upsert({
+    create: {
+      authorId: 1,
+      content:
+        '{"type":"document","options":{"children":[{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Titulo 1","size":"h1"}}]}},{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Sistema ecuaciones","size":"h1"}}]}}]}}',
+      externalId: 'qbxoYMthcK7XlTWyt6L8u7ZdXTEMHUXf',
+      title: 'Documento 1',
+      privacity: 'PRIVATE',
+    },
+    where: { externalId: 'qbxoYMthcK7XlTWyt6L8u7ZdXTEMHUXf' },
+    update: {},
+  });
+  await prisma.file.upsert({
+    create: {
+      authorId: 2,
+      content:
+        '{"type":"document","options":{"children":[{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Titulo 1","size":"h1"}}]}},{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Sistema ecuaciones","size":"h1"}}]}}]}}',
+      externalId: 'YGYGUGUYQWBygxyugyuqgx',
+      title: 'Documento 1',
+      privacity: 'PUBLIC',
+    },
+    where: { externalId: 'YGYGUGUYQWBygxyugyuqgx' },
+    update: {},
+  });
+  await prisma.file.upsert({
+    create: {
+      authorId: 1,
+      content:
+        '{"type":"document","options":{"children":[{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Titulo 1","size":"h1"}}]}},{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Sistema ecuaciones","size":"h1"}}]}}]}}',
+      externalId: 'njwxqajwxixqwjxuihwyu',
+      title: 'Documento 2',
+      privacity: 'PUBLIC',
+    },
+    where: { externalId: 'njwxqajwxixqwjxuihwyu' },
+    update: {},
+  });
+  await prisma.file.upsert({
+    create: {
+      authorId: 1,
+      content:
+        '{"type":"document","options":{"children":[{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Titulo 1","size":"h1"}}]}},{"type":"page","options":{"number":1,"children":[{"type":"title","options":{"text":"Sistema ecuaciones","size":"h1"}}]}}]}}',
+      externalId: 'whquhiudhwiuhiwhdquhudiw',
+      title: 'Documento 3',
+      privacity: 'PUBLIC',
+    },
+    where: { externalId: 'whquhiudhwiuhiwhdquhudiw' },
+    update: {},
+  });
+
+  await prisma.note.upsert({
+    create: {
+      type: 'DOCUMENT',
+      fileId: 1,
+      subtopicId: 1,
+    },
     where: { id: 1 },
     update: {},
-    create: {
-      externalId: 'gHQW78YwuwjWQ',
-      privacity: 'PRIVATE',
-      content: JSON.stringify({
-        type: 'doc',
-        options: {
-          id: 'CID812919622',
-          childrens: [
-            {
-              type: 'page',
-              options: {
-                id: 'CID812819282',
-                childrens: [
-                  {
-                    type: 'docInfo',
-                    options: {
-                      id: 'CID812889282',
-                      title: 'SISTEMA DE ECUACIONES',
-                      subtitle: 'EJE: ALGEBRA',
-                    },
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      }),
-      title: 'Productos notables',
-      type: 'NOTES',
-      Topic: {
-        connect: {
-          name: 'álgebra',
-        },
-      },
-      Subtopic: {
-        connect: {
-          name: 'ecuaciones',
-        },
-      },
-      Subject: {
-        connect: {
-          name: 'matemática',
-        },
-      },
-      Author: {
-        connect: {
-          id: 3,
-        },
-      },
-    },
   });
 
-  await prisma.doc.upsert({
-    where: { id: 2 },
-    update: {},
+  await prisma.note.upsert({
     create: {
-      privacity: 'PRIVATE',
-      externalId: 'b2d6wt7dt76237t',
-      content: JSON.stringify({
-        type: 'doc',
-        options: {
-          id: 'CID812919622',
-          childrens: [
-            {
-              type: 'page',
-              options: {
-                id: 'CID812819282',
-                childrens: [
-                  {
-                    type: 'docInfo',
-                    options: {
-                      id: 'CID812889282',
-                      title: 'SISTEMA DE ECUACIONES',
-                      subtitle: 'EJE: ALGEBRA',
-                    },
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      }),
-      title: 'Sistema de ecuaciones',
-      type: 'NOTES',
-      Topic: {
-        connect: {
-          name: 'álgebra',
-        },
-      },
-      Subtopic: {
-        connect: {
-          name: 'ecuaciones',
-        },
-      },
-      Subject: {
-        connect: {
-          name: 'matemática',
-        },
-      },
-      Author: {
-        connect: {
-          id: 3,
-        },
-      },
+      type: 'DOCUMENT',
+      fileId: 2,
+      subtopicId: 1,
     },
-  });
-
-  //
-  await prisma.score.upsert({
     where: { id: 1 },
     update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 900,
-      docId: 1,
-      userId: 1,
-    },
   });
-  await prisma.score.upsert({
-    where: { id: 2 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 800,
-      docId: 1,
-      userId: 2,
-    },
-  });
-  await prisma.score.upsert({
-    where: { id: 3 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 750,
-      docId: 1,
-      userId: 3,
-    },
-  });
-  await prisma.score.upsert({
-    where: { id: 4 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 850,
-      docId: 1,
-      userId: 1,
-    },
-  });
-  await prisma.score.upsert({
-    where: { id: 5 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 870,
-      docId: 2,
-      userId: 2,
-    },
-  });
-  await prisma.score.upsert({
-    where: { id: 6 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 810,
-      docId: 2,
-      userId: 3,
-    },
-  });
-  await prisma.score.upsert({
-    where: { id: 7 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 940,
-      docId: 2,
-      userId: 1,
-    },
-  });
-  await prisma.score.upsert({
-    where: { id: 8 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 810,
-      docId: 2,
-      userId: 2,
-    },
-  });
-  await prisma.score.upsert({
-    where: { id: 9 },
-    update: {},
-    create: {
-      alternatives: '1,2,3,4,5,5,3,4,2,4,5,5,2,4,5,4',
-      score: 790,
-      docId: 2,
-      userId: 3,
-    },
-  });
-  //   },
-  // });
-  // const score = await prisma.score.upsert({
-  //   where: { id: 1 },
-  //   update: {},
-  //   create: {
 
-  //   }
-  // })
-
-  // console.log({ admin, grade1, school1 });
+  await prisma.note.upsert({
+    create: {
+      type: 'DOCUMENT',
+      fileId: 3,
+      subtopicId: 1,
+    },
+    where: { id: 1 },
+    update: {},
+  });
 }
 
 main()

@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
+import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 
 @InputType()
@@ -28,8 +29,8 @@ export class ScoreScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     alternatives?: StringFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    docId?: IntFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    noteId?: IntNullableFilter;
 
     @Field(() => DateTimeNullableFilter, {nullable:true})
     createdAt?: DateTimeNullableFilter;

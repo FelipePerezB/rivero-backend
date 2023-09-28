@@ -4,7 +4,7 @@ import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { PrismaService } from 'src/prisma.service';
 import { UsersResolver } from './users.resolver';
-import {HttpModule} from '@nestjs/axios'
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [HttpModule],

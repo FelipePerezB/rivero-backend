@@ -19,7 +19,9 @@ export class ScoresResolver {
 
   @Query(() => [Score], { name: 'scores' })
   findAll(@Args('where') where: ScoreWhereInput) {
-    return this.scoreService.findAll({ where });
+    return this.scoreService.findAll({ where } as {
+      where: Prisma.ScoreWhereInput;
+    });
   }
 
   @Query(() => Score, { name: 'score' })

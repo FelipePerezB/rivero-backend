@@ -15,5 +15,5 @@ export class ScoreAvgOrderByAggregateInput {
     userId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    docId?: keyof typeof SortOrder;
+    noteId?: keyof typeof SortOrder;
 }

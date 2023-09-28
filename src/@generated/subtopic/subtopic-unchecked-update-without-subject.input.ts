@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { DocUncheckedUpdateManyWithoutSubtopicNestedInput } from '../doc/doc-unchecked-update-many-without-subtopic-nested.input';
+import { NoteUncheckedUpdateManyWithoutSubtopicNestedInput } from '../note/note-unchecked-update-many-without-subtopic-nested.input';
 
 @InputType()
 export class SubtopicUncheckedUpdateWithoutSubjectInput {
@@ -14,15 +14,15 @@ export class SubtopicUncheckedUpdateWithoutSubjectInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     name?: StringFieldUpdateOperationsInput;
 
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    topicId?: IntFieldUpdateOperationsInput;
+
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    topicId?: IntFieldUpdateOperationsInput;
-
-    @Field(() => DocUncheckedUpdateManyWithoutSubtopicNestedInput, {nullable:true})
-    Docs?: DocUncheckedUpdateManyWithoutSubtopicNestedInput;
+    @Field(() => NoteUncheckedUpdateManyWithoutSubtopicNestedInput, {nullable:true})
+    Notes?: NoteUncheckedUpdateManyWithoutSubtopicNestedInput;
 }

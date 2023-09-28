@@ -17,8 +17,8 @@ export class ScoreUncheckedCreateInput {
     @Field(() => String, {nullable:false})
     alternatives!: string;
 
-    @Field(() => Int, {nullable:false})
-    docId!: number;
+    @Field(() => Int, {nullable:true})
+    noteId?: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

@@ -15,5 +15,5 @@ export class ScoreSumAggregate {
     userId?: number;
 
     @Field(() => Int, {nullable:true})
-    docId?: number;
+    noteId?: number;
 }

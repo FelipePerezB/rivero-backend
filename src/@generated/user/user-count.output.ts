@@ -9,5 +9,5 @@ export class UserCount {
     Score?: number;
 
     @Field(() => Int, {nullable:false})
-    Doc?: number;
+    File?: number;
 }

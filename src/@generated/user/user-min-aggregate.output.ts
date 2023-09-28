@@ -16,16 +16,19 @@ export class UserMinAggregate {
     email?: string;
 
     @Field(() => String, {nullable:true})
-    username?: string;
+    name?: string;
+
+    @Field(() => String, {nullable:true})
+    lastname?: string;
 
     @Field(() => Role, {nullable:true})
     role?: keyof typeof Role;
 
     @Field(() => Int, {nullable:true})
-    gradeId?: number;
+    groupId?: number;
 
     @Field(() => Int, {nullable:true})
-    schoolId?: number;
+    organizationId?: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

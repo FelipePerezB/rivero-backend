@@ -4,9 +4,10 @@ import { Int } from '@nestjs/graphql';
 import { ScoreWhereInput } from './score-where.input';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
+import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
-import { DocRelationFilter } from '../doc/doc-relation-filter.input';
+import { NoteNullableRelationFilter } from '../prisma/note-nullable-relation-filter.input';
 
 @InputType()
 export class ScoreWhereUniqueInput {
@@ -32,8 +33,8 @@ export class ScoreWhereUniqueInput {
     @Field(() => StringFilter, {nullable:true})
     alternatives?: StringFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    docId?: IntFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    noteId?: IntNullableFilter;
 
     @Field(() => DateTimeNullableFilter, {nullable:true})
     createdAt?: DateTimeNullableFilter;
@@ -44,6 +45,6 @@ export class ScoreWhereUniqueInput {
     @Field(() => UserRelationFilter, {nullable:true})
     User?: UserRelationFilter;
 
-    @Field(() => DocRelationFilter, {nullable:true})
-    document?: DocRelationFilter;
+    @Field(() => NoteNullableRelationFilter, {nullable:true})
+    Note?: NoteNullableRelationFilter;
 }

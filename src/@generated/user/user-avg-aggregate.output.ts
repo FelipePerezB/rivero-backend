@@ -9,8 +9,8 @@ export class UserAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
-    gradeId?: number;
+    groupId?: number;
 
     @Field(() => Float, {nullable:true})
-    schoolId?: number;
+    organizationId?: number;
 }

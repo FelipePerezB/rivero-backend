@@ -18,7 +18,7 @@ export class ScoreMaxOrderByAggregateInput {
     alternatives?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    docId?: keyof typeof SortOrder;
+    noteId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;

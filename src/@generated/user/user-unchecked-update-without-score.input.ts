@@ -4,7 +4,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { EnumRoleFieldUpdateOperationsInput } from '../prisma/enum-role-field-update-operations.input';
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
-import { DocUncheckedUpdateManyWithoutAuthorNestedInput } from '../doc/doc-unchecked-update-many-without-author-nested.input';
+import { FileUncheckedUpdateManyWithoutAuthorNestedInput } from '../file/file-unchecked-update-many-without-author-nested.input';
 
 @InputType()
 export class UserUncheckedUpdateWithoutScoreInput {
@@ -19,16 +19,19 @@ export class UserUncheckedUpdateWithoutScoreInput {
     email?: StringFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    username?: StringFieldUpdateOperationsInput;
+    name?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    lastname?: StringFieldUpdateOperationsInput;
 
     @Field(() => EnumRoleFieldUpdateOperationsInput, {nullable:true})
     role?: EnumRoleFieldUpdateOperationsInput;
 
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    gradeId?: IntFieldUpdateOperationsInput;
+    groupId?: IntFieldUpdateOperationsInput;
 
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    schoolId?: IntFieldUpdateOperationsInput;
+    organizationId?: IntFieldUpdateOperationsInput;
 
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: NullableDateTimeFieldUpdateOperationsInput;
@@ -36,6 +39,6 @@ export class UserUncheckedUpdateWithoutScoreInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     updateAt?: NullableDateTimeFieldUpdateOperationsInput;
 
-    @Field(() => DocUncheckedUpdateManyWithoutAuthorNestedInput, {nullable:true})
-    Doc?: DocUncheckedUpdateManyWithoutAuthorNestedInput;
+    @Field(() => FileUncheckedUpdateManyWithoutAuthorNestedInput, {nullable:true})
+    File?: FileUncheckedUpdateManyWithoutAuthorNestedInput;
 }

@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { DocCreateNestedOneWithoutScoreInput } from '../doc/doc-create-nested-one-without-score.input';
+import { NoteCreateNestedOneWithoutScoresInput } from '../note/note-create-nested-one-without-scores.input';
 
 @InputType()
 export class ScoreCreateWithoutUserInput {
@@ -18,6 +18,6 @@ export class ScoreCreateWithoutUserInput {
     @Field(() => Date, {nullable:true})
     updateAt?: Date | string;
 
-    @Field(() => DocCreateNestedOneWithoutScoreInput, {nullable:false})
-    document!: DocCreateNestedOneWithoutScoreInput;
+    @Field(() => NoteCreateNestedOneWithoutScoresInput, {nullable:true})
+    Note?: NoteCreateNestedOneWithoutScoresInput;
 }

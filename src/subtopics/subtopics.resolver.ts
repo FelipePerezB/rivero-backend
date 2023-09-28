@@ -21,7 +21,9 @@ export class SubtopicsResolver {
 
   @Query(() => [Subtopic], { name: 'subtopics' })
   findAll(@Args('where') where: SubtopicWhereInput) {
-    return this.subtopicService.findAll({ where });
+    return this.subtopicService.findAll({ where } as {
+      where: Prisma.SubtopicWhereInput;
+    });
   }
 
   @Query(() => Subtopic, { name: 'subtopic' })

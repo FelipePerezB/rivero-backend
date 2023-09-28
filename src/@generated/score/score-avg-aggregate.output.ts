@@ -15,5 +15,5 @@ export class ScoreAvgAggregate {
     userId?: number;
 
     @Field(() => Float, {nullable:true})
-    docId?: number;
+    noteId?: number;
 }

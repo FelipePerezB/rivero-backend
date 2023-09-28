@@ -4,10 +4,10 @@ import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { EnumRoleFilter } from '../prisma/enum-role-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
-import { GradeRelationFilter } from '../grade/grade-relation-filter.input';
-import { SchoolRelationFilter } from '../school/school-relation-filter.input';
+import { GroupRelationFilter } from '../group/group-relation-filter.input';
+import { OrganizationRelationFilter } from '../organization/organization-relation-filter.input';
 import { ScoreListRelationFilter } from '../score/score-list-relation-filter.input';
-import { DocListRelationFilter } from '../doc/doc-list-relation-filter.input';
+import { FileListRelationFilter } from '../file/file-list-relation-filter.input';
 
 @InputType()
 export class UserWhereInput {
@@ -31,16 +31,19 @@ export class UserWhereInput {
     email?: StringFilter;
 
     @Field(() => StringFilter, {nullable:true})
-    username?: StringFilter;
+    name?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
+    lastname?: StringFilter;
 
     @Field(() => EnumRoleFilter, {nullable:true})
     role?: EnumRoleFilter;
 
     @Field(() => IntFilter, {nullable:true})
-    gradeId?: IntFilter;
+    groupId?: IntFilter;
 
     @Field(() => IntFilter, {nullable:true})
-    schoolId?: IntFilter;
+    organizationId?: IntFilter;
 
     @Field(() => DateTimeNullableFilter, {nullable:true})
     createdAt?: DateTimeNullableFilter;
@@ -48,15 +51,15 @@ export class UserWhereInput {
     @Field(() => DateTimeNullableFilter, {nullable:true})
     updateAt?: DateTimeNullableFilter;
 
-    @Field(() => GradeRelationFilter, {nullable:true})
-    Grade?: GradeRelationFilter;
+    @Field(() => GroupRelationFilter, {nullable:true})
+    Group?: GroupRelationFilter;
 
-    @Field(() => SchoolRelationFilter, {nullable:true})
-    School?: SchoolRelationFilter;
+    @Field(() => OrganizationRelationFilter, {nullable:true})
+    Organization?: OrganizationRelationFilter;
 
     @Field(() => ScoreListRelationFilter, {nullable:true})
     Score?: ScoreListRelationFilter;
 
-    @Field(() => DocListRelationFilter, {nullable:true})
-    Doc?: DocListRelationFilter;
+    @Field(() => FileListRelationFilter, {nullable:true})
+    File?: FileListRelationFilter;
 }

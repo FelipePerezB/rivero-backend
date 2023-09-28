@@ -11,15 +11,15 @@ export class SubtopicCreateManyInput {
     @Field(() => String, {nullable:false})
     name!: string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
-
-    @Field(() => Date, {nullable:true})
-    updateAt?: Date | string;
-
     @Field(() => Int, {nullable:true})
     subjectId?: number;
 
     @Field(() => Int, {nullable:false})
     topicId!: number;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updateAt?: Date | string;
 }

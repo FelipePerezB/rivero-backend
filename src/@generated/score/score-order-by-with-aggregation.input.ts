@@ -23,8 +23,8 @@ export class ScoreOrderByWithAggregationInput {
     @Field(() => SortOrder, {nullable:true})
     alternatives?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    docId?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    noteId?: SortOrderInput;
 
     @Field(() => SortOrderInput, {nullable:true})
     createdAt?: SortOrderInput;

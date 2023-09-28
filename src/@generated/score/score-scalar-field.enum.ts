@@ -5,7 +5,7 @@ export enum ScoreScalarFieldEnum {
     score = "score",
     userId = "userId",
     alternatives = "alternatives",
-    docId = "docId",
+    noteId = "noteId",
     createdAt = "createdAt",
     updateAt = "updateAt"
 }

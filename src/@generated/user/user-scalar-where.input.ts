@@ -27,16 +27,19 @@ export class UserScalarWhereInput {
     email?: StringFilter;
 
     @Field(() => StringFilter, {nullable:true})
-    username?: StringFilter;
+    name?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
+    lastname?: StringFilter;
 
     @Field(() => EnumRoleFilter, {nullable:true})
     role?: EnumRoleFilter;
 
     @Field(() => IntFilter, {nullable:true})
-    gradeId?: IntFilter;
+    groupId?: IntFilter;
 
     @Field(() => IntFilter, {nullable:true})
-    schoolId?: IntFilter;
+    organizationId?: IntFilter;
 
     @Field(() => DateTimeNullableFilter, {nullable:true})
     createdAt?: DateTimeNullableFilter;

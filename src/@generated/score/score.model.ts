@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { User } from '../user/user.model';
-import { Doc } from '../doc/doc.model';
+import { Note } from '../note/note.model';
 
 @ObjectType()
 export class Score {
@@ -20,8 +20,8 @@ export class Score {
     @Field(() => String, {nullable:false})
     alternatives!: string;
 
-    @Field(() => Int, {nullable:false})
-    docId!: number;
+    @Field(() => Int, {nullable:true})
+    noteId!: number | null;
 
     @Field(() => Date, {nullable:true})
     createdAt!: Date | null;
@@ -32,6 +32,6 @@ export class Score {
     @Field(() => User, {nullable:false})
     User?: User;
 
-    @Field(() => Doc, {nullable:false})
-    document?: Doc;
+    @Field(() => Note, {nullable:true})
+    Note?: Note | null;
 }
