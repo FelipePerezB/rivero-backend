@@ -25,9 +25,28 @@ export class TopicsService {
       cursor,
       where,
       orderBy,
+    });
+  }
+  findWithSubtopic(
+    topicWhereUniqueInput: Prisma.TopicWhereUniqueInput,
+  ): Promise<Topic | null> {
+    return this.prisma.topic.findUnique({
+      where: topicWhereUniqueInput,
       include: {
-        _count: true,
-        Subtopics: true,
+        Subtopics: {
+          include: {
+            _count: {
+              select: {
+                Notes: true,
+              },
+            },
+            Notes: {
+              include: {
+                File: true,
+              },
+            },
+          },
+        },
       },
     });
   }

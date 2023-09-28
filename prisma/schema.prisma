@@ -10,10 +10,10 @@ datasource db {
   url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
 }
 
-// generator nestgraphql {
-//   provider = "node node_modules/prisma-nestjs-graphql"
-//   output   = "../../@generated"
-// }
+generator nestgraphql {
+  provider = "node node_modules/prisma-nestjs-graphql"
+  output   = "../../@generated"
+}
 
 enum Role {
   ADMIN
@@ -66,8 +66,8 @@ model Note {
   topicId    Int?
   Subtopic   Subtopic  @relation(fields: [subtopicId], references: [id])
   subtopicId Int
-  File       File      @relation(fields: [fileId], references: [id])
-  fileId     Int
+  File       File?
+  fileId     Int?
   type       Types
   Scores     Score[]
   createdAt  DateTime? @default(now())
@@ -82,7 +82,8 @@ model File {
   content    String
   Author     User      @relation(fields: [authorId], references: [id])
   authorId   Int
-  Note       Note[]
+  Note       Note?     @relation(fields: [noteId], references: [id])
+  noteId     Int?      @unique
   createdAt  DateTime? @default(now())
   updateAt   DateTime? @updatedAt
 }

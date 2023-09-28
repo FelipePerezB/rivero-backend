@@ -29,6 +29,11 @@ export class TopicsResolver {
     return this.topicService.findOne({ id });
   }
 
+  @Query(() => Topic, { name: 'topicAndSubtopic' })
+  findWithSubtopic(@Args('id', { type: () => Int }) id: number) {
+    return this.topicService.findWithSubtopic({ id });
+  }
+
   @Mutation(() => Topic)
   updateTopic(
     @Args('id') id: number,
