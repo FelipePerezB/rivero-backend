@@ -1,10 +1,10 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { ScoresService } from './scores.service';
-import { Score } from '../@generated/score/score.model';
-import { ScoreCreateInput } from '../@generated/score/score-create.input';
-import { ScoreUpdateInput } from '../@generated/score/score-update.input';
+import { Score } from '../generated/score/score.model';
+import { ScoreCreateInput } from '../generated/score/score-create.input';
+import { ScoreUpdateInput } from '../generated/score/score-update.input';
 import { Prisma } from '@prisma/client';
-import { ScoreWhereInput } from '../@generated/score/score-where.input';
+import { ScoreWhereInput } from '../generated/score/score-where.input';
 
 @Resolver(() => Score)
 export class ScoresResolver {

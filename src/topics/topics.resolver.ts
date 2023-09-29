@@ -1,10 +1,10 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { TopicsService } from './topics.service';
-import { Topic } from '../@generated/topic/topic.model';
-import { TopicCreateInput } from '../@generated/topic/topic-create.input';
-import { TopicUpdateInput } from '../@generated/topic/topic-update.input';
+import { Topic } from '../generated/topic/topic.model';
+import { TopicCreateInput } from '../generated/topic/topic-create.input';
+import { TopicUpdateInput } from '../generated/topic/topic-update.input';
 import { Prisma } from '@prisma/client';
-import { TopicWhereInput } from '../@generated/topic/topic-where.input';
+import { TopicWhereInput } from '../generated/topic/topic-where.input';
 
 @Resolver(() => Topic)
 export class TopicsResolver {

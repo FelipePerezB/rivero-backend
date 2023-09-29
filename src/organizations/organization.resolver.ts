@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { OrganizationsService } from './organization.service';
-import { Organization } from '../@generated/organization/organization.model';
-import { OrganizationCreateInput } from '../@generated/organization/organization-create.input';
-import { OrganizationUpdateInput } from '../@generated/organization/organization-update.input';
+import { Organization } from '../generated/organization/organization.model';
+import { OrganizationCreateInput } from '../generated/organization/organization-create.input';
+import { OrganizationUpdateInput } from '../generated/organization/organization-update.input';
 import { Prisma } from '@prisma/client';
 // import { Prisma } from '@prisma/client';
 

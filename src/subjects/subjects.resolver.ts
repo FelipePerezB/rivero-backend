@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { SubjectsService } from './subjects.service';
-import { Subject } from '../@generated/subject/subject.model';
-import { SubjectCreateInput } from '../@generated/subject/subject-create.input';
-import { SubjectUpdateInput } from '../@generated/subject/subject-update.input';
+import { Subject } from '../generated/subject/subject.model';
+import { SubjectCreateInput } from '../generated/subject/subject-create.input';
+import { SubjectUpdateInput } from '../generated/subject/subject-update.input';
 import { Prisma } from '@prisma/client';
 
 @Resolver(() => Subject)

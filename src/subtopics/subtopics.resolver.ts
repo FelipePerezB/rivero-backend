@@ -1,10 +1,10 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { SubtopicService } from './subtopics.service';
-import { Subtopic } from '../@generated/subtopic/subtopic.model';
-import { SubtopicCreateInput } from '../@generated/subtopic/subtopic-create.input';
-import { SubtopicUpdateInput } from '../@generated/subtopic/subtopic-update.input';
+import { Subtopic } from '../generated/subtopic/subtopic.model';
+import { SubtopicCreateInput } from '../generated/subtopic/subtopic-create.input';
+import { SubtopicUpdateInput } from '../generated/subtopic/subtopic-update.input';
 import { Prisma } from '@prisma/client';
-import { SubtopicWhereInput } from '../@generated/subtopic/subtopic-where.input';
+import { SubtopicWhereInput } from '../generated/subtopic/subtopic-where.input';
 
 @Resolver(() => Subtopic)
 export class SubtopicsResolver {

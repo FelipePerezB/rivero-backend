@@ -1,10 +1,10 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GroupsService } from './groups.service';
 import { Prisma } from '@prisma/client';
-import { GroupCreateInput } from '../@generated/group/group-create.input';
-import { GroupUpdateInput } from '../@generated/group/group-update.input';
-import { GroupWhereInput } from '../@generated/group/group-where.input';
-import { Group } from '../@generated/group/group.model';
+import { GroupCreateInput } from '../generated/group/group-create.input';
+import { GroupUpdateInput } from '../generated/group/group-update.input';
+import { GroupWhereInput } from '../generated/group/group-where.input';
+import { Group } from '../generated/group/group.model';
 
 @Resolver(() => Group)
 export class GroupsResolver {
