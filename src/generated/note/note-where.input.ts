@@ -6,7 +6,7 @@ import { EnumTypesFilter } from '../prisma/enum-types-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { SubjectNullableRelationFilter } from '../prisma/subject-nullable-relation-filter.input';
 import { TopicNullableRelationFilter } from '../prisma/topic-nullable-relation-filter.input';
-import { SubtopicRelationFilter } from '../subtopic/subtopic-relation-filter.input';
+import { SubtopicNullableRelationFilter } from '../prisma/subtopic-nullable-relation-filter.input';
 import { FileNullableRelationFilter } from '../prisma/file-nullable-relation-filter.input';
 import { ScoreListRelationFilter } from '../score/score-list-relation-filter.input';
 
@@ -31,8 +31,8 @@ export class NoteWhereInput {
     @Field(() => IntNullableFilter, {nullable:true})
     topicId?: IntNullableFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    subtopicId?: IntFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    subtopicId?: IntNullableFilter;
 
     @Field(() => IntNullableFilter, {nullable:true})
     fileId?: IntNullableFilter;
@@ -52,8 +52,8 @@ export class NoteWhereInput {
     @Field(() => TopicNullableRelationFilter, {nullable:true})
     Topic?: TopicNullableRelationFilter;
 
-    @Field(() => SubtopicRelationFilter, {nullable:true})
-    Subtopic?: SubtopicRelationFilter;
+    @Field(() => SubtopicNullableRelationFilter, {nullable:true})
+    Subtopic?: SubtopicNullableRelationFilter;
 
     @Field(() => FileNullableRelationFilter, {nullable:true})
     File?: FileNullableRelationFilter;

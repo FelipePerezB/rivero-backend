@@ -22,8 +22,8 @@ export class Note {
     @Field(() => Int, {nullable:true})
     topicId!: number | null;
 
-    @Field(() => Int, {nullable:false})
-    subtopicId!: number;
+    @Field(() => Int, {nullable:true})
+    subtopicId!: number | null;
 
     @Field(() => Int, {nullable:true})
     fileId!: number | null;
@@ -43,8 +43,8 @@ export class Note {
     @Field(() => Topic, {nullable:true})
     Topic?: Topic | null;
 
-    @Field(() => Subtopic, {nullable:false})
-    Subtopic?: Subtopic;
+    @Field(() => Subtopic, {nullable:true})
+    Subtopic?: Subtopic | null;
 
     @Field(() => File, {nullable:true})
     File?: File | null;

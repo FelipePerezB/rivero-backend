@@ -270,6 +270,32 @@ async function main() {
     where: { id: 3 },
     update: {},
   });
+
+  await prisma.note.upsert({
+    update: {},
+    where: { id: 4 },
+    create: {
+      Subject: {
+        connect: {
+          id: 1,
+        },
+      },
+      type: 'EVALUATION',
+      File: {
+        create: {
+          privacity: 'PRIVATE',
+          title: 'ENSAYO N°1',
+          content: 'aaaaaaaaaaaaaaa',
+          externalId: 'NWJQKXKXQJKXNQJKXW',
+          Author: {
+            connect: {
+              id: 1,
+            },
+          },
+        },
+      },
+    },
+  });
 }
 
 main()

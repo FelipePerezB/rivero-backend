@@ -17,8 +17,8 @@ export class NoteUncheckedUpdateManyInput {
     @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
     topicId?: NullableIntFieldUpdateOperationsInput;
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    subtopicId?: IntFieldUpdateOperationsInput;
+    @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
+    subtopicId?: NullableIntFieldUpdateOperationsInput;
 
     @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
     fileId?: NullableIntFieldUpdateOperationsInput;

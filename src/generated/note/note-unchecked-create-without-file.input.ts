@@ -16,8 +16,8 @@ export class NoteUncheckedCreateWithoutFileInput {
     @Field(() => Int, {nullable:true})
     topicId?: number;
 
-    @Field(() => Int, {nullable:false})
-    subtopicId!: number;
+    @Field(() => Int, {nullable:true})
+    subtopicId?: number;
 
     @Field(() => Int, {nullable:true})
     fileId?: number;

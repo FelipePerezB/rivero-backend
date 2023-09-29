@@ -26,8 +26,8 @@ export class NoteScalarWhereInput {
     @Field(() => IntNullableFilter, {nullable:true})
     topicId?: IntNullableFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    subtopicId?: IntFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    subtopicId?: IntNullableFilter;
 
     @Field(() => IntNullableFilter, {nullable:true})
     fileId?: IntNullableFilter;

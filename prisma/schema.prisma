@@ -65,8 +65,8 @@ model Note {
   subjectId  Int?
   Topic      Topic?    @relation(fields: [topicId], references: [id])
   topicId    Int?
-  Subtopic   Subtopic  @relation(fields: [subtopicId], references: [id])
-  subtopicId Int
+  Subtopic   Subtopic? @relation(fields: [subtopicId], references: [id])
+  subtopicId Int?
   File       File?
   fileId     Int?
   type       Types

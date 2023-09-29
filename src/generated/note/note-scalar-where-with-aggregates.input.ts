@@ -26,8 +26,8 @@ export class NoteScalarWhereWithAggregatesInput {
     @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
     topicId?: IntNullableWithAggregatesFilter;
 
-    @Field(() => IntWithAggregatesFilter, {nullable:true})
-    subtopicId?: IntWithAggregatesFilter;
+    @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
+    subtopicId?: IntNullableWithAggregatesFilter;
 
     @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
     fileId?: IntNullableWithAggregatesFilter;

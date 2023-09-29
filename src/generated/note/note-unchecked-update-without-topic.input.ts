@@ -16,8 +16,8 @@ export class NoteUncheckedUpdateWithoutTopicInput {
     @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
     subjectId?: NullableIntFieldUpdateOperationsInput;
 
-    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
-    subtopicId?: IntFieldUpdateOperationsInput;
+    @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
+    subtopicId?: NullableIntFieldUpdateOperationsInput;
 
     @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
     fileId?: NullableIntFieldUpdateOperationsInput;

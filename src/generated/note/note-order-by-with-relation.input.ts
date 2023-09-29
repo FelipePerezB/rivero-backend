@@ -20,8 +20,8 @@ export class NoteOrderByWithRelationInput {
     @Field(() => SortOrderInput, {nullable:true})
     topicId?: SortOrderInput;
 
-    @Field(() => SortOrder, {nullable:true})
-    subtopicId?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    subtopicId?: SortOrderInput;
 
     @Field(() => SortOrderInput, {nullable:true})
     fileId?: SortOrderInput;

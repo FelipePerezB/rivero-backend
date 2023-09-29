@@ -5,7 +5,7 @@ import { EnumTypesFieldUpdateOperationsInput } from '../prisma/enum-types-field-
 import { NullableDateTimeFieldUpdateOperationsInput } from '../prisma/nullable-date-time-field-update-operations.input';
 import { SubjectUpdateOneWithoutNotesNestedInput } from '../subject/subject-update-one-without-notes-nested.input';
 import { TopicUpdateOneWithoutNotesNestedInput } from '../topic/topic-update-one-without-notes-nested.input';
-import { SubtopicUpdateOneRequiredWithoutNotesNestedInput } from '../subtopic/subtopic-update-one-required-without-notes-nested.input';
+import { SubtopicUpdateOneWithoutNotesNestedInput } from '../subtopic/subtopic-update-one-without-notes-nested.input';
 import { ScoreUpdateManyWithoutNoteNestedInput } from '../score/score-update-many-without-note-nested.input';
 
 @InputType()
@@ -29,8 +29,8 @@ export class NoteUpdateWithoutFileInput {
     @Field(() => TopicUpdateOneWithoutNotesNestedInput, {nullable:true})
     Topic?: TopicUpdateOneWithoutNotesNestedInput;
 
-    @Field(() => SubtopicUpdateOneRequiredWithoutNotesNestedInput, {nullable:true})
-    Subtopic?: SubtopicUpdateOneRequiredWithoutNotesNestedInput;
+    @Field(() => SubtopicUpdateOneWithoutNotesNestedInput, {nullable:true})
+    Subtopic?: SubtopicUpdateOneWithoutNotesNestedInput;
 
     @Field(() => ScoreUpdateManyWithoutNoteNestedInput, {nullable:true})
     Scores?: ScoreUpdateManyWithoutNoteNestedInput;

@@ -28,8 +28,8 @@ export class NoteCreateWithoutScoresInput {
     @Field(() => TopicCreateNestedOneWithoutNotesInput, {nullable:true})
     Topic?: TopicCreateNestedOneWithoutNotesInput;
 
-    @Field(() => SubtopicCreateNestedOneWithoutNotesInput, {nullable:false})
-    Subtopic!: SubtopicCreateNestedOneWithoutNotesInput;
+    @Field(() => SubtopicCreateNestedOneWithoutNotesInput, {nullable:true})
+    Subtopic?: SubtopicCreateNestedOneWithoutNotesInput;
 
     @Field(() => FileCreateNestedOneWithoutNoteInput, {nullable:true})
     File?: FileCreateNestedOneWithoutNoteInput;
