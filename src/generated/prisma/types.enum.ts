@@ -2,7 +2,8 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum Types {
     PRACTICE = "PRACTICE",
-    DOCUMENT = "DOCUMENT"
+    DOCUMENT = "DOCUMENT",
+    EVALUATION = "EVALUATION"
 }
 
 
