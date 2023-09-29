@@ -31,13 +31,13 @@ export class AuthService {
 
   async sendInvitation({
     email,
-    gradeId,
-    schoolId,
+    groups,
+    organizationId,
     role,
   }: {
     email: string;
-    gradeId?: string | number;
-    schoolId: string | number;
+    groups?: (string | number)[];
+    organizationId: string | number;
     role: 'ADMIN' | 'TEACHER' | 'STUDENT';
   }): Promise<AxiosResponse<any>> {
     const clerkApiKey = this.configService.clerk.api_key_backend;
@@ -48,8 +48,8 @@ export class AuthService {
         redirect_url: 'https://rivero.vercel.app/sign-up',
         public_metadata: {
           role,
-          schoolId,
-          gradeId,
+          organizationId,
+          groups,
         },
       },
       {
