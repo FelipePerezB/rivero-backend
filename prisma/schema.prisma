@@ -10,10 +10,10 @@ datasource db {
   url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
 }
 
-generator nestgraphql {
-  provider = "node node_modules/prisma-nestjs-graphql"
-  output   = "../src/generated"
-}
+// generator nestgraphql {
+//   provider = "node node_modules/prisma-nestjs-graphql"
+//   output   = "../src/generated"
+// }
 
 enum Role {
   ADMIN
