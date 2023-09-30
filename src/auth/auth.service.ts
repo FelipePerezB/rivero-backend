@@ -9,6 +9,7 @@ import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import { ConfigType } from '@nestjs/config';
 import config from 'src/config';
+import { Role } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -38,7 +39,7 @@ export class AuthService {
     email: string;
     groups?: (string | number)[];
     organizationId: string | number;
-    role: 'ADMIN' | 'TEACHER' | 'STUDENT';
+    role: Role;
   }): Promise<AxiosResponse<any>> {
     const clerkApiKey = this.configService.clerk.api_key_backend;
     const { data } = await this.httpService.axiosRef.post(

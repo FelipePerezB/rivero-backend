@@ -15,6 +15,7 @@ import { GroupsModule } from './groups/groups.module';
 import { TopicsModule } from './topics/topics.module';
 import { ScoresModule } from './scores/scores.module';
 import { SubtopicsModule } from './subtopics/subtopics.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { SubtopicsModule } from './subtopics/subtopics.module';
     OrganizationsModule,
     SubjectsModule,
     NotesModule,
+    FilesModule,
     GroupsModule,
     TopicsModule,
     ScoresModule,

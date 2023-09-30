@@ -1,5 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { Role } from '@prisma/client';
 
 @Controller('auth')
 export class AuthController {
@@ -11,9 +12,9 @@ export class AuthController {
     @Body()
     InvitationData: {
       email: string;
-      gradeId: string;
-      schoolId: string;
-      role: 'TEACHER' | 'STUDENT' | 'ADMIN';
+      gorups: string[];
+      organizationId: string;
+      role: Role;
     },
   ): Promise<any> {
     return this.authService.sendInvitation(InvitationData);
