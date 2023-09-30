@@ -50,4 +50,16 @@ export class FilesService {
       where,
     });
   }
+
+  upsert(
+    where: Prisma.FileWhereUniqueInput,
+    create: Prisma.FileCreateInput,
+    update: Prisma.FileUpdateInput,
+  ) {
+    return this.prisma.file.upsert({
+      where,
+      create,
+      update,
+    });
+  }
 }

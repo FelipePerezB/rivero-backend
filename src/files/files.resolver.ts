@@ -43,4 +43,17 @@ export class FilesResolver {
   removeFile(@Args('id', { type: () => Int }) id: number) {
     return this.filesService.remove({ id });
   }
+
+  @Mutation(() => File)
+  upsertFile(
+    @Args('where') where: FileWhereUniqueInput,
+    @Args('create') create: FileCreateInput,
+    @Args('update') update: FileUpdateInput,
+  ) {
+    return this.filesService.upsert(
+      where as Prisma.FileWhereUniqueInput,
+      create as Prisma.FileCreateInput,
+      update as Prisma.FileUpdateInput,
+    );
+  }
 }
