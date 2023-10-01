@@ -40,6 +40,16 @@ export class SubjectsService {
     return this.prisma.subject.findUnique({
       where: subjectWhereUniqueInput,
       include: {
+        Notes: {
+          select: {
+            type: true,
+            File: {
+              select: {
+                externalId: true,
+              },
+            },
+          },
+        },
         Topics: {
           select: {
             id: true,
