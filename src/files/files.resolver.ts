@@ -17,8 +17,12 @@ export class FilesResolver {
   }
 
   @Query(() => [File], { name: 'files' })
-  findAll(@Args('where', { nullable: true }) where?: FileWhereInput) {
-    return this.filesService.findAll({ where } as {
+  findAll(
+    @Args('where', { nullable: true }) where?: FileWhereInput,
+    @Args('skip', { nullable: true }) skip?: number,
+    @Args('take', { nullable: true }) take?: number,
+  ) {
+    return this.filesService.findAll({ where, skip, take } as {
       where: Prisma.FileWhereInput;
     });
   }

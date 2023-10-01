@@ -19,8 +19,11 @@ export class SubjectsResolver {
   }
 
   @Query(() => [Subject], { name: 'subjects' })
-  findAll() {
-    return this.subjectService.findAll({});
+  findAll(
+    @Args('skip', { nullable: true }) skip?: number,
+    @Args('take', { nullable: true }) take?: number,
+  ) {
+    return this.subjectService.findAll({ skip, take });
   }
 
   @Query(() => Subject, { name: 'subject' })
