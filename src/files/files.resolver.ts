@@ -44,8 +44,8 @@ export class FilesResolver {
   }
 
   @Mutation(() => File)
-  removeFile(@Args('id', { type: () => Int }) id: number) {
-    return this.filesService.remove({ id });
+  removeFile(@Args('where') where: FileWhereUniqueInput) {
+    return this.filesService.remove(where as Prisma.FileWhereUniqueInput);
   }
 
   @Mutation(() => File)
