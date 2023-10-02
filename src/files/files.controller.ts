@@ -25,7 +25,7 @@ export class FilesController {
 
   @HttpCode(HttpStatus.CREATED)
   @Post()
-  async signupUser(@Body() fileData: Prisma.FileCreateInput): Promise<File> {
+  async createFile(@Body() fileData: Prisma.FileCreateInput): Promise<File> {
     return this.filesService.create(fileData);
   }
 
