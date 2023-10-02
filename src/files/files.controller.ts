@@ -31,9 +31,7 @@ export class FilesController {
 
   @HttpCode(HttpStatus.OK)
   @Get(':externalId')
-  findOne(
-    @Param('externalId', ParseIntPipe) externalId: string,
-  ): Promise<File> {
+  findOne(@Param('externalId') externalId: string): Promise<File> {
     return this.filesService.findOne({ externalId });
   }
 
